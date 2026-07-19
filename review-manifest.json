@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-07-19",
   "reviewMethod": "codex-content-audit",
-  "publishLinks": false,
-  "licenseMode": "pending",
+  "publishLinks": true,
+  "licenseMode": "cc-by-sa-4.0",
   "items": [
     {
       "id": "arch-bert-struct-q0276",

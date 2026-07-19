@@ -168,6 +168,6 @@
 
 ## 许可状态
 
-最终许可证需要仓库维护者在首次公开发布前确认。在 LICENSE 落地前，本仓库只提供查看，不构成复制、改编、再分发或商用授权，也不使用“开源”表述。许可选定后，更新源仓库的 `src/config/interview-repo.json`，生成结果才会持续保留该选择。
+本仓库的文字与图解采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)；允许署名转载和改编，衍生内容需使用相同许可。最终法律文本以目标仓库根目录 LICENSE 为准。
 
 仓库地址：https://github.com/MisterBooo/llm-interview-questions
