@@ -1,0 +1,48 @@
+name: 内容勘误
+description: 报告题目、答案、来源或 SVG 图解中的具体问题
+title: "[勘误] "
+labels:
+  - correction
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你帮助提高内容准确性。请尽量提供可回查的一手资料；没有证据的宽泛评价可能无法处理。
+  - type: input
+    id: item
+    attributes:
+      label: 题目或文件
+      description: 填写题目 ID、模块链接或 SVG 文件名。
+      placeholder: 例如 rag-q0630 或 modules/rag-foundations.md
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: 当前内容与问题
+      description: 引用需要修正的原句或描述图中的具体节点，并说明为什么有问题。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 可回查资料
+      description: 优先提供论文、官方文档、源码或可复现实验链接，并说明其支持什么结论。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议修改
+      description: 给出建议文字或图解调整；如果会影响官网答案，也请注明。
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 我已搜索现有 Issue，没有发现相同问题。
+          required: true
+        - label: 我没有在 Issue 中粘贴密钥、账号、个人信息或其他敏感数据。
+          required: true
