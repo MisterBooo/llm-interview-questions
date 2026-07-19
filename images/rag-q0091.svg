@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" font-family="-apple-system, system-ui, sans-serif">
+  <title>Agent 系统哪些模块最易出问题?</title>
+  <desc>Agent 可观测性需贯通基础设施、运行时和业务指标，并记录输入、规划决策、工具调用、结果与延迟分解。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Agent 监控体系：分层 + 全链路追踪</text>
+
+  <!-- column headers -->
+  <text x="40" y="78" font-size="13" fill="#6366F1">分层监控体系</text>
+  <text x="440" y="78" font-size="13" fill="#EF4444">高频故障模块</text>
+
+  <!-- left: monitoring layers -->
+  <rect x="40" y="90" width="340" height="58" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="115" font-size="14" font-weight="500" fill="#111827">基础设施监控</text>
+  <text x="58" y="135" font-size="12" fill="#4B5563">CPU / 内存 / 延迟 / QPS</text>
+
+  <rect x="40" y="160" width="340" height="58" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="58" y="185" font-size="14" font-weight="500" fill="#111827">Agent 运行时监控</text>
+  <text x="58" y="205" font-size="12" fill="#4B5563">规划决策-工具调用-结果链路</text>
+
+  <rect x="40" y="230" width="340" height="58" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="255" font-size="14" font-weight="500" fill="#111827">业务效果监控</text>
+  <text x="58" y="275" font-size="12" fill="#4B5563">任务成功率 / 用户满意度</text>
+
+  <!-- right: failure modules -->
+  <rect x="440" y="90" width="320" height="58" rx="8" fill="#FEF2F2" stroke="#EF4444"/>
+  <text x="458" y="115" font-size="14" font-weight="500" fill="#111827">规划决策层</text>
+  <text x="458" y="135" font-size="12" fill="#4B5563">目标漂移 / 死循环</text>
+
+  <rect x="440" y="160" width="320" height="58" rx="8" fill="#FEF2F2" stroke="#EF4444"/>
+  <text x="458" y="185" font-size="14" font-weight="500" fill="#111827">工具执行层</text>
+  <text x="458" y="205" font-size="12" fill="#4B5563">超时 / 失败 / 幻参</text>
+
+  <rect x="440" y="230" width="320" height="58" rx="8" fill="#FEF2F2" stroke="#EF4444"/>
+  <text x="458" y="255" font-size="14" font-weight="500" fill="#111827">上下文管理层</text>
+  <text x="458" y="275" font-size="12" fill="#4B5563">超窗 / 丢信息</text>
+
+  <!-- full-link tracing -->
+  <rect x="40" y="312" width="720" height="78" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="338" font-size="13" font-weight="500" fill="#6366F1">全链路追踪（可观测性核心）</text>
+  <rect x="100" y="348" width="150" height="30" rx="6" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="175" y="368" font-size="13" fill="#111827" text-anchor="middle">Plan / Decision</text>
+  <rect x="320" y="348" width="150" height="30" rx="6" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="395" y="368" font-size="13" fill="#111827" text-anchor="middle">Action</text>
+  <rect x="540" y="348" width="170" height="30" rx="6" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="625" y="368" font-size="13" fill="#111827" text-anchor="middle">Observation</text>
+  <line x1="250" y1="363" x2="320" y2="363" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="470" y1="363" x2="540" y2="363" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- nail -->
+  <text x="40" y="424" font-size="12" fill="#9CA3AF">钉子：记录输入、规划决策、工具调用与结果，才能定位规划 / 工具 / 上下文故障。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="460" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

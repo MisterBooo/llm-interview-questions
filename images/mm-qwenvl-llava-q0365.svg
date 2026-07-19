@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>多模态大模型网络结构怎么搭?</title>
+  <desc>LLaVA、BLIP-2与Qwen-VL都由视觉编码、连接模块和语言模型协作，但桥接与训练策略不同。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">VLM 结构：视觉编码器 + 连接模块 + 语言模型</text>
+
+  <rect x="40" y="112" width="76" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="78" y="142" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">图像</text>
+
+  <rect x="140" y="100" width="150" height="74" rx="8" fill="#F3F4F6" stroke="#9CA3AF"/>
+  <text x="215" y="126" font-size="13" font-weight="600" fill="#111827" text-anchor="middle">视觉编码器 ❄</text>
+  <text x="215" y="146" font-size="11.5" fill="#4B5563" text-anchor="middle">CLIP ViT-L（冻结）</text>
+  <text x="215" y="164" font-size="11.5" fill="#4B5563" text-anchor="middle">→ 视觉特征/token（数量看配置）</text>
+
+  <rect x="316" y="106" width="150" height="62" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="391" y="132" font-size="13" font-weight="600" fill="#6366F1" text-anchor="middle">连接模块</text>
+  <text x="391" y="152" font-size="11.5" fill="#4B5563" text-anchor="middle">MLP projector（LLaVA）</text>
+
+  <rect x="492" y="100" width="150" height="74" rx="8" fill="#F3F4F6" stroke="#9CA3AF"/>
+  <text x="567" y="126" font-size="13" font-weight="600" fill="#111827" text-anchor="middle">LLM</text>
+  <text x="567" y="146" font-size="11.5" fill="#4B5563" text-anchor="middle">Vicuna / LLaMA</text>
+  <text x="567" y="164" font-size="11.5" fill="#4B5563" text-anchor="middle">冻结或参与微调，看阶段/模型</text>
+
+  <rect x="668" y="112" width="92" height="50" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="714" y="142" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">文本回答</text>
+
+  <line x1="116" y1="137" x2="140" y2="137" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="290" y1="137" x2="316" y2="137" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="466" y1="137" x2="492" y2="137" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="642" y1="137" x2="668" y2="137" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="492" y="206" width="150" height="40" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="567" y="231" font-size="12.5" fill="#111827" text-anchor="middle">+ 文本指令</text>
+  <line x1="567" y1="206" x2="567" y2="174" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="40" y="296" font-size="13" font-weight="600" fill="#111827">关键点</text>
+  <text x="40" y="320" font-size="12.5" fill="#4B5563">· 可训参数范围随训练阶段与架构变化，不是总只训中间连接模块</text>
+  <text x="40" y="344" font-size="12.5" fill="#4B5563">· 连接模块：MLP（简单，LLaVA）vs Q-Former（查询压缩，BLIP-2）</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：Flamingo 先用 Perceiver Resampler 压缩视觉特征，再通过插入语言模型的 gated cross-attention 读取。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

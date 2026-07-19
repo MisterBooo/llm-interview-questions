@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>LLM 推理框架综合选型</title>
+  <desc>推理框架应按模型兼容、硬件、吞吐、尾延迟、量化、并行和运维成熟度在目标负载上选择。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">主流推理框架选型：没有银弹，按场景组合</text>
+
+  <rect x="40" y="70" width="232" height="244" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="56" y="98" font-size="15" font-weight="600" fill="#6366F1">vLLM</text>
+  <text x="56" y="124" font-size="12.5" fill="#4B5563">面向服务化高吞吐</text>
+  <text x="56" y="148" font-size="12.5" fill="#4B5563">PagedAttention 分页管 KV Cache</text>
+  <text x="56" y="172" font-size="12.5" fill="#4B5563">减轻 KV 内存碎片，支持连续批处理</text>
+  <text x="56" y="196" font-size="12.5" fill="#4B5563">HF 生态、OpenAI API 兼容</text>
+  <line x1="56" y1="214" x2="256" y2="214" stroke="#DDE0FF"/>
+  <text x="56" y="238" font-size="12.5" fill="#10B981">✓ 生态与开发效率较好</text>
+  <text x="56" y="262" font-size="12.5" fill="#4B5563">易用、上手快</text>
+
+  <rect x="288" y="70" width="232" height="244" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="304" y="98" font-size="15" font-weight="600" fill="#111827">TensorRT-LLM</text>
+  <text x="304" y="124" font-size="12.5" fill="#4B5563">NVIDIA GPU 专向优化</text>
+  <text x="304" y="148" font-size="12.5" fill="#4B5563">TensorRT 图优化</text>
+  <text x="304" y="172" font-size="12.5" fill="#4B5563">FP8 / INT4 量化</text>
+  <text x="304" y="196" font-size="12.5" fill="#4B5563">In-flight batching</text>
+  <line x1="304" y1="214" x2="504" y2="214" stroke="#E5E7EB"/>
+  <text x="304" y="238" font-size="12.5" fill="#10B981">✓ 图/kernel/量化优化能力强</text>
+  <text x="304" y="262" font-size="12.5" fill="#DC6803">✗ 编译复杂、生态绑定</text>
+
+  <rect x="536" y="70" width="224" height="244" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="552" y="98" font-size="15" font-weight="600" fill="#111827">llama.cpp</text>
+  <text x="552" y="124" font-size="12.5" fill="#4B5563">本地/端侧与多后端部署</text>
+  <text x="552" y="148" font-size="12.5" fill="#4B5563">CPU 友好、GGUF 量化</text>
+  <text x="552" y="172" font-size="12.5" fill="#4B5563">轻量、依赖少</text>
+  <line x1="552" y1="214" x2="744" y2="214" stroke="#E5E7EB"/>
+  <text x="552" y="238" font-size="12.5" fill="#10B981">✓ CPU+GPU 混合、量化与多硬件后端</text>
+  <text x="552" y="262" font-size="12.5" fill="#DC6803">✗ 性能依赖 backend、模型与拓扑</text>
+
+  <text x="40" y="354" font-size="13" fill="#4B5563">用同模型与请求分布比较 TTFT、TPOT、吞吐、P95/P99、显存、稳定性与运维成本。</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：SGLang 侧重高性能服务与前缀复用；TGI 已进入 maintenance mode，新项目要把维护状态纳入选型。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

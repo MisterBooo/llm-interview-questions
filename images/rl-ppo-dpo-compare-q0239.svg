@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>PPO vs GRPO vs DPO 原理区别?</title>
+  <desc>PPO 依赖在线采样与价值估计，GRPO 用同提示组内相对优势省去价值模型，DPO 直接优化偏好对；选型由奖励、数据覆盖和采样预算决定。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">PPO vs GRPO vs DPO：语言模型对齐的三条路径</text>
+
+  <!-- PPO -->
+  <rect x="40" y="64" width="226" height="298" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="153" y="90" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">PPO</text>
+  <text x="153" y="109" font-size="11.5" fill="#9CA3AF" text-anchor="middle">标准 Actor-Critic RL</text>
+  <rect x="62" y="122" width="182" height="30" rx="6" fill="#F5F6FF" stroke="#6366F1"/><text x="153" y="142" font-size="12" fill="#111827" text-anchor="middle">Actor（策略）</text>
+  <rect x="62" y="158" width="182" height="30" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/><text x="153" y="178" font-size="12" fill="#111827" text-anchor="middle">Critic（价值估计）</text>
+  <rect x="62" y="194" width="182" height="30" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/><text x="153" y="214" font-size="12" fill="#111827" text-anchor="middle">奖励模型 / 规则 / 验证器</text>
+  <text x="153" y="248" font-size="12" fill="#111827" text-anchor="middle">在线采样，更新即弃</text>
+  <text x="153" y="282" font-size="12.5" fill="#059669" text-anchor="middle">✓ 通用，奖励可灵活设计</text>
+  <text x="153" y="312" font-size="12.5" fill="#EF4444" text-anchor="middle">✗ 显存高、超参敏感</text>
+  <text x="153" y="340" font-size="11.5" fill="#9CA3AF" text-anchor="middle">可在线探索，但系统成本高</text>
+
+  <!-- GRPO -->
+  <rect x="287" y="64" width="226" height="298" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="400" y="90" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">GRPO</text>
+  <text x="400" y="109" font-size="11.5" fill="#9CA3AF" text-anchor="middle">PPO 的轻量变体</text>
+  <rect x="309" y="122" width="182" height="30" rx="6" fill="#F5F6FF" stroke="#6366F1"/><text x="400" y="142" font-size="12" fill="#111827" text-anchor="middle">Actor（策略）</text>
+  <rect x="309" y="158" width="182" height="30" rx="6" fill="#F3F4F6" stroke="#E5E7EB" stroke-dasharray="4 3"/><text x="400" y="178" font-size="11.5" fill="#9CA3AF" text-anchor="middle">去掉 Critic</text>
+  <rect x="309" y="194" width="182" height="30" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/><text x="400" y="214" font-size="12" fill="#111827" text-anchor="middle">奖励模型 / 规则 / 验证器</text>
+  <text x="400" y="248" font-size="12" fill="#111827" text-anchor="middle">组内多次采样求均值</text>
+  <text x="400" y="266" font-size="11.5" fill="#9CA3AF" text-anchor="middle">用组内平均当 baseline</text>
+  <text x="400" y="298" font-size="12.5" fill="#059669" text-anchor="middle">✓ 省显存，去掉价值网络</text>
+  <text x="400" y="326" font-size="11.5" fill="#9CA3AF" text-anchor="middle">资源紧张时的折中</text>
+
+  <!-- DPO -->
+  <rect x="534" y="64" width="226" height="298" rx="10" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="647" y="90" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">DPO</text>
+  <text x="647" y="109" font-size="11.5" fill="#9CA3AF" text-anchor="middle">离线偏好优化</text>
+  <rect x="556" y="122" width="182" height="30" rx="6" fill="#F5F6FF" stroke="#6366F1"/><text x="647" y="142" font-size="12" fill="#111827" text-anchor="middle">偏好数据 (A≻B)</text>
+  <line x1="647" y1="152" x2="647" y2="170" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="556" y="172" width="182" height="44" rx="6" fill="#EEF2FF" stroke="#6366F1"/><text x="647" y="190" font-size="12" fill="#111827" text-anchor="middle">优化偏好对相对对数概率</text><text x="647" y="207" font-size="11" fill="#6366F1" text-anchor="middle">依赖 reference；免 RM/rollout</text>
+  <text x="647" y="248" font-size="12.5" fill="#059669" text-anchor="middle">✓ 训练链路较简单</text>
+  <text x="647" y="280" font-size="12.5" fill="#EF4444" text-anchor="middle">✗ 分布偏移风险</text>
+  <text x="647" y="310" font-size="11.5" fill="#9CA3AF" text-anchor="middle">固定数据训，离线策略</text>
+  <text x="647" y="332" font-size="11.5" fill="#9CA3AF" text-anchor="middle">易在数据外失准</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">结论：按偏好对、奖励/验证器、在线采样预算选型；不存在 DPO 后接 PPO/GRPO 的默认生产流水线。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

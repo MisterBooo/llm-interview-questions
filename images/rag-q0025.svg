@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>ReAct vs Plan-and-Execute 怎么选?</title>
+  <desc>ReAct动态交错观察与动作，Plan架构显式管理任务，两者可用结构化状态和检查点组合。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">ReAct vs Plan-and-Execute：长任务下的信息管理取舍</text>
+
+  <rect x="40" y="74" width="350" height="244" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="102" font-size="15" font-weight="600" fill="#111827">ReAct</text>
+  <text x="56" y="128" font-size="12.5" fill="#4B5563">每步：思考 → 行动 → 观察，循环</text>
+  <text x="56" y="150" font-size="12.5" fill="#4B5563">边走边定，随最新观察调整</text>
+  <line x1="56" y1="168" x2="374" y2="168" stroke="#E5E7EB"/>
+  <text x="56" y="192" font-size="12.5" fill="#DC6803">✗ 若完整追加轨迹，上下文随步数增长</text>
+  <text x="56" y="214" font-size="12.5" fill="#DC6803">✗ 长轨迹可淹没早期证据，需摘要/状态化</text>
+  <text x="56" y="236" font-size="12.5" fill="#DC6803">✗ 通常需多次 LLM/工具调用，成本要实测</text>
+  <text x="56" y="262" font-size="12.5" fill="#10B981">✓ 可根据新观察局部调整下一步</text>
+  <text x="56" y="288" font-size="12" fill="#6B7280">恢复能力取决于错误检测、重试与回滚设计</text>
+
+  <rect x="410" y="74" width="350" height="244" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="426" y="102" font-size="15" font-weight="600" fill="#6366F1">Plan-and-Execute</text>
+  <text x="426" y="128" font-size="12.5" fill="#4B5563">先规划（拆子任务）再逐个执行</text>
+  <text x="426" y="150" font-size="12.5" fill="#4B5563">规划压缩 + 执行隔离</text>
+  <line x1="426" y1="168" x2="744" y2="168" stroke="#DDE0FF"/>
+  <text x="426" y="192" font-size="12.5" fill="#10B981">✓ 可按子任务隔离所需上下文</text>
+  <text x="426" y="214" font-size="12.5" fill="#10B981">✓ 先显式记录全局目标与依赖</text>
+  <text x="426" y="236" font-size="12.5" fill="#DC6803">✗ 出错需显式检测 + 重规划</text>
+  <text x="426" y="262" font-size="12.5" fill="#4B5563">适合步骤多、目标明确的长任务</text>
+
+  <text x="40" y="352" font-size="13" fill="#111827"><tspan font-weight="600" fill="#6366F1">选型：</tspan>工具稳定、步骤可预估时先试 Plan-and-Execute；环境动态时可用 ReAct 或混合方案。</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：Plan-and-Execute 执行阶段工具调用失败时，是「重试当前子任务」还是「回滚整个计划」，对鲁棒性与效率影响很大。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

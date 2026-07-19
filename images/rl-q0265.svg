@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>稀疏与延迟奖励的塑形与权衡</title>
+  <desc>奖励函数要处理稀疏与延迟信用、多目标标度、塑形边界和可钻漏洞，并用消融与安全指标验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">奖励设计：奖励是目标的「代理」，关键在对齐</text>
+
+  <rect x="40" y="70" width="350" height="140" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="98" font-size="15" font-weight="600" fill="#111827">稀疏奖励</text>
+  <text x="56" y="124" font-size="12.5" fill="#4B5563">只在任务完成时给反馈（围棋赢棋才给分）</text>
+  <text x="56" y="152" font-size="12.5" fill="#10B981">✓ 直接对应终局任务目标</text>
+  <text x="56" y="178" font-size="12.5" fill="#DC6803">✗ 探索效率低、样本利用差</text>
+
+  <rect x="410" y="70" width="350" height="140" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="426" y="98" font-size="15" font-weight="600" fill="#111827">密集奖励</text>
+  <text x="426" y="124" font-size="12.5" fill="#4B5563">每一步都给引导信号</text>
+  <text x="426" y="152" font-size="12.5" fill="#10B981">✓ 提供更频繁的学习信号</text>
+  <text x="426" y="178" font-size="12.5" fill="#DC6803">✗ 人工信号易带偏（学会「刷步骤」而非解决问题）</text>
+
+  <text x="40" y="246" font-size="13" fill="#111827"><tspan font-weight="600" fill="#6366F1">落地取舍：</tspan>优先对齐真实任务成功；过程奖励要验证因果有效且不可被刷分。</text>
+
+  <rect x="40" y="266" width="720" height="66" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="56" y="292" font-size="13" font-weight="600" fill="#6366F1">多目标权衡 + 信用分配</text>
+  <text x="56" y="316" font-size="12.5" fill="#4B5563">多个目标（如多样性 vs 一致性）可能冲突 → 用约束优化 / Pareto 前沿平衡，长视界还要解决信用分配。</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：安全、权限和预算常适合硬约束；有用性等软目标再做加权、词典序或 Pareto 分析。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

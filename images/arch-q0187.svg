@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>逻辑回归原理怎么理解?</title>
+  <desc>逻辑回归对线性分数做sigmoid得到概率，决策边界由阈值对应的等概率超平面决定。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">逻辑回归：线性模型 + Sigmoid 做分类</text>
+
+  <rect x="40" y="92" width="80" height="52" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="80" y="123" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">特征 x</text>
+  <rect x="150" y="92" width="120" height="52" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="210" y="123" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">z = wᵀx + b</text>
+  <rect x="300" y="92" width="110" height="52" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="355" y="123" font-size="13.5" font-weight="600" fill="#6366F1" text-anchor="middle">sigmoid σ(z)</text>
+  <rect x="440" y="92" width="120" height="52" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="500" y="123" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">P ∈ (0, 1)</text>
+  <rect x="590" y="92" width="150" height="52" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="665" y="123" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">阈值 0.5 → 类别</text>
+
+  <line x1="120" y1="118" x2="150" y2="118" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="270" y1="118" x2="300" y2="118" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="410" y1="118" x2="440" y2="118" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="560" y1="118" x2="590" y2="118" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="40" y="180" font-size="14" fill="#111827">对数几率视角： ln( P / (1−P) ) = wᵀx + b　——用线性模型拟合对数几率</text>
+
+  <!-- 决策边界散点图 -->
+  <line x1="80" y1="380" x2="300" y2="380" stroke="#9CA3AF" stroke-width="1.2"/>
+  <line x1="80" y1="380" x2="80" y2="220" stroke="#9CA3AF" stroke-width="1.2"/>
+  <circle cx="112" cy="352" r="5" fill="#6366F1"/><circle cx="128" cy="364" r="5" fill="#6366F1"/>
+  <circle cx="140" cy="338" r="5" fill="#6366F1"/><circle cx="120" cy="330" r="5" fill="#6366F1"/>
+  <circle cx="156" cy="356" r="5" fill="#6366F1"/>
+  <circle cx="244" cy="300" r="5" fill="#9CA3AF"/><circle cx="258" cy="312" r="5" fill="#9CA3AF"/>
+  <circle cx="228" cy="288" r="5" fill="#9CA3AF"/><circle cx="262" cy="330" r="5" fill="#9CA3AF"/>
+  <circle cx="248" cy="276" r="5" fill="#9CA3AF"/>
+  <line x1="168" y1="384" x2="226" y2="232" stroke="#DC6803" stroke-width="2" stroke-dasharray="5,4"/>
+  <text x="150" y="404" font-size="12" fill="#DC6803">决策边界 = 线性超平面 (wᵀx+b=0)</text>
+
+  <!-- 右侧说明 -->
+  <text x="380" y="248" font-size="13" font-weight="600" fill="#111827">要点</text>
+  <text x="380" y="274" font-size="12.5" fill="#4B5563">· sigmoid 把 (−∞,∞) 压到 (0,1)，可当概率</text>
+  <text x="380" y="298" font-size="12.5" fill="#4B5563">· 它是分类模型，不是回归</text>
+  <text x="380" y="322" font-size="12.5" fill="#4B5563">· 0.5 阈值时边界 wᵀx+b=0，不要求样本可分</text>
+  <text x="380" y="346" font-size="12.5" fill="#4B5563">· 其他特征不变时，w 解释 log-odds 变化</text>
+
+  <text x="40" y="430" font-size="12" fill="#9CA3AF">钉子：高度共线不是训练的逻辑前提，但可让单个系数不稳；应结合正则、校准与业务阈值评估。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

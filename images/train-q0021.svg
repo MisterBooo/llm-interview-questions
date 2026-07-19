@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="-apple-system, system-ui, sans-serif">
+  <title>DDPM vs Flow Matching: 采样效率与优缺点?</title>
+  <desc>DDPM 学习离散反向去噪过程，Flow Matching 回归连续概率路径的速度场；两者训练都可随机采样时间，采样效率取决于路径与求解器。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrowP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6366F1"/>
+    </marker>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10B981"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">DDPM vs Flow Matching：离散去噪与连续速度场</text>
+
+  <!-- forward arrow -->
+  <text x="70" y="82" font-size="13" fill="#6366F1">前向加噪：逐步加高斯噪声，最终成纯噪声（固定过程）</text>
+  <line x1="70" y1="94" x2="730" y2="94" stroke="#6366F1" stroke-width="1.5" marker-end="url(#arrowP)"/>
+
+  <!-- states -->
+  <rect x="70" y="112" width="120" height="110" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="130" y="174" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">清晰图像</text>
+  <rect x="250" y="112" width="120" height="110" rx="8" fill="#E5E7EB" stroke="#9CA3AF"/>
+  <text x="310" y="174" font-size="13" fill="#4B5563" text-anchor="middle">略带噪</text>
+  <rect x="430" y="112" width="120" height="110" rx="8" fill="#D1D5DB" stroke="#9CA3AF"/>
+  <text x="490" y="174" font-size="13" fill="#374151" text-anchor="middle">较多噪</text>
+  <rect x="610" y="112" width="120" height="110" rx="8" fill="#9CA3AF" stroke="#6B7280"/>
+  <text x="670" y="174" font-size="14" font-weight="500" fill="#FFFFFF" text-anchor="middle">纯噪声</text>
+
+  <!-- state labels -->
+  <text x="130" y="244" font-size="13" fill="#9CA3AF" text-anchor="middle">x₀</text>
+  <text x="310" y="244" font-size="13" fill="#9CA3AF" text-anchor="middle">x₁</text>
+  <text x="490" y="244" font-size="13" fill="#9CA3AF" text-anchor="middle">xₜ</text>
+  <text x="670" y="244" font-size="13" fill="#9CA3AF" text-anchor="middle">x_T</text>
+
+  <!-- reverse arrow -->
+  <line x1="730" y1="278" x2="70" y2="278" stroke="#10B981" stroke-width="1.5" marker-end="url(#arrowG)"/>
+  <text x="730" y="300" font-size="13" fill="#10B981" text-anchor="end">DDPM：学习反向去噪；经典采样按离散时间步迭代</text>
+  <text x="70" y="330" font-size="13" fill="#6366F1">Flow Matching：回归概率路径的连续速度场；采样用 ODE solver，步数由路径与求解器决定</text>
+
+  <!-- nail -->
+  <text x="40" y="392" font-size="12" fill="#9CA3AF">结论：两者训练都可随机采 t；DDPM 不限固定千步，Flow Matching 也不保证固定少步或直线路径。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="430" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

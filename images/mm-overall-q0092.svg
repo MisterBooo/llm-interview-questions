@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>多模态大模型怎么理解？</title>
+  <desc>多模态架构应按编码器、连接器、训练数据、分辨率、延迟和目标任务评测，不宜作无条件排名。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">多模态模型：对齐、桥接与统一 token</text>
+
+  <!-- 双塔 -->
+  <rect x="40" y="64" width="226" height="252" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="153" y="90" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">双塔式</text>
+  <text x="153" y="109" font-size="11.5" fill="#9CA3AF" text-anchor="middle">CLIP</text>
+  <rect x="62" y="122" width="84" height="40" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/><text x="104" y="147" font-size="12" fill="#111827" text-anchor="middle">文本编码器</text>
+  <rect x="160" y="122" width="84" height="40" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/><text x="202" y="147" font-size="12" fill="#111827" text-anchor="middle">图像编码器</text>
+  <line x1="146" y1="182" x2="160" y2="182" stroke="#9CA3AF" stroke-width="1.5"/>
+  <rect x="84" y="174" width="138" height="16" rx="3" fill="none"/>
+  <text x="153" y="186" font-size="11" fill="#6366F1" text-anchor="middle">对比学习拉近匹配对</text>
+  <text x="153" y="218" font-size="12.5" fill="#059669" text-anchor="middle">✓ 检索快、零样本分类</text>
+  <text x="153" y="242" font-size="12.5" fill="#EF4444" text-anchor="middle">✗ 生成与细粒度交互受限</text>
+  <text x="153" y="266" font-size="11.5" fill="#9CA3AF" text-anchor="middle">主要优势在跨模态检索/分类</text>
+  <text x="153" y="296" font-size="12" fill="#4B5563" text-anchor="middle">→ 图文匹配优先</text>
+
+  <!-- 融合 -->
+  <rect x="287" y="64" width="226" height="252" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="400" y="90" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">融合式</text>
+  <text x="400" y="109" font-size="11.5" fill="#6366F1" text-anchor="middle">Flamingo / LLaVA</text>
+  <rect x="309" y="122" width="182" height="34" rx="6" fill="#FFFFFF" stroke="#E5E7EB"/><text x="400" y="144" font-size="12" fill="#9CA3AF" text-anchor="middle">语言模型可冻结或参与微调</text>
+  <rect x="309" y="162" width="182" height="34" rx="6" fill="#EEF2FF" stroke="#6366F1"/><text x="400" y="184" font-size="12" fill="#111827" text-anchor="middle">桥接视觉特征 → 语言模型</text>
+  <text x="400" y="220" font-size="12.5" fill="#059669" text-anchor="middle">✓ 复用预训练组件</text>
+  <text x="400" y="244" font-size="12.5" fill="#EF4444" text-anchor="middle">✗ 信息带宽与训练策略需权衡</text>
+  <text x="400" y="296" font-size="12" fill="#4B5563" text-anchor="middle">→ 按任务、数据与成本选桥接方案</text>
+
+  <!-- 统一 -->
+  <rect x="534" y="64" width="226" height="252" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="647" y="90" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">统一 token / 早融合</text>
+  <text x="647" y="109" font-size="11.5" fill="#9CA3AF" text-anchor="middle">多模态 Transformer</text>
+  <rect x="556" y="122" width="182" height="40" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/><text x="647" y="142" font-size="12" fill="#111827" text-anchor="middle">多模态 token</text><text x="647" y="157" font-size="11" fill="#9CA3AF" text-anchor="middle">共同模型 + 模态/位置设计</text>
+  <text x="647" y="220" font-size="12.5" fill="#059669" text-anchor="middle">✓ 支持深度联合建模</text>
+  <text x="647" y="244" font-size="12.5" fill="#EF4444" text-anchor="middle">✗ 数据与计算成本高</text>
+  <text x="647" y="268" font-size="11.5" fill="#9CA3AF" text-anchor="middle">仍需对齐、位置与安全设计</text>
+  <text x="647" y="296" font-size="12" fill="#4B5563" text-anchor="middle">→ 收益要用公开实验验证</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：跨模态幻觉需用 grounding、证据一致性和任务评测检查，不能只看文本是否流畅。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

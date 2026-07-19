@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>Embedding升级后向量对齐方案</title>
+  <desc>Embedding升级时应隔离新旧向量空间，通过影子重建、双读评估、原子切换和回滚完成迁移。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Embedding 升级：新旧向量空间不一致，怎么对齐</text>
+
+  <text x="40" y="72" font-size="13" fill="#4B5563">新旧 embedding 坐标与相似度标定不可直接混用，维度也可能不同；要做版本隔离与迁移评测。</text>
+
+  <rect x="40" y="92" width="230" height="220" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="120" font-size="14" font-weight="600" fill="#111827">① 全量重算</text>
+  <text x="56" y="146" font-size="12.5" fill="#4B5563">用新模型把老数据全部</text>
+  <text x="56" y="166" font-size="12.5" fill="#4B5563">重新编码一遍</text>
+  <line x1="56" y1="184" x2="254" y2="184" stroke="#E5E7EB"/>
+  <text x="56" y="208" font-size="12.5" fill="#10B981">✓ 直接使用新模型原生空间</text>
+  <text x="56" y="232" font-size="12.5" fill="#DC6803">✗ 需要重编码与重建索引</text>
+  <text x="56" y="262" font-size="11.5" fill="#6B7280">适合数据量可控、精度苛刻</text>
+
+  <rect x="285" y="92" width="230" height="220" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="301" y="120" font-size="14" font-weight="600" fill="#6366F1">② 映射对齐</text>
+  <text x="301" y="146" font-size="12.5" fill="#4B5563">学一个旧→新空间的投影</text>
+  <text x="301" y="166" font-size="12.5" fill="#4B5563">矩阵（如 MLP）</text>
+  <line x1="301" y1="184" x2="499" y2="184" stroke="#DDE0FF"/>
+  <text x="301" y="208" font-size="12.5" fill="#10B981">✓ 可作不停服过渡方案</text>
+  <text x="301" y="232" font-size="12.5" fill="#DC6803">✗ 投影误差与适用范围要验证</text>
+  <text x="301" y="262" font-size="11.5" fill="#6B7280">适合过渡期、不能停机</text>
+
+  <rect x="530" y="92" width="230" height="220" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="546" y="120" font-size="14" font-weight="600" fill="#111827">③ 双版本共存</text>
+  <text x="546" y="146" font-size="12.5" fill="#4B5563">新旧索引并行，按版本</text>
+  <text x="546" y="166" font-size="12.5" fill="#4B5563">路由，渐进迁移</text>
+  <line x1="546" y1="184" x2="744" y2="184" stroke="#E5E7EB"/>
+  <text x="546" y="208" font-size="12.5" fill="#10B981">✓ 平滑、可回滚</text>
+  <text x="546" y="232" font-size="12.5" fill="#DC6803">✗ 维护两套，复杂</text>
+  <text x="546" y="262" font-size="11.5" fill="#6B7280">适合大库灰度迁移</text>
+
+  <text x="40" y="346" font-size="13" fill="#111827"><tspan font-weight="600" fill="#6366F1">落地：</tspan>新写入走新索引，后台按优先级重算旧数据，用双版路由、评测与回滚保护切换。</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：切换前要在固定查询集比较 Recall/NDCG、延迟与分桶失败；映射对齐只能作经评测的过渡。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

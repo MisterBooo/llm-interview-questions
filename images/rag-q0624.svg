@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="-apple-system, system-ui, sans-serif">
+  <title>Agent工具定义、注册与安全控制有哪些？</title>
+  <desc>Agent 工具通过 Schema 注册和参数校验接入，执行前需做权限与副作用分级，并配合沙箱、限额和审计。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Agent 工具调用的安全闸门</text>
+  <text x="40" y="66" font-size="13" fill="#9CA3AF">工具用 JSON Schema 定义、装饰器注册；每次调用都要先过安全闸门</text>
+
+  <!-- main row -->
+  <rect x="30" y="118" width="150" height="56" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="105" y="150" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">模型请求调用</text>
+
+  <rect x="220" y="118" width="160" height="56" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="300" y="144" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">输入校验</text>
+  <text x="300" y="162" font-size="12" fill="#4B5563" text-anchor="middle">Schema 约束</text>
+
+  <polygon points="450,118 512,146 450,174 388,146" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="450" y="150" font-size="12" fill="#111827" text-anchor="middle">危险分级</text>
+
+  <line x1="180" y1="146" x2="220" y2="146" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="380" y1="146" x2="388" y2="146" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- low-risk branch -->
+  <rect x="540" y="92" width="120" height="46" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="600" y="120" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">沙箱执行</text>
+  <rect x="680" y="92" width="100" height="46" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="730" y="120" font-size="13" fill="#111827" text-anchor="middle">返回结果</text>
+  <path d="M500,132 C520,116 525,115 540,115" fill="none" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="520" y="104" font-size="12" fill="#10B981">低危</text>
+  <line x1="660" y1="115" x2="680" y2="115" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- high-risk branch -->
+  <rect x="540" y="196" width="150" height="46" rx="8" fill="#FFF7ED" stroke="#F59E0B"/>
+  <text x="615" y="224" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">人工确认 / dry-run</text>
+  <rect x="700" y="196" width="80" height="46" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="740" y="224" font-size="13" fill="#111827" text-anchor="middle">执行/阻断</text>
+  <path d="M500,160 C520,178 525,219 540,219" fill="none" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="516" y="200" font-size="12" fill="#EF4444">高危</text>
+  <line x1="690" y1="219" x2="700" y2="219" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- nail -->
+  <text x="40" y="300" font-size="12" fill="#9CA3AF">钉子：高危工具不能交给模型自由调用——必须权限/副作用分级 + dry-run + 人工确认。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="330" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

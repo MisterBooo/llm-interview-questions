@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>MoE 专家网络怎么动态路由?</title>
+  <desc>扩散MoE可按时间步、噪声尺度或log-SNR路由专家，内容条件与软硬路由需验证负载和质量。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">扩散模型 MoE：按去噪阶段动态选专家</text>
+
+  <text x="40" y="70" font-size="13" fill="#4B5563">可按噪声区间让不同去噪专家分工；是否减少干扰与提升质量要用分噪声桶消融验证。</text>
+
+  <!-- 两专家 -->
+  <rect x="60" y="92" width="300" height="58" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="76" y="116" font-size="13.5" font-weight="600" fill="#6366F1">高噪专家</text>
+  <text x="76" y="138" font-size="12" fill="#4B5563">常见经验：更关注全局结构</text>
+  <rect x="440" y="92" width="300" height="58" rx="10" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="456" y="116" font-size="13.5" font-weight="600" fill="#111827">低噪专家</text>
+  <text x="456" y="138" font-size="12" fill="#4B5563">常见经验：更关注局部细节</text>
+
+  <!-- 去噪时间轴 -->
+  <line x1="80" y1="210" x2="720" y2="210" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="80" y="234" font-size="12.5" fill="#111827">高噪（t 大）</text>
+  <text x="660" y="234" font-size="12.5" fill="#111827">低噪（t 小）</text>
+  <line x1="210" y1="150" x2="210" y2="204" stroke="#6366F1" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <line x1="590" y1="150" x2="590" y2="204" stroke="#10B981" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+
+  <text x="40" y="276" font-size="13" fill="#111827"><tspan font-weight="600" fill="#6366F1">路由信号：</tspan>固定 schedule 下可用 t、σ_t 或 log-SNR，三者要定义清楚；内容特征是可选辅助而非噪声真值。</text>
+
+  <rect x="40" y="296" width="350" height="56" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="320" font-size="13" font-weight="600" fill="#111827">硬路由</text>
+  <text x="56" y="340" font-size="12" fill="#4B5563">按区间选一个专家，计算清晰但阈值附近可不连续</text>
+
+  <rect x="410" y="296" width="350" height="56" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="426" y="320" font-size="13" font-weight="600" fill="#111827">软路由</text>
+  <text x="426" y="340" font-size="12" fill="#4B5563">gate 加权或 top-k 选择，更灵活但要防专家塌缩</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：训练要监控每个噪声桶的 loss/生成质量、专家利用率与路由开销，不能预设软路由必然更好。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

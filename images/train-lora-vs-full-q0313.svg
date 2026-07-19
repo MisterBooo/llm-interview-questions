@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>LoRA 微调比全量微调更慢吗？</title>
+  <desc>LoRA减少可训练参数、参数梯度和优化器状态，但仍经过冻结主干计算，单步训练不保证更快。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">LoRA vs 全量微调：状态更少，单步未必更快</text>
+
+  <rect x="40" y="62" width="120" height="34" fill="#F3F4F6" stroke="#E5E7EB"/>
+  <rect x="160" y="62" width="300" height="34" fill="#F3F4F6" stroke="#E5E7EB"/>
+  <rect x="460" y="62" width="300" height="34" fill="#EEF0FF" stroke="#6366F1"/>
+  <text x="52" y="84" font-size="13" font-weight="600" fill="#111827">阶段</text>
+  <text x="172" y="84" font-size="13" font-weight="600" fill="#111827">全量微调</text>
+  <text x="472" y="84" font-size="13" font-weight="600" fill="#6366F1">LoRA</text>
+
+  <rect x="460" y="96" width="300" height="186" fill="#F5F6FF"/>
+
+  <text x="52" y="128" font-size="13" font-weight="500" fill="#111827">前向</text>
+  <text x="172" y="128" font-size="12.5" fill="#4B5563">h = Wx</text>
+  <text x="472" y="128" font-size="12.5" fill="#4B5563">h = Wx + BAx</text>
+  <text x="472" y="148" font-size="11.5" fill="#6B7280">额外低秩分支，开销取决于 rank 与实现</text>
+
+  <text x="52" y="186" font-size="13" font-weight="500" fill="#111827">反向</text>
+  <text x="172" y="186" font-size="12.5" fill="#4B5563">算所有参数的梯度</text>
+  <text x="472" y="186" font-size="12.5" fill="#10B981">不存 W 参数梯度，但激活梯度仍经过基座</text>
+
+  <text x="52" y="240" font-size="13" font-weight="500" fill="#111827">优化器</text>
+  <text x="172" y="240" font-size="12.5" fill="#4B5563">全部参数的动量+方差</text>
+  <text x="472" y="240" font-size="12.5" fill="#10B981">仅 2·d·r 参数的状态</text>
+  <text x="472" y="260" font-size="11.5" fill="#6B7280">→ 省巨大显存（Adam 状态大头）</text>
+
+  <line x1="40" y1="158" x2="760" y2="158" stroke="#EEEFF2"/>
+  <line x1="40" y1="212" x2="760" y2="212" stroke="#EEEFF2"/>
+
+  <text x="40" y="318" font-size="13" fill="#111827"><tspan font-weight="600" fill="#6366F1">结论：</tspan>LoRA 确定性优势是减可训参数、参数梯度与优化器状态；速度要实测。</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：训练后可将 BA 合并回 W 做无额外分支的线性推理，量化权重能否直接合并看部署方案。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

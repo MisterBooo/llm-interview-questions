@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="-apple-system, system-ui, sans-serif">
+  <title>自动 vs 人工评价怎么选?</title>
+  <desc>LLM 评估应组合参考式、无参考、执行式、任务指标、模型裁判与人工 rubric，并报告自动指标偏差、人工一致性及置信区间。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">LLM 评估：自动指标 vs 人工评价</text>
+
+  <!-- auto -->
+  <rect x="40" y="78" width="350" height="216" rx="10" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="215" y="106" font-size="15" font-weight="500" fill="#6366F1" text-anchor="middle">自动指标</text>
+  <line x1="60" y1="120" x2="370" y2="120" stroke="#E5E7EB"/>
+  <text x="60" y="150" font-size="13" fill="#111827">· BLEU / ROUGE（生成重叠）</text>
+  <text x="60" y="180" font-size="13" fill="#111827">· 困惑度 PPL（语言建模）</text>
+  <text x="60" y="210" font-size="13" fill="#111827">· 准确率 / F1（分类）</text>
+  <text x="60" y="248" font-size="12.5" fill="#10B981">优：快、可复现、可规模化</text>
+  <text x="60" y="270" font-size="12.5" fill="#EF4444">缺：难评开放生成质量</text>
+
+  <!-- human -->
+  <rect x="410" y="78" width="350" height="216" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="585" y="106" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">人工评价</text>
+  <line x1="430" y1="120" x2="740" y2="120" stroke="#E5E7EB"/>
+  <text x="430" y="150" font-size="13" fill="#111827">· 流畅性 / 相关性</text>
+  <text x="430" y="180" font-size="13" fill="#111827">· 有用性</text>
+  <text x="430" y="210" font-size="13" fill="#111827">· 安全性</text>
+  <text x="430" y="248" font-size="12.5" fill="#10B981">优：贴近真实体验</text>
+  <text x="430" y="270" font-size="12.5" fill="#EF4444">缺：贵、慢、主观</text>
+
+  <!-- nail -->
+  <text x="40" y="338" font-size="12" fill="#9CA3AF">钉子：自动指标做大规模快筛，人工评价定最终质量——两者结合，别只看一个数字。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="370" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

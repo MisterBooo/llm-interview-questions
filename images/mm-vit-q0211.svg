@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>ViT 图像块嵌入原理与实现</title>
+  <desc>ViT将图像划分为patch，经线性投影或等价卷积得到token，再加入位置表示和可选分类token。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">ViT Patch Embedding：把图像当句子，图块当单词</text>
+
+  <!-- 顶部流水线 5 步 -->
+  <rect x="40" y="116" width="108" height="74" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="94" y="148" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">输入图像</text>
+  <text x="94" y="168" font-size="12" fill="#4B5563" text-anchor="middle">224×224×3</text>
+
+  <rect x="172" y="116" width="128" height="74" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="236" y="148" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">切 16×16 patch</text>
+  <text x="236" y="168" font-size="12" fill="#4B5563" text-anchor="middle">14×14 = 196 块</text>
+
+  <rect x="322" y="116" width="120" height="74" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="382" y="148" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">每块展平</text>
+  <text x="382" y="168" font-size="12" fill="#4B5563" text-anchor="middle">16·16·3 = 768</text>
+
+  <rect x="464" y="116" width="140" height="74" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="534" y="148" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">线性投影 → D</text>
+  <text x="534" y="168" font-size="12" fill="#6366F1" text-anchor="middle">共享 embedding 矩阵</text>
+
+  <rect x="626" y="116" width="144" height="74" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="698" y="148" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">196 个</text>
+  <text x="698" y="168" font-size="12" fill="#4B5563" text-anchor="middle">patch token</text>
+
+  <line x1="148" y1="153" x2="172" y2="153" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="300" y1="153" x2="322" y2="153" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="442" y1="153" x2="464" y2="153" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="604" y1="153" x2="626" y2="153" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 卷积实现注解 -->
+  <text x="400" y="222" font-size="12.5" fill="#6B7280" text-anchor="middle">实现技巧：用 stride=16 的卷积一步完成「分块+展平+投影」：B×3×224×224 → B×768×14×14 → flatten+转置</text>
+
+  <!-- 第二段：CLS + 位置编码 → Transformer -->
+  <text x="400" y="270" font-size="14" fill="#4B5563" text-anchor="middle">再拼接 [CLS] token（196 → 197）并加上可学习位置编码</text>
+  <line x1="400" y1="282" x2="400" y2="306" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="296" y="308" width="208" height="52" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="400" y="332" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">Transformer Encoder</text>
+  <text x="400" y="350" font-size="12" fill="#4B5563" text-anchor="middle">全局 self-attention</text>
+
+  <text x="40" y="420" font-size="12" fill="#9CA3AF">钉子：Conv2d(kernel=P, stride=P) 与「切 patch、展平、线性投影」在权重映射上等价。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

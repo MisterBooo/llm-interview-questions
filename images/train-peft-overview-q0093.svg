@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>全参数 vs 参数高效微调怎么选?</title>
+  <desc>PEFT只训练少量新增或选定参数，可降低权重与优化器状态开销，但主干计算和激活仍然存在。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">全参微调 vs PEFT（LoRA）：参数复用与任务适配的权衡</text>
+
+  <!-- full FT -->
+  <rect x="40" y="72" width="350" height="248" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="98" font-size="15" font-weight="500" fill="#111827">全参数微调</text>
+  <rect x="100" y="116" width="230" height="64" rx="8" fill="#FEF2F2" stroke="#EF4444"/>
+  <text x="215" y="142" font-size="13" fill="#111827" text-anchor="middle">所有权重 W 解开训练</text>
+  <text x="215" y="164" font-size="11.5" fill="#EF4444" text-anchor="middle">7B 的 FP32 Adam m+v 约 56GB</text>
+  <text x="58" y="208" font-size="12.5" fill="#059669">✓ 上限高，适合分布差异大的任务</text>
+  <text x="58" y="232" font-size="12.5" fill="#EF4444">✗ 小数据易过拟合 / 灾难性遗忘</text>
+  <text x="58" y="256" font-size="12.5" fill="#EF4444">✗ 每个任务存一份完整模型</text>
+  <text x="58" y="288" font-size="12" fill="#9CA3AF">适用：数据多、算力足、追极致性能</text>
+
+  <!-- PEFT / LoRA -->
+  <rect x="410" y="72" width="350" height="248" rx="10" fill="#F5F6FF" stroke="#6366F1" stroke-width="2"/>
+  <text x="428" y="98" font-size="15" font-weight="600" fill="#111827">PEFT · LoRA ✓</text>
+  <!-- frozen W + bypass BA -->
+  <rect x="450" y="116" width="100" height="64" rx="8" fill="#FFFFFF" stroke="#9CA3AF" stroke-dasharray="4 3"/>
+  <text x="500" y="144" font-size="13" fill="#9CA3AF" text-anchor="middle">W（冻结）</text>
+  <text x="500" y="164" font-size="11" fill="#9CA3AF" text-anchor="middle">❄ 不更新</text>
+  <text x="572" y="152" font-size="18" fill="#6366F1" text-anchor="middle">+</text>
+  <rect x="594" y="116" width="120" height="64" rx="8" fill="#EEF2FF" stroke="#6366F1"/>
+  <text x="654" y="142" font-size="13" fill="#111827" text-anchor="middle">旁路 B·A</text>
+  <text x="654" y="164" font-size="11" fill="#6366F1" text-anchor="middle">低秩，只训这个</text>
+  <text x="428" y="208" font-size="12.5" fill="#059669">✓ 减可训参数/梯度/优化器状态</text>
+  <text x="428" y="232" font-size="12.5" fill="#059669">✓ 合并后可无额外串行分支</text>
+  <text x="428" y="256" font-size="12.5" fill="#059669">✓ 一个底座挂多套 LoRA，切换便宜</text>
+  <text x="428" y="288" font-size="12" fill="#6366F1">适用：质量达标且需多任务适配</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：LoRA 的低秩假设在任务与预训练分布差异极大时可能不足，需要增大秩，或干脆切全参数微调。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

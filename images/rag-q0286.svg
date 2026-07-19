@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>知识型与行为型错误诊断</title>
+  <desc>RAG补充可更新外部证据，强化学习塑造可验证行为，两者都需结合检索质量与后验验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">降幻觉：RAG 补外部证据，偏好/RL 调整行为</text>
+
+  <text x="40" y="70" font-size="13" fill="#4B5563">两者侧重不同但边界重叠；需先定位错误来自证据、检索、推理还是行为策略。</text>
+
+  <rect x="40" y="88" width="350" height="218" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="56" y="116" font-size="15" font-weight="600" fill="#6366F1">RAG → 知识缺失型</text>
+  <text x="56" y="142" font-size="12.5" fill="#4B5563">参数知识缺失、过时，或任务要求可追溯证据</text>
+  <line x1="56" y1="160" x2="374" y2="160" stroke="#DDE0FF"/>
+  <text x="56" y="184" font-size="12.5" fill="#111827" font-weight="500">机制</text>
+  <text x="56" y="206" font-size="12.5" fill="#4B5563">检索外部知识塞进上下文，闭卷变开卷</text>
+  <text x="56" y="240" font-size="12.5" fill="#111827" font-weight="500">适用</text>
+  <text x="56" y="262" font-size="12.5" fill="#4B5563">事实性 / 时效性任务（如订单状态问答）</text>
+
+  <rect x="410" y="88" width="350" height="218" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="426" y="116" font-size="15" font-weight="600" fill="#111827">RL → 行为偏差型</text>
+  <text x="426" y="142" font-size="12.5" fill="#4B5563">过度自信、拒答/格式/安全偏差或可验证任务策略</text>
+  <line x1="426" y1="160" x2="744" y2="160" stroke="#E5E7EB"/>
+  <text x="426" y="184" font-size="12.5" fill="#111827" font-weight="500">机制</text>
+  <text x="426" y="206" font-size="12.5" fill="#4B5563">对齐惩罚编造 / 奖励诚实，优化生成策略</text>
+  <text x="426" y="240" font-size="12.5" fill="#111827" font-weight="500">适用</text>
+  <text x="426" y="262" font-size="12.5" fill="#4B5563">推理一致性、诚实度、拒答行为</text>
+
+  <text x="40" y="346" font-size="13" fill="#111827"><tspan font-weight="600" fill="#6366F1">互补：</tspan>RAG 本身也会检索错/忽略证据，对齐也会过度拒答；组合后仍要分层评测。</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：RL 还能反过来优化 RAG 的检索决策——让模型学会「什么时候该检索、什么时候不该检索」。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

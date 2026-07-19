@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>PPO vs GRPO vs DPO 适用场景?</title>
+  <desc>PPO与GRPO通常依赖在线或近在线采样，DPO直接优化离线偏好对，三者在奖励和稳定性上取舍。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">PPO / DPO / GRPO：反馈、采样与优化目标不同</text>
+
+  <!-- PPO -->
+  <rect x="40" y="66" width="232" height="290" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="94" font-size="15" font-weight="600" fill="#111827">PPO</text>
+  <text x="56" y="122" font-size="12" fill="#4B5563">在线轨迹 + 标量奖励</text>
+  <text x="56" y="144" font-size="12" fill="#4B5563">通常需价值函数，奖励来源可多样</text>
+  <text x="56" y="166" font-size="12" fill="#4B5563">clipped policy gradient；KL 可另加</text>
+  <line x1="56" y1="186" x2="256" y2="186" stroke="#E5E7EB"/>
+  <text x="56" y="210" font-size="11.5" fill="#6B7280">需 rollout，实现和调参较复杂</text>
+  <text x="56" y="230" font-size="11.5" fill="#6B7280">适合需要当前策略持续探索的任务</text>
+
+  <!-- DPO -->
+  <rect x="288" y="66" width="232" height="290" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="304" y="94" font-size="15" font-weight="600" fill="#111827">DPO</text>
+  <text x="304" y="122" font-size="12" fill="#4B5563">不单独训奖励模型，也不在线 rollout</text>
+  <text x="304" y="144" font-size="12" fill="#4B5563">用偏好对 chosen / rejected</text>
+  <text x="304" y="166" font-size="12" fill="#4B5563">直接优化 策略/参考 概率比</text>
+  <line x1="304" y1="186" x2="504" y2="186" stroke="#E5E7EB"/>
+  <text x="304" y="210" font-size="11.5" fill="#6B7280">简单、省资源</text>
+  <text x="304" y="230" font-size="11.5" fill="#6B7280">依赖离线偏好对、reference 与 beta</text>
+
+  <!-- GRPO（主色高亮） -->
+  <rect x="536" y="66" width="224" height="290" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="552" y="94" font-size="15" font-weight="600" fill="#6366F1">GRPO</text>
+  <text x="552" y="122" font-size="12" fill="#4B5563">无 critic，同 prompt 采样 G 个</text>
+  <text x="552" y="144" font-size="12" fill="#4B5563">组内 (r−mean)/std 做优势</text>
+  <text x="552" y="166" font-size="12" fill="#4B5563">受约束策略更新，KL 实现需说明</text>
+  <line x1="552" y1="186" x2="744" y2="186" stroke="#DDE0FF"/>
+  <text x="552" y="210" font-size="11.5" fill="#6B7280">省显存（砍掉 critic）</text>
+  <text x="552" y="230" font-size="11.5" fill="#6B7280">可验证任务便于构造奖励，非唯一场景</text>
+
+  <text x="400" y="300" font-size="13" fill="#4B5563" text-anchor="middle">PPO/GRPO 也可用环境或规则奖励；DPO 优化离线 chosen/rejected 偏好对。</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：选型先问反馈是偏好对还是可验证标量奖励、是否需探索、能否承担 rollout。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

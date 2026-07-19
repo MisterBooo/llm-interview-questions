@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="-apple-system, system-ui, sans-serif">
+  <title>向量检索基本原理是什么?</title>
+  <desc>向量检索先用同一嵌入模型编码文档与查询，再借助 ANN 索引按余弦、点积或欧氏距离召回 Top-K。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="42" font-size="21" font-weight="500" fill="#111827">向量检索基本原理：文本 → 向量 → 检索</text>
+
+  <!-- online row -->
+  <text x="40" y="92" font-size="13" fill="#6366F1">在线检索</text>
+  <g>
+    <rect x="40" y="106" width="130" height="58" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="105" y="140" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">查询文本</text>
+
+    <rect x="192" y="106" width="130" height="58" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="257" y="132" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">Embedding</text>
+    <text x="257" y="150" font-size="12" fill="#4B5563" text-anchor="middle">向量化</text>
+
+    <rect x="344" y="106" width="130" height="58" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+    <text x="409" y="132" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">ANN 近邻搜索</text>
+    <text x="409" y="150" font-size="12" fill="#4B5563" text-anchor="middle">HNSW 索引</text>
+
+    <rect x="496" y="106" width="130" height="58" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="561" y="132" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">相似度计算</text>
+    <text x="561" y="150" font-size="12" fill="#4B5563" text-anchor="middle">余弦 ≈ 归一化点积</text>
+
+    <rect x="648" y="106" width="120" height="58" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="708" y="132" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">Top-K</text>
+    <text x="708" y="150" font-size="12" fill="#4B5563" text-anchor="middle">最相近文档</text>
+
+    <line x1="170" y1="135" x2="192" y2="135" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="322" y1="135" x2="344" y2="135" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="474" y1="135" x2="496" y2="135" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="626" y1="135" x2="648" y2="135" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- offline row -->
+  <text x="40" y="288" font-size="13" fill="#9CA3AF">离线建库</text>
+  <g>
+    <rect x="40" y="302" width="150" height="54" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="115" y="334" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">文档分块</text>
+
+    <rect x="230" y="302" width="150" height="54" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="305" y="334" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">Embedding</text>
+
+    <rect x="420" y="302" width="190" height="54" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+    <text x="515" y="334" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">向量库 + HNSW 索引</text>
+
+    <line x1="190" y1="329" x2="230" y2="329" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="380" y1="329" x2="420" y2="329" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- dashed: index feeds online search -->
+  <path d="M470,302 C470,240 409,230 409,166" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="486" y="250" font-size="12" fill="#4B5563">查的是离线建好的库</text>
+
+  <!-- nail note -->
+  <rect x="40" y="398" width="720" height="44" rx="8" fill="#FFFBEB" stroke="#F59E0B"/>
+  <text x="56" y="425" font-size="13" fill="#4B5563">钉子：效果差时先查 Embedding 质量和 chunk 质量，别只调 HNSW 参数。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="490" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

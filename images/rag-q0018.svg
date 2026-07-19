@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>Multi-modal RAG 原理与挑战</title>
+  <desc>多模态RAG对文本、图像、音视频分别编码和检索，并保留空间时间锚点以支持重排、生成与引用。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">多模态 RAG：检索、对齐、融合与证据生成</text>
+
+  <rect x="40" y="100" width="120" height="56" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="100" y="124" font-size="12.5" font-weight="500" fill="#111827" text-anchor="middle">图 / 文 / 视频</text>
+  <text x="100" y="142" font-size="12.5" font-weight="500" fill="#111827" text-anchor="middle">/ 表格</text>
+
+  <rect x="190" y="96" width="160" height="64" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="270" y="122" font-size="13" font-weight="600" fill="#6366F1" text-anchor="middle">跨模态编码/转文本</text>
+  <text x="270" y="142" font-size="11.5" fill="#4B5563" text-anchor="middle">共享空间或分离式证据</text>
+
+  <rect x="380" y="100" width="140" height="56" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="450" y="132" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">跨模态检索</text>
+
+  <rect x="550" y="100" width="180" height="56" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="640" y="132" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">多模态 LLM 生成</text>
+
+  <line x1="160" y1="128" x2="190" y2="128" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="350" y1="128" x2="380" y2="128" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="520" y1="128" x2="550" y2="128" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="40" y="206" font-size="13" font-weight="600" fill="#111827">三种架构</text>
+  <rect x="40" y="218" width="232" height="92" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="242" font-size="13" font-weight="600" fill="#111827">双塔编码（CLIP）</text>
+  <text x="56" y="264" font-size="12" fill="#4B5563">独立图/文编码器，对比学习</text>
+  <text x="56" y="286" font-size="12" fill="#10B981">✓ 检索快，适合大规模候选</text>
+
+  <rect x="288" y="218" width="232" height="92" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="304" y="242" font-size="13" font-weight="600" fill="#111827">多模态 LLM 原生</text>
+  <text x="304" y="264" font-size="12" fill="#4B5563">多模态 LLM 直接读取图文证据</text>
+  <text x="304" y="286" font-size="12" fill="#DC6803">理解能力、延迟与成本需实测</text>
+
+  <rect x="536" y="218" width="224" height="92" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="552" y="242" font-size="13" font-weight="600" fill="#6366F1">混合级联</text>
+  <text x="552" y="264" font-size="12" fill="#4B5563">双塔召回 + 多模态 LLM 精排</text>
+  <text x="552" y="286" font-size="12" fill="#10B981">用召回/重排预算曲线验证取舍</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：评测要分开检索召回、跨模态 grounding、生成引用与幻觉，不能只看最终文本质量。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

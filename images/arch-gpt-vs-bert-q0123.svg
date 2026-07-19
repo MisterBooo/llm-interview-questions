@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" font-family="-apple-system, system-ui, sans-serif">
+  <title>GPT vs BERT 核心区别在哪?</title>
+  <desc>GPT 类采用 Decoder-only 自回归目标，适合生成；BERT 类采用 Encoder-only 双向表示，适合分类、抽取和检索编码，但两者边界并非绝对。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">GPT vs BERT：自回归生成 vs 掩码理解</text>
+
+  <!-- GPT card -->
+  <rect x="40" y="78" width="350" height="280" rx="10" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="215" y="108" font-size="16" font-weight="500" fill="#111827" text-anchor="middle">GPT（生成）</text>
+  <line x1="60" y1="122" x2="370" y2="122" stroke="#E5E7EB"/>
+  <text x="60" y="156" font-size="13.5" fill="#111827">· 架构：Decoder-only</text>
+  <text x="60" y="192" font-size="13.5" fill="#111827">· 目标：自回归 LM（预测下一个词）</text>
+  <text x="60" y="228" font-size="13.5" fill="#111827">· 注意力：单向（因果掩码）</text>
+  <text x="60" y="264" font-size="13.5" fill="#111827">· 用途：文本生成</text>
+  <rect x="60" y="290" width="310" height="44" rx="6" fill="#F5F6FF" stroke="#C7D2FE"/>
+  <text x="215" y="317" font-size="13" fill="#111827" text-anchor="middle">例：「我 爱 ___」 → 你</text>
+
+  <!-- BERT card -->
+  <rect x="410" y="78" width="350" height="280" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="585" y="108" font-size="16" font-weight="500" fill="#111827" text-anchor="middle">BERT（理解）</text>
+  <line x1="430" y1="122" x2="740" y2="122" stroke="#E5E7EB"/>
+  <text x="430" y="156" font-size="13.5" fill="#111827">· 架构：Encoder-only</text>
+  <text x="430" y="192" font-size="13.5" fill="#111827">· 目标：掩码语言模型 MLM</text>
+  <text x="430" y="228" font-size="13.5" fill="#111827">· 注意力：双向</text>
+  <text x="430" y="264" font-size="13.5" fill="#111827">· 用途：理解 / 分类</text>
+  <rect x="430" y="290" width="310" height="44" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="585" y="317" font-size="13" fill="#111827" text-anchor="middle">例：「我 [MASK] 你」 → 爱</text>
+
+  <!-- nail -->
+  <text x="40" y="396" font-size="12" fill="#9CA3AF">钉子：架构 + 训练目标决定能力——GPT 自回归擅生成，BERT 双向掩码擅理解。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="420" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

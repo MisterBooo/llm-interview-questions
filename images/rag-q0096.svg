@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 390" font-family="-apple-system, system-ui, sans-serif">
+  <title>弱多模态+强文本模型怎么协同?</title>
+  <desc>协同多模态系统让视觉模型产出可追溯的结构化观察，文本模型负责推理，并以低置信路由和补充视觉查询纠错。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">多模态协同：小模型看，大模型想</text>
+
+  <!-- main flow -->
+  <rect x="40" y="126" width="130" height="60" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="105" y="161" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">图像 + 问题</text>
+
+  <rect x="200" y="118" width="180" height="76" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="290" y="146" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">VLM_S（小多模态）</text>
+  <text x="290" y="166" font-size="12" fill="#4B5563" text-anchor="middle">感知：看图</text>
+  <text x="290" y="183" font-size="12" fill="#4B5563" text-anchor="middle">产出结构化 observation</text>
+
+  <rect x="440" y="118" width="180" height="76" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="530" y="146" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">LLM_L（强文本）</text>
+  <text x="530" y="166" font-size="12" fill="#4B5563" text-anchor="middle">推理：基于</text>
+  <text x="530" y="183" font-size="12" fill="#4B5563" text-anchor="middle">observation 作答</text>
+
+  <rect x="668" y="126" width="100" height="60" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="718" y="161" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">答案</text>
+
+  <line x1="170" y1="156" x2="200" y2="156" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="380" y1="156" x2="440" y2="156" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="410" y="146" font-size="11" fill="#6366F1" text-anchor="middle">observation</text>
+  <line x1="620" y1="156" x2="668" y2="156" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- error control -->
+  <rect x="300" y="244" width="320" height="46" rx="8" fill="#FFF7ED" stroke="#F59E0B"/>
+  <text x="460" y="272" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">一致性校验 / 幻觉检测</text>
+  <line x1="530" y1="194" x2="530" y2="244" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- fallback loop -->
+  <path d="M300,267 C160,267 150,210 200,180" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="120" y="232" font-size="12" fill="#F59E0B">不一致 →</text>
+  <text x="108" y="250" font-size="12" fill="#F59E0B">补充视觉查询</text>
+
+  <!-- nail -->
+  <text x="40" y="350" font-size="12" fill="#9CA3AF">钉子：纯文本强模型不能直接弥补视觉感知错误——必须靠结构化 observation + 补充视觉查询协同。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="380" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

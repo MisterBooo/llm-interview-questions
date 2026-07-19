@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>BERT+CRF 怎么联合训练?</title>
+  <desc>BERT产生上下文发射分数，CRF用标签转移分数联合解码序列，从而建模合法标注依赖。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">BERT + CRF：局部语义 + 全局标签约束做 NER</text>
+
+  <!-- 左侧竖向流程 -->
+  <g font-size="13" fill="#111827">
+    <rect x="40" y="64" width="36" height="28" rx="5" fill="#FFFFFF" stroke="#E5E7EB"/><text x="58" y="83" text-anchor="middle">小</text>
+    <rect x="82" y="64" width="36" height="28" rx="5" fill="#FFFFFF" stroke="#E5E7EB"/><text x="100" y="83" text-anchor="middle">明</text>
+    <rect x="124" y="64" width="36" height="28" rx="5" fill="#FFFFFF" stroke="#E5E7EB"/><text x="142" y="83" text-anchor="middle">在</text>
+    <rect x="166" y="64" width="36" height="28" rx="5" fill="#FFFFFF" stroke="#E5E7EB"/><text x="184" y="83" text-anchor="middle">北</text>
+    <rect x="208" y="64" width="36" height="28" rx="5" fill="#FFFFFF" stroke="#E5E7EB"/><text x="226" y="83" text-anchor="middle">京</text>
+  </g>
+
+  <line x1="142" y1="92" x2="142" y2="110" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="40" y="110" width="240" height="42" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="160" y="137" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">BERT 编码（局部上下文语义）</text>
+  <line x1="142" y1="152" x2="142" y2="170" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="40" y="170" width="240" height="42" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="160" y="197" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">发射分数：每 token × 每标签</text>
+  <line x1="142" y1="212" x2="142" y2="230" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="40" y="230" width="240" height="46" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="160" y="259" font-size="13.5" font-weight="600" fill="#6366F1" text-anchor="middle">CRF：转移矩阵（全局约束）</text>
+  <line x1="142" y1="276" x2="142" y2="294" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="40" y="294" width="240" height="42" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="160" y="321" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">Viterbi 解码：全局最优路径</text>
+  <line x1="142" y1="336" x2="142" y2="354" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="40" y="354" width="300" height="40" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="190" y="379" font-size="12.5" font-weight="500" fill="#111827" text-anchor="middle">B-PER · I-PER · O · B-LOC · I-LOC</text>
+
+  <!-- 右侧说明 -->
+  <text x="360" y="118" font-size="14" font-weight="600" fill="#111827">分工与训练</text>
+  <text x="360" y="146" font-size="12.5" fill="#4B5563">· BERT：把上下文编码成发射分数（局部语义）</text>
+  <text x="360" y="170" font-size="12.5" fill="#4B5563">· CRF：转移矩阵建模标签依赖（全局一致）</text>
+  <rect x="360" y="186" width="400" height="64" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="374" y="210" font-size="12.5" fill="#4B5563">例：O→I-PER 或 B-ORG→I-PER 通常违反 BIO；</text>
+  <text x="374" y="230" font-size="12.5" fill="#6366F1">CRF 学相邻标签偏好，需 mask 非法转移才能硬保证合法。</text>
+  <text x="360" y="276" font-size="12.5" fill="#4B5563">· 联合训练：损失 = CRF 负对数似然（端到端）</text>
+
+  <text x="40" y="424" font-size="12" fill="#9CA3AF">钉子：CRF 的收益取决于数据、标签体系与 encoder 强度，要与 token classifier 比 span-F1、非法率和延迟。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="-apple-system, system-ui, sans-serif">
+  <title>Encoder vs Decoder 功能区别?</title>
+  <desc>Seq2Seq Encoder 编码整段源序列为 memory，Decoder 对目标前缀做因果注意力并用交叉注意力读取该 memory。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Seq2Seq Encoder vs Decoder：源序列记忆 vs 因果目标建模</text>
+
+  <!-- legend -->
+  <rect x="470" y="58" width="13" height="13" rx="2" fill="#F5F6FF" stroke="#6366F1"/><text x="490" y="69" font-size="12" fill="#4B5563">可见</text>
+  <rect x="560" y="58" width="13" height="13" rx="2" fill="#F9FAFB" stroke="#E5E7EB"/><text x="580" y="69" font-size="12" fill="#9CA3AF">掩盖</text>
+  <text x="640" y="69" font-size="11" fill="#9CA3AF">行=query 列=key</text>
+
+  <!-- Encoder card -->
+  <rect x="40" y="84" width="350" height="300" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="215" y="114" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">Encoder self-attention</text>
+  <!-- 4x4 full grid -->
+  <rect x="128" y="148" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="168" y="148" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="208" y="148" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="248" y="148" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/>
+  <rect x="128" y="188" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="168" y="188" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="208" y="188" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="248" y="188" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/>
+  <rect x="128" y="228" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="168" y="228" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="208" y="228" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="248" y="228" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/>
+  <rect x="128" y="268" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="168" y="268" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="208" y="268" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="248" y="268" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="215" y="332" font-size="12.5" fill="#111827" text-anchor="middle">源 token 看完整有效输入</text>
+  <text x="215" y="354" font-size="12" fill="#9CA3AF" text-anchor="middle">输出随源长度变化的 memory</text>
+
+  <!-- Decoder card -->
+  <rect x="410" y="84" width="350" height="300" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="585" y="114" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">Decoder causal self-attention</text>
+  <!-- 4x4 lower-triangular grid -->
+  <rect x="498" y="148" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="538" y="148" width="36" height="36" rx="4" fill="#F9FAFB" stroke="#E5E7EB"/><rect x="578" y="148" width="36" height="36" rx="4" fill="#F9FAFB" stroke="#E5E7EB"/><rect x="618" y="148" width="36" height="36" rx="4" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <rect x="498" y="188" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="538" y="188" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="578" y="188" width="36" height="36" rx="4" fill="#F9FAFB" stroke="#E5E7EB"/><rect x="618" y="188" width="36" height="36" rx="4" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <rect x="498" y="228" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="538" y="228" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="578" y="228" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="618" y="228" width="36" height="36" rx="4" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <rect x="498" y="268" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="538" y="268" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="578" y="268" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/><rect x="618" y="268" width="36" height="36" rx="4" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="585" y="332" font-size="12.5" fill="#111827" text-anchor="middle">目标位置只看当前与历史前缀</text>
+  <text x="585" y="354" font-size="12" fill="#9CA3AF" text-anchor="middle">另用 cross-attention 读取 memory</text>
+
+  <!-- nail -->
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：Encoder 编码整段源 memory；Decoder 建模目标前缀并 cross-attend 源 memory。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="410" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

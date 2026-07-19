@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="-apple-system, system-ui, sans-serif">
+  <title>多轮对话上下文状态管理机制</title>
+  <desc>对话系统应将持久会话状态与模型工作上下文分离，按 token 预算组装指令、摘要和最近轮，并以版本控制、分片、TTL 保证一致性与生命周期。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">对话上下文状态：分层存储、预算组装、一致更新</text>
+
+  <!-- history -->
+  <rect x="40" y="92" width="250" height="150" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="118" font-size="13" font-weight="500" fill="#9CA3AF">持久化会话状态</text>
+  <text x="58" y="148" font-size="13" fill="#111827">原始消息 → 数据库归档</text>
+  <text x="58" y="178" font-size="13" fill="#111827">最近 N 轮 → Redis 热状态</text>
+  <text x="58" y="200" font-size="13" fill="#111827">摘要 / 实体 / 工具结果</text>
+  <text x="58" y="226" font-size="12" fill="#EF4444">按 session_id 分片，设置 TTL 与归档</text>
+
+  <!-- rewrite -->
+  <rect x="330" y="138" width="160" height="60" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="410" y="164" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">按 token 预算组装</text>
+  <text x="410" y="183" font-size="12" fill="#4B5563" text-anchor="middle">指令 + 摘要 + 最近轮</text>
+  <line x1="290" y1="168" x2="330" y2="168" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- self-contained query -->
+  <rect x="530" y="138" width="220" height="60" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="640" y="164" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">模型工作上下文</text>
+  <text x="640" y="183" font-size="12.5" fill="#4B5563" text-anchor="middle">请求完成 → 版本化回写</text>
+  <line x1="490" y1="168" x2="530" y2="168" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- nail -->
+  <text x="40" y="306" font-size="12" fill="#9CA3AF">结论：持久状态与 prompt 分离；用 version/CAS 防并发覆盖，按 token 预算保留指令、关键事实与最近轮。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="350" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

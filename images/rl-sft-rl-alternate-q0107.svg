@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>SFT、偏好优化与 RL 怎么衔接?</title>
+  <desc>SFT与强化学习的衔接节奏取决于能力目标、奖励可靠性和退化监控，不存在固定轮次。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">后训练如何衔接 SFT 与偏好优化</text>
+
+  <!-- pipeline -->
+  <rect x="40" y="74" width="120" height="48" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/><text x="100" y="103" font-size="13" fill="#111827" text-anchor="middle">预训练</text>
+  <line x1="160" y1="98" x2="194" y2="98" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="196" y="74" width="120" height="48" rx="8" fill="#F5F6FF" stroke="#6366F1"/><text x="256" y="98" font-size="13" fill="#111827" text-anchor="middle">SFT（锚点）</text><text x="256" y="114" font-size="10.5" fill="#6366F1" text-anchor="middle">给靠谱起点</text>
+  <line x1="316" y1="98" x2="350" y2="98" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="352" y="74" width="120" height="48" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/><text x="412" y="103" font-size="13" fill="#111827" text-anchor="middle">奖励模型 RM</text>
+  <line x1="472" y1="98" x2="506" y2="98" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="508" y="74" width="120" height="48" rx="8" fill="#F5F6FF" stroke="#6366F1"/><text x="568" y="98" font-size="13" fill="#111827" text-anchor="middle">RL（优化器）</text><text x="568" y="114" font-size="10.5" fill="#6366F1" text-anchor="middle">按偏好精修</text>
+  <!-- loop back -->
+  <path d="M628 98 C 690 98 690 150 568 150 L 256 150 C 150 150 150 124 196 122" fill="none" stroke="#6366F1" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="412" y="168" font-size="11.5" fill="#6366F1" text-anchor="middle">常见基线：SFT → 偏好数据/RM → RL 或 DPO；是否再 SFT 由独立评测决定</text>
+
+  <!-- two pitfalls -->
+  <rect x="40" y="196" width="350" height="116" rx="10" fill="#FFFFFF" stroke="#EF4444"/>
+  <text x="58" y="222" font-size="14" font-weight="500" fill="#111827">纯 SFT 的坑</text>
+  <text x="58" y="248" font-size="12.5" fill="#EF4444">· 示范错误或分布窄 → 直接模仿</text>
+  <text x="58" y="272" font-size="12.5" fill="#EF4444">· 固定措辞与数据覆盖限制行为</text>
+  <text x="58" y="296" font-size="12.5" fill="#9CA3AF">需用高质量、多样化数据治理</text>
+
+  <rect x="410" y="196" width="350" height="116" rx="10" fill="#FFFFFF" stroke="#EF4444"/>
+  <text x="428" y="222" font-size="14" font-weight="500" fill="#111827">纯 RL 的坑</text>
+  <text x="428" y="248" font-size="12.5" fill="#EF4444">· 奖励代理可能被过度优化</text>
+  <text x="428" y="272" font-size="12.5" fill="#EF4444">· 策略可能偏离参考分布</text>
+  <text x="428" y="296" font-size="12.5" fill="#9CA3AF">需监控 KL、事实性与独立胜率</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：新增失败样本、奖励漂移与能力回归才是迭代信号，不存在固定的 SFT/RL 交替配方。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

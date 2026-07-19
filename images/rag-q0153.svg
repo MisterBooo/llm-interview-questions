@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>RAG ANN 索引优化</title>
+  <desc>向量索引优化应以精确近邻为基线，在召回、尾延迟、内存、构建和更新成本间寻找前沿。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">向量索引优化：沿建索引流水线逐级提精度与效率</text>
+
+  <rect x="40" y="104" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="120" y="135" font-size="14" font-weight="600" fill="#111827" text-anchor="middle">分块</text>
+  <rect x="232" y="104" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="312" y="135" font-size="14" font-weight="600" fill="#111827" text-anchor="middle">嵌入</text>
+  <rect x="424" y="104" width="160" height="50" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="504" y="135" font-size="14" font-weight="600" fill="#6366F1" text-anchor="middle">ANN 索引</text>
+  <rect x="616" y="104" width="144" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="688" y="135" font-size="14" font-weight="600" fill="#111827" text-anchor="middle">工程服务</text>
+
+  <line x1="200" y1="129" x2="232" y2="129" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="392" y1="129" x2="424" y2="129" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="584" y1="129" x2="616" y2="129" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="40" y="194" font-size="12.5" fill="#4B5563">按语义边界切分</text>
+  <text x="40" y="214" font-size="12.5" fill="#4B5563">+ 重叠比例用评测扫描</text>
+  <text x="232" y="194" font-size="12.5" fill="#4B5563">嵌入模型选型</text>
+  <text x="232" y="214" font-size="12.5" fill="#4B5563">+ 领域微调</text>
+  <text x="424" y="194" font-size="12.5" fill="#4B5563">HNSW / IVF / PQ</text>
+  <text x="424" y="214" font-size="12.5" fill="#4B5563">+ 混合检索（稀疏+稠密）</text>
+  <text x="616" y="194" font-size="12.5" fill="#4B5563">量化压缩</text>
+  <text x="616" y="214" font-size="12.5" fill="#4B5563">增量更新 / 分层存储</text>
+
+  <rect x="40" y="248" width="720" height="58" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="56" y="272" font-size="13" font-weight="600" fill="#6366F1">核心是平衡</text>
+  <text x="56" y="294" font-size="12.5" fill="#4B5563">分块影响证据完整性，ANN 参数权衡召回/延迟，量化影响内存与质量，均要按 SLA 实测。</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：增量写入与删除能力取决于索引实现；要用 tombstone/后台合并/周期重建等方案并监控召回。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

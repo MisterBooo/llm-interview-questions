@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>KV-Cache 空间复杂度怎么算?</title>
+  <desc>KV Cache 保存各层历史 K/V，空间随批次、序列长度、层数和 KV 头数线性增长，可用 GQA/MQA、量化、分页或窗口化降低不同成本。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">KV-Cache：缓存历史 K/V，自回归解码空间换时间</text>
+
+  <!-- no cache -->
+  <rect x="40" y="62" width="350" height="262" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="90" font-size="15" font-weight="500" fill="#111827">无 KV-Cache</text>
+  <text x="58" y="112" font-size="12" fill="#9CA3AF">生成 t5 时，重算 t1~t5 全部 K/V</text>
+  <g font-size="12" text-anchor="middle">
+    <rect x="58" y="128" width="58" height="40" rx="6" fill="#FEF2F2" stroke="#EF4444"/><text x="87" y="146" fill="#111827">t1</text><text x="87" y="161" fill="#EF4444">K/V</text>
+    <rect x="124" y="128" width="58" height="40" rx="6" fill="#FEF2F2" stroke="#EF4444"/><text x="153" y="146" fill="#111827">t2</text><text x="153" y="161" fill="#EF4444">K/V</text>
+    <rect x="190" y="128" width="58" height="40" rx="6" fill="#FEF2F2" stroke="#EF4444"/><text x="219" y="146" fill="#111827">t3</text><text x="219" y="161" fill="#EF4444">K/V</text>
+    <rect x="256" y="128" width="58" height="40" rx="6" fill="#FEF2F2" stroke="#EF4444"/><text x="285" y="146" fill="#111827">t4</text><text x="285" y="161" fill="#EF4444">K/V</text>
+    <rect x="322" y="128" width="50" height="40" rx="6" fill="#FEF2F2" stroke="#EF4444"/><text x="347" y="146" fill="#111827">t5</text><text x="347" y="161" fill="#EF4444">K/V</text>
+  </g>
+  <text x="58" y="210" font-size="12.5" fill="#111827">每步把前面所有 token 的 K/V 重新算一遍</text>
+  <rect x="58" y="226" width="314" height="40" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="215" y="251" font-size="13" fill="#EF4444" text-anchor="middle">总计算量 ∝ 序列长度²（慢，大量重复）</text>
+  <text x="215" y="300" font-size="12" fill="#9CA3AF" text-anchor="middle">瓶颈：重复计算无法复用</text>
+
+  <!-- with cache -->
+  <rect x="410" y="62" width="350" height="262" rx="10" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="428" y="90" font-size="15" font-weight="500" fill="#111827">有 KV-Cache</text>
+  <text x="428" y="112" font-size="12" fill="#9CA3AF">历史 K/V 读缓存，只算 t5 一个 token</text>
+  <g font-size="12" text-anchor="middle">
+    <rect x="428" y="128" width="58" height="40" rx="6" fill="#F5F6FF" stroke="#6366F1"/><text x="457" y="146" fill="#111827">t1</text><text x="457" y="161" fill="#6366F1">缓存</text>
+    <rect x="494" y="128" width="58" height="40" rx="6" fill="#F5F6FF" stroke="#6366F1"/><text x="523" y="146" fill="#111827">t2</text><text x="523" y="161" fill="#6366F1">缓存</text>
+    <rect x="560" y="128" width="58" height="40" rx="6" fill="#F5F6FF" stroke="#6366F1"/><text x="589" y="146" fill="#111827">t3</text><text x="589" y="161" fill="#6366F1">缓存</text>
+    <rect x="626" y="128" width="58" height="40" rx="6" fill="#F5F6FF" stroke="#6366F1"/><text x="655" y="146" fill="#111827">t4</text><text x="655" y="161" fill="#6366F1">缓存</text>
+    <rect x="692" y="128" width="50" height="40" rx="6" fill="#EEF2FF" stroke="#6366F1" stroke-width="2"/><text x="717" y="146" fill="#111827">t5</text><text x="717" y="161" fill="#6366F1">新算</text>
+  </g>
+  <text x="428" y="210" font-size="12.5" fill="#111827">存下算过的 K/V，避免每步重复计算</text>
+  <rect x="428" y="226" width="314" height="40" rx="6" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="585" y="251" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">只投影新 token，仍读取全部历史 K/V</text>
+  <text x="585" y="300" font-size="12" fill="#6366F1" text-anchor="middle">代价：显存随序列/层数线性增长</text>
+
+  <text x="400" y="350" font-size="12.5" fill="#4B5563" text-anchor="middle">字节 ≈ 2 × batch × seq_len × layers × n_kv_heads × d_head × 每元素字节数</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">结论：KV Cache 以 O(L) 显存减少重复投影；GQA/MQA、量化、分页和窗口化降低不同成本。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

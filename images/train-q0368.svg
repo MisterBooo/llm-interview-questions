@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>MSE vs 交叉熵损失怎么选?</title>
+  <desc>均方误差适合连续回归，交叉熵对应分类似然并提供更合适梯度，因此语言建模通常采用交叉熵。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">MSE vs 交叉熵：数值距离 vs 概率分布</text>
+
+  <!-- MSE -->
+  <rect x="40" y="72" width="350" height="248" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="98" font-size="15" font-weight="500" fill="#111827">MSE（均方误差）</text>
+  <text x="58" y="120" font-size="12.5" fill="#111827">衡量「数值差多少」→ 适合回归</text>
+  <!-- mini gradient plot: vanishing at extremes -->
+  <rect x="58" y="134" width="200" height="92" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <line x1="72" y1="216" x2="244" y2="216" stroke="#9CA3AF" stroke-width="1"/>
+  <line x1="72" y1="216" x2="72" y2="144" stroke="#9CA3AF" stroke-width="1"/>
+  <path d="M76 212 C 120 150 196 150 240 212" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <text x="158" y="162" font-size="10.5" fill="#EF4444" text-anchor="middle">logit 梯度含 (p−y)p(1−p)</text>
+  <text x="276" y="158" font-size="12" fill="#EF4444">p→0 或 1 时</text>
+  <text x="276" y="176" font-size="12" fill="#EF4444">梯度消失（饱和）</text>
+  <text x="58" y="256" font-size="12.5" fill="#EF4444">✗ one-hot token 当连续量不匹配离散似然</text>
+  <text x="58" y="284" font-size="12" fill="#9CA3AF">自信错误时还乘饱和项，梯度可能过小</text>
+
+  <!-- CE -->
+  <rect x="410" y="72" width="350" height="248" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="428" y="98" font-size="15" font-weight="600" fill="#111827">交叉熵 ✓</text>
+  <text x="428" y="120" font-size="12.5" fill="#111827">衡量「分布有多像」→ 适合分类</text>
+  <rect x="428" y="134" width="200" height="92" rx="6" fill="#FFFFFF" stroke="#6366F1"/>
+  <line x1="442" y1="216" x2="614" y2="216" stroke="#9CA3AF" stroke-width="1"/>
+  <line x1="442" y1="216" x2="442" y2="144" stroke="#9CA3AF" stroke-width="1"/>
+  <path d="M446 150 L 610 212" fill="none" stroke="#6366F1" stroke-width="2"/>
+  <text x="528" y="162" font-size="10.5" fill="#6366F1" text-anchor="middle">梯度 = p − y</text>
+  <text x="646" y="158" font-size="12" fill="#6366F1">自信错误时</text>
+  <text x="646" y="176" font-size="12" fill="#6366F1">仍保留较强纠错梯度</text>
+  <text x="428" y="256" font-size="12.5" fill="#059669">✓ next token 预测 = 极大似然</text>
+  <text x="428" y="284" font-size="12" fill="#6366F1">直接挂钩困惑度，优化数据似然</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：交叉熵直接最大化观测 token 的条件似然；蒸馏软目标可用交叉熵或 KL。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

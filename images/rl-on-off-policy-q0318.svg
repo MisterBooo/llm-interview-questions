@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>On-policy、Off-policy 与 DPO 怎么选?</title>
+  <desc>策略数据是否由当前策略产生决定在线与离线属性，PPO近似在线而DPO直接使用离线偏好数据。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">On-policy / Off-policy / 离线偏好：数据与偏移取舍</text>
+
+  <!-- on-policy -->
+  <rect x="40" y="72" width="350" height="248" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="58" y="98" font-size="15" font-weight="600" fill="#111827">On-policy / 近 on-policy（如 PPO）</text>
+  <rect x="70" y="116" width="130" height="40" rx="6" fill="#FFFFFF" stroke="#6366F1"/><text x="135" y="141" font-size="12.5" fill="#111827" text-anchor="middle">当前策略采样</text>
+  <line x1="200" y1="136" x2="234" y2="136" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="236" y="116" width="124" height="40" rx="6" fill="#EEF2FF" stroke="#6366F1"/><text x="298" y="141" font-size="12.5" fill="#111827" text-anchor="middle">同批有限多轮更新</text>
+  <text x="58" y="190" font-size="12.5" fill="#EF4444">✗ 旧数据随策略变化逐渐失配</text>
+  <text x="58" y="216" font-size="12.5" fill="#059669">✓ 分布较匹配，稳定性仍需实测</text>
+  <rect x="70" y="234" width="290" height="68" rx="8" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="215" y="260" font-size="12.5" fill="#111827" text-anchor="middle">生成 rollout 成本较高</text>
+  <text x="215" y="284" font-size="11.5" fill="#6366F1" text-anchor="middle">clip / KL / 奖励质量共同影响训练</text>
+
+  <!-- off-policy -->
+  <rect x="410" y="72" width="350" height="248" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="428" y="98" font-size="15" font-weight="500" fill="#111827">Off-policy 强化学习</text>
+  <rect x="440" y="116" width="130" height="40" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/><text x="505" y="141" font-size="12.5" fill="#111827" text-anchor="middle">经验回放池</text>
+  <line x1="570" y1="136" x2="604" y2="136" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="606" y="116" width="124" height="40" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/><text x="668" y="141" font-size="12.5" fill="#111827" text-anchor="middle">复用历史数据</text>
+  <text x="428" y="190" font-size="12.5" fill="#059669">✓ 可复用历史轨迹，交互效率可能更高</text>
+  <text x="428" y="216" font-size="12.5" fill="#EF4444">✗ 历史与当前策略有分布偏差</text>
+  <rect x="440" y="234" width="290" height="68" rx="8" fill="#FEF2F2" stroke="#EF4444"/>
+  <text x="585" y="260" font-size="12.5" fill="#111827" text-anchor="middle">需处理分布偏移与价值估计偏差</text>
+  <text x="585" y="284" font-size="11.5" fill="#EF4444" text-anchor="middle">数据、奖励或环境变化时要重评旧样本</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：DPO 是离线偏好目标，不是 PPO 的普通 off-policy 变体；选型要绑定数据、奖励和计算条件。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

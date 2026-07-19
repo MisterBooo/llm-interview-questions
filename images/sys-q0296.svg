@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="-apple-system, system-ui, sans-serif">
+  <title>13B模型INT8/INT4量化后多大?</title>
+  <desc>13B 模型裸权重约为 FP16 26GB、INT8 13GB、INT4 6.5GB；实际显存与速度还取决于量化元数据、KV 缓存、内核和负载。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">量化：降低位宽，压缩 13B 模型裸权重</text>
+
+  <!-- FP16 -->
+  <text x="40" y="135" font-size="14" font-weight="500" fill="#111827">FP16</text>
+  <rect x="150" y="112" width="494" height="40" rx="6" fill="#F3F4F6" stroke="#9CA3AF"/>
+  <text x="166" y="137" font-size="13" fill="#111827">2 字节 / 参数</text>
+  <text x="656" y="137" font-size="13" font-weight="500" fill="#111827">≈ 26 GB</text>
+
+  <!-- INT8 -->
+  <text x="40" y="195" font-size="14" font-weight="500" fill="#111827">INT8</text>
+  <rect x="150" y="172" width="247" height="40" rx="6" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="166" y="197" font-size="13" fill="#111827">1 字节 / 参数</text>
+  <text x="409" y="197" font-size="13" font-weight="500" fill="#6366F1">≈ 13 GB</text>
+
+  <!-- INT4 -->
+  <text x="40" y="255" font-size="14" font-weight="500" fill="#111827">INT4</text>
+  <rect x="150" y="232" width="124" height="40" rx="6" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="166" y="257" font-size="12.5" fill="#111827">0.5 字节</text>
+  <text x="286" y="257" font-size="13" font-weight="500" fill="#10B981">≈ 6.5 GB</text>
+
+  <!-- tradeoff -->
+  <text x="40" y="312" font-size="13" fill="#4B5563">权衡：位宽 ↓ → 权重容量/带宽下降；能否提速取决于硬件、内核、batch 与序列长度。</text>
+
+  <!-- nail -->
+  <text x="40" y="362" font-size="12" fill="#9CA3AF">结论：26/13/6.5 GB 只是裸权重下界；还要计 scale、元数据、激活、KV Cache 与运行缓冲。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="410" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

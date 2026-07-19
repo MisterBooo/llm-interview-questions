@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="-apple-system, system-ui, sans-serif">
+  <title>RAG 解决了哪些核心问题?</title>
+  <desc>RAG 通过检索已更新且可授权的外部资料，为生成补充时效知识、私有知识和可追溯证据，但不能替代模型推理。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="44" font-size="22" font-weight="500" fill="#111827">RAG 解决大模型的三个核心问题</text>
+
+  <!-- column headers -->
+  <text x="60" y="90" font-size="13" fill="#9CA3AF">大模型痛点</text>
+  <text x="480" y="90" font-size="13" fill="#6366F1">RAG 对应解法</text>
+
+  <!-- left boxes (pain points) -->
+  <rect x="60" y="104" width="240" height="64" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="76" y="134" font-size="15" font-weight="500" fill="#111827">知识时效性差</text>
+  <text x="76" y="154" font-size="12" fill="#4B5563">训练后知识不再更新</text>
+
+  <rect x="60" y="188" width="240" height="64" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="76" y="218" font-size="15" font-weight="500" fill="#111827">幻觉（Hallucination）</text>
+  <text x="76" y="238" font-size="12" fill="#4B5563">无依据时编造内容</text>
+
+  <rect x="60" y="272" width="240" height="64" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="76" y="302" font-size="15" font-weight="500" fill="#111827">领域 / 私有知识缺失</text>
+  <text x="76" y="322" font-size="12" fill="#4B5563">通用模型不懂你的业务</text>
+
+  <!-- right boxes (RAG solutions) -->
+  <rect x="480" y="104" width="260" height="64" rx="8" fill="#F5F6FF" stroke="#C7D2FE"/>
+  <text x="496" y="134" font-size="15" font-weight="500" fill="#111827">检索最新外部知识</text>
+  <text x="496" y="154" font-size="12" fill="#4B5563">索引更新后即可检索</text>
+
+  <rect x="480" y="188" width="260" height="64" rx="8" fill="#F5F6FF" stroke="#C7D2FE"/>
+  <text x="496" y="218" font-size="15" font-weight="500" fill="#111827">用检索证据约束生成</text>
+  <text x="496" y="238" font-size="12" fill="#4B5563">引用溯源，显著降幻觉</text>
+
+  <rect x="480" y="272" width="260" height="64" rx="8" fill="#F5F6FF" stroke="#C7D2FE"/>
+  <text x="496" y="302" font-size="15" font-weight="500" fill="#111827">注入私有领域文档</text>
+  <text x="496" y="322" font-size="12" fill="#4B5563">无需重新训练模型</text>
+
+  <!-- mapping arrows -->
+  <line x1="300" y1="136" x2="480" y2="136" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="300" y1="220" x2="480" y2="220" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="300" y1="304" x2="480" y2="304" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- divider -->
+  <line x1="40" y1="360" x2="760" y2="360" stroke="#E5E7EB"/>
+
+  <!-- RAG vs SFT compare -->
+  <text x="40" y="386" font-size="13" font-weight="500" fill="#111827">RAG vs 微调（SFT）：补的是什么？</text>
+
+  <rect x="60" y="398" width="320" height="58" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="76" y="422" font-size="14" font-weight="500" fill="#6366F1">RAG：改的是「资料」</text>
+  <text x="76" y="442" font-size="12" fill="#4B5563">改完即生效 · 可解释可溯源 · 成本低</text>
+
+  <rect x="420" y="398" width="320" height="58" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="436" y="422" font-size="14" font-weight="500" fill="#111827">SFT：改的是「模型能力」</text>
+  <text x="436" y="442" font-size="12" fill="#4B5563">需重新训练 · 适合风格/推理 · 成本高</text>
+
+  <!-- nail -->
+  <text x="40" y="482" font-size="12" fill="#9CA3AF">钉子：RAG 适合事实更新与私有知识，不替代模型的推理能力。</text>
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="490" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

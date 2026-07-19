@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>Flow Matching 原理是什么?</title>
+  <desc>Flow Matching直接回归概率路径的条件速度场，并用常微分方程把基分布传输到数据分布。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6366F1"/>
+    </marker>
+    <marker id="arrowg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Flow Matching：为选定概率路径学习速度场</text>
+
+  <!-- 两个分布 -->
+  <circle cx="110" cy="150" r="40" fill="#F3F4F6" stroke="#9CA3AF"/>
+  <text x="110" y="148" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">噪声</text>
+  <text x="110" y="166" font-size="11" fill="#4B5563" text-anchor="middle">N(0, I)</text>
+  <circle cx="410" cy="150" r="40" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="410" y="154" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">数据分布</text>
+
+  <!-- 直线（Flow）与弯曲（扩散） -->
+  <line x1="152" y1="142" x2="368" y2="142" stroke="#6366F1" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="260" y="132" font-size="12" fill="#6366F1" text-anchor="middle">Flow：ODE 速度场 v_θ，路径可直可弯</text>
+  <path d="M152,162 Q200,190 248,162 T344,162" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowg)"/>
+  <text x="250" y="206" font-size="12" fill="#9CA3AF" text-anchor="middle">扩散条件路径也可用于 Flow Matching</text>
+
+  <!-- 对比卡 -->
+  <rect x="470" y="92" width="290" height="76" rx="8" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="486" y="116" font-size="13.5" font-weight="600" fill="#111827">扩散模型（SDE）</text>
+  <text x="486" y="138" font-size="12" fill="#4B5563">随机过程：前向加噪 / 反向去噪</text>
+  <text x="486" y="158" font-size="12" fill="#4B5563">学习 score 或等价参数化，采样器可多样</text>
+
+  <rect x="470" y="180" width="290" height="76" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="486" y="204" font-size="13.5" font-weight="600" fill="#6366F1">Flow Matching（ODE）</text>
+  <text x="486" y="226" font-size="12" fill="#4B5563">选概率路径，网络回归目标速度场</text>
+  <text x="486" y="246" font-size="12" fill="#4B5563">推理仍需 ODE 积分，NFE 受曲率/误差影响</text>
+
+  <text x="40" y="300" font-size="13" fill="#111827">训练：可采用线性或扩散等条件路径，v_θ(x_t,t) 回归可计算的条件速度场。</text>
+  <text x="40" y="326" font-size="13" fill="#111827">推理：从噪声出发，沿向量场解 ODE 积分到数据。</text>
+
+  <text x="40" y="400" font-size="12" fill="#9CA3AF">钉子：Rectified Flow 用直线插值学速度场，reflow 可用当前模型配对重训，不等同于固定多轮蒸馏。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

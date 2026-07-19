@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="-apple-system, system-ui, sans-serif">
+  <title>时间窗口对话管理机制</title>
+  <desc>时间窗口会淘汰或压缩过期消息，会话边界还应结合消息间隔、轮数与业务事件，并保留可回查历史。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">时间窗口对话管理：滑动窗口 + 会话边界</text>
+
+  <!-- Band 1: sliding window -->
+  <text x="40" y="80" font-size="13" fill="#6366F1">① 滑动时间窗口（仅保留最近 N 分钟）</text>
+
+  <!-- window highlight over recent messages -->
+  <rect x="430" y="120" width="290" height="56" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="575" y="112" font-size="12" fill="#6366F1" text-anchor="middle">保留最近 N 分钟 → 进上下文</text>
+
+  <!-- timeline -->
+  <line x1="60" y1="148" x2="740" y2="148" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="724" y="170" font-size="12" fill="#9CA3AF">时间</text>
+  <circle cx="110" cy="148" r="7" fill="#9CA3AF"/>
+  <circle cx="180" cy="148" r="7" fill="#9CA3AF"/>
+  <circle cx="250" cy="148" r="7" fill="#9CA3AF"/>
+  <circle cx="470" cy="148" r="7" fill="#6366F1"/>
+  <circle cx="545" cy="148" r="7" fill="#6366F1"/>
+  <circle cx="620" cy="148" r="7" fill="#6366F1"/>
+  <circle cx="690" cy="148" r="7" fill="#6366F1"/>
+
+  <!-- overflow -> summary -->
+  <rect x="80" y="196" width="240" height="34" rx="8" fill="#FFF7ED" stroke="#F59E0B"/>
+  <text x="200" y="218" font-size="12.5" fill="#111827" text-anchor="middle">超窗历史 → 摘要压缩</text>
+  <line x1="180" y1="155" x2="190" y2="196" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Band 2: session boundary -->
+  <text x="40" y="296" font-size="13" fill="#6366F1">② 会话边界判定（按消息间隔）</text>
+
+  <!-- same session -->
+  <circle cx="110" cy="358" r="7" fill="#9CA3AF"/>
+  <circle cx="170" cy="358" r="7" fill="#9CA3AF"/>
+  <line x1="117" y1="358" x2="163" y2="358" stroke="#10B981" stroke-width="2"/>
+  <text x="140" y="392" font-size="12" fill="#10B981" text-anchor="middle">间隔 &lt; 阈值 → 同一会话</text>
+
+  <!-- new session -->
+  <circle cx="470" cy="358" r="7" fill="#9CA3AF"/>
+  <circle cx="640" cy="358" r="7" fill="#9CA3AF"/>
+  <line x1="477" y1="358" x2="633" y2="358" stroke="#EF4444" stroke-width="2" stroke-dasharray="5 4"/>
+  <line x1="555" y1="334" x2="555" y2="382" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="555" y="404" font-size="12" fill="#EF4444" text-anchor="middle">间隔 &gt; 阈值 → 新会话开始</text>
+
+  <!-- nail -->
+  <text x="40" y="450" font-size="12" fill="#9CA3AF">钉子：摘要压缩会改变模型可见事实，要有结构化字段 + 回查机制，不是单纯省 token。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="470" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>MLA 与 KV Cache 怎么用?</title>
+  <desc>KV Cache 复用历史 K/V；GQA 和 MQA 通过共享 KV 头缩减缓存，MLA 则缓存低秩 latent 与解耦 RoPE key。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">KV Cache 优化：共享 KV 头 vs MLA 压缩表示</text>
+  <text x="40" y="68" font-size="12.5" fill="#9CA3AF">KV Cache 保存历史 K/V；GQA/MQA 共享 KV 头，MLA 缓存低秩 latent 与解耦 RoPE key</text>
+
+  <!-- legend -->
+  <circle cx="510" cy="91" r="7" fill="#F5F6FF" stroke="#6366F1"/><text x="522" y="95" font-size="12" fill="#4B5563">Query 头</text>
+  <circle cx="610" cy="91" r="7" fill="#FFF7ED" stroke="#F59E0B"/><text x="622" y="95" font-size="12" fill="#4B5563">KV / latent</text>
+
+  <!-- card MHA -->
+  <rect x="40" y="108" width="228" height="274" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="154" y="136" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">MHA 多头注意力</text>
+  <line x1="80" y1="197" x2="80" y2="261" stroke="#9CA3AF"/><line x1="120" y1="197" x2="120" y2="261" stroke="#9CA3AF"/><line x1="160" y1="197" x2="160" y2="261" stroke="#9CA3AF"/><line x1="200" y1="197" x2="200" y2="261" stroke="#9CA3AF"/>
+  <circle cx="80" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/><circle cx="120" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/><circle cx="160" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/><circle cx="200" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/>
+  <circle cx="80" cy="272" r="11" fill="#FFF7ED" stroke="#F59E0B"/><circle cx="120" cy="272" r="11" fill="#FFF7ED" stroke="#F59E0B"/><circle cx="160" cy="272" r="11" fill="#FFF7ED" stroke="#F59E0B"/><circle cx="200" cy="272" r="11" fill="#FFF7ED" stroke="#F59E0B"/>
+  <text x="154" y="330" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">KV 头 = 4</text>
+  <text x="154" y="352" font-size="12" fill="#EF4444" text-anchor="middle">缓存最大</text>
+
+  <!-- card GQA / MQA -->
+  <rect x="286" y="108" width="228" height="274" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="400" y="136" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">GQA / MQA 共享 KV</text>
+  <line x1="326" y1="197" x2="346" y2="261" stroke="#9CA3AF"/><line x1="366" y1="197" x2="346" y2="261" stroke="#9CA3AF"/><line x1="406" y1="197" x2="426" y2="261" stroke="#9CA3AF"/><line x1="446" y1="197" x2="426" y2="261" stroke="#9CA3AF"/>
+  <circle cx="326" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/><circle cx="366" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/><circle cx="406" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/><circle cx="446" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/>
+  <circle cx="346" cy="272" r="11" fill="#FFF7ED" stroke="#F59E0B"/><circle cx="426" cy="272" r="11" fill="#FFF7ED" stroke="#F59E0B"/>
+  <text x="400" y="330" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">KV 头少于 Query 头</text>
+  <text x="400" y="352" font-size="12" fill="#F59E0B" text-anchor="middle">GQA 分组；MQA 仅 1 组</text>
+
+  <!-- card MLA -->
+  <rect x="532" y="108" width="228" height="274" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="646" y="136" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">MLA 低秩联合压缩</text>
+  <line x1="572" y1="197" x2="646" y2="261" stroke="#9CA3AF"/><line x1="612" y1="197" x2="646" y2="261" stroke="#9CA3AF"/><line x1="652" y1="197" x2="646" y2="261" stroke="#9CA3AF"/><line x1="692" y1="197" x2="646" y2="261" stroke="#9CA3AF"/>
+  <circle cx="572" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/><circle cx="612" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/><circle cx="652" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/><circle cx="692" cy="186" r="11" fill="#F5F6FF" stroke="#6366F1"/>
+  <circle cx="646" cy="272" r="11" fill="#FFF7ED" stroke="#F59E0B"/>
+  <text x="646" y="330" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">缓存 c_KV + k_R</text>
+  <text x="646" y="352" font-size="12" fill="#10B981" text-anchor="middle">训练时即采用压缩结构</text>
+
+  <!-- nail -->
+  <text x="40" y="424" font-size="12" fill="#9CA3AF">钉子：GQA/MQA 减少 KV 头；MLA 压缩 KV 表示，二者机制不同且都需端到端质量验证。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

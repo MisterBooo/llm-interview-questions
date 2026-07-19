@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="-apple-system, system-ui, sans-serif">
+  <title>增量式向量索引怎么更新?</title>
+  <desc>增量索引以 Base 和 Delta 合并服务查询，删除更新按引擎能力处理，并用版本化影子索引校验后原子切换。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">增量式向量索引：写入分流 + 影子索引切换</text>
+
+  <!-- write request -->
+  <rect x="330" y="58" width="140" height="38" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="400" y="82" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">写入请求</text>
+
+  <!-- split arrows -->
+  <line x1="385" y1="96" x2="240" y2="118" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="415" y1="96" x2="560" y2="118" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- append branch (safe / green) -->
+  <rect x="70" y="120" width="300" height="56" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="86" y="145" font-size="14" font-weight="500" fill="#111827">追加写入</text>
+  <text x="86" y="165" font-size="12" fill="#4B5563">写入 Delta（复杂度依实现，准实时可见）</text>
+
+  <!-- delete branch (risky / red) -->
+  <rect x="430" y="120" width="300" height="56" rx="8" fill="#FEF2F2" stroke="#EF4444"/>
+  <text x="446" y="145" font-size="14" font-weight="500" fill="#111827">删除 / 修改</text>
+  <text x="446" y="165" font-size="12" fill="#4B5563">打软删除标记 + 触发异步重建</text>
+
+  <!-- index layer -->
+  <rect x="70" y="210" width="200" height="68" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="86" y="240" font-size="14" font-weight="500" fill="#111827">Base 主索引</text>
+  <text x="86" y="260" font-size="12" fill="#4B5563">全量，定期重建</text>
+
+  <rect x="300" y="210" width="180" height="68" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="316" y="240" font-size="14" font-weight="500" fill="#111827">Delta 增量索引</text>
+  <text x="316" y="260" font-size="12" fill="#4B5563">内存驻留，实时插入</text>
+
+  <rect x="510" y="210" width="220" height="68" rx="8" fill="#FFF7ED" stroke="#F59E0B"/>
+  <text x="526" y="240" font-size="14" font-weight="500" fill="#111827">Shadow 影子索引</text>
+  <text x="526" y="260" font-size="12" fill="#4B5563">后台重建，不影响在线</text>
+
+  <!-- append -> delta -->
+  <line x1="220" y1="176" x2="360" y2="210" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="250" y="200" font-size="12" fill="#10B981">插入</text>
+
+  <!-- delete -> shadow -->
+  <line x1="600" y1="176" x2="620" y2="210" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="612" y="200" font-size="12" fill="#F59E0B">异步重建</text>
+
+  <!-- shadow -> base atomic swap (arc over the row) -->
+  <path d="M620,210 C600,180 240,180 172,208" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="396" y="174" font-size="12" fill="#4B5563" text-anchor="middle">重建完成 · 原子切换替换 Base</text>
+
+  <!-- retrieval layer -->
+  <rect x="70" y="320" width="150" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="145" y="349" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">检索 Query</text>
+
+  <rect x="250" y="320" width="320" height="50" rx="8" fill="#F5F6FF" stroke="#C7D2FE"/>
+  <text x="266" y="343" font-size="13" font-weight="500" fill="#111827">合并检索：读 Base + Delta</text>
+  <text x="266" y="361" font-size="12" fill="#4B5563">过滤软删除项后再排序</text>
+
+  <rect x="600" y="320" width="130" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="665" y="349" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">Top-K 结果</text>
+
+  <!-- base/delta feed into merge -->
+  <line x1="160" y1="278" x2="320" y2="320" stroke="#9CA3AF" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="380" y1="278" x2="420" y2="320" stroke="#9CA3AF" stroke-width="1" marker-end="url(#arrow)"/>
+  <!-- query -> merge -> result -->
+  <line x1="220" y1="345" x2="250" y2="345" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="570" y1="345" x2="600" y2="345" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- footnotes -->
+  <text x="70" y="404" font-size="12" fill="#4B5563">版本隔离 + 一致性校验保证检索质量；冷热分层 + 批量合并做工程优化。</text>
+  <text x="70" y="428" font-size="12" fill="#9CA3AF">钉子：修改 / 删除按索引能力选择原地更新或软删除；重建时用版本化切换保质量。</text>
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="490" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

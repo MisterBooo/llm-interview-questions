@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>多信号评分函数原理与陷阱</title>
+  <desc>评分函数需先定义目标与约束，再校准多源信号、处理日志偏差，并通过离线和在线实验联合验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">评分函数设计：异构信号 → 分层 → 融合 → 排序分</text>
+
+  <!-- 四层信号 -->
+  <rect x="40" y="80" width="250" height="42" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="54" y="100" font-size="13" font-weight="500" fill="#111827">查询层</text>
+  <text x="54" y="116" font-size="11.5" fill="#4B5563">BM25 / 向量相似度，快速截断</text>
+  <rect x="40" y="130" width="250" height="42" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="54" y="150" font-size="13" font-weight="500" fill="#111827">用户层</text>
+  <text x="54" y="166" font-size="11.5" fill="#4B5563">点击 / 收藏行为，DIN 建模兴趣</text>
+  <rect x="40" y="180" width="250" height="42" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="54" y="200" font-size="13" font-weight="500" fill="#111827">内容层</text>
+  <text x="54" y="216" font-size="11.5" fill="#4B5563">质量 / 时效 / 权威，预训练打分</text>
+  <rect x="40" y="230" width="250" height="42" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="54" y="250" font-size="13" font-weight="500" fill="#111827">上下文层</text>
+  <text x="54" y="266" font-size="11.5" fill="#4B5563">场景 / 设备 / 时段</text>
+
+  <rect x="360" y="150" width="150" height="80" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="435" y="178" font-size="13.5" font-weight="600" fill="#6366F1" text-anchor="middle">融合</text>
+  <text x="435" y="200" font-size="11.5" fill="#4B5563" text-anchor="middle">加权 → LTR</text>
+  <text x="435" y="218" font-size="11.5" fill="#4B5563" text-anchor="middle">→ 在线学习</text>
+
+  <rect x="580" y="160" width="150" height="60" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="655" y="195" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">最终排序分</text>
+
+  <line x1="290" y1="190" x2="360" y2="190" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="510" y1="190" x2="580" y2="190" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="40" y="312" font-size="12.5" fill="#4B5563">落地易翻车点：不同原始分数先做<tspan fill="#111827" font-weight="500">尺度对齐</tspan>；需要概率语义时再做<tspan fill="#111827" font-weight="500">校准</tspan>，并治理日志回流偏差。</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：点击日志含位置和选择偏差，需用 IPW/无偏 LTR 或实验数据校正，不能把回流标签当真实相关性。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

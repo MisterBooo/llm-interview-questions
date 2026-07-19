@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>CNN/RNN/Transformer 怎么选?</title>
+  <desc>CNN、RNN与Transformer分别强调局部归纳偏置、递归状态和注意力交互，选型需按数据与硬件验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">CNN / RNN / Transformer：按依赖范围选架构</text>
+
+  <rect x="40" y="70" width="232" height="262" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="98" font-size="15" font-weight="600" fill="#111827">CNN</text>
+  <text x="56" y="126" font-size="12.5" fill="#4B5563">局部感受野 + 权值共享</text>
+  <text x="56" y="148" font-size="12.5" fill="#4B5563">小窗口扫描，层层抽象</text>
+  <line x1="56" y1="166" x2="256" y2="166" stroke="#E5E7EB"/>
+  <text x="56" y="190" font-size="12.5" fill="#10B981">✓ 图像 / 语音等局部模式</text>
+  <text x="56" y="214" font-size="12.5" fill="#DC6803">✗ 长程交互通常需堆叠/下采样</text>
+
+  <rect x="288" y="70" width="232" height="262" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="304" y="98" font-size="15" font-weight="600" fill="#111827">RNN / LSTM</text>
+  <text x="304" y="126" font-size="12.5" fill="#4B5563">隐状态按时间步传递</text>
+  <text x="304" y="148" font-size="12.5" fill="#4B5563">建模序列的时间依赖</text>
+  <line x1="304" y1="166" x2="504" y2="166" stroke="#E5E7EB"/>
+  <text x="304" y="190" font-size="12.5" fill="#10B981">✓ 早期 NLP / 时序任务</text>
+  <text x="304" y="214" font-size="12.5" fill="#DC6803">✗ 长序列梯度消失、难并行</text>
+
+  <rect x="536" y="70" width="224" height="262" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="552" y="98" font-size="15" font-weight="600" fill="#6366F1">Transformer</text>
+  <text x="552" y="126" font-size="12.5" fill="#4B5563">自注意力，任意位置直连</text>
+  <text x="552" y="148" font-size="12.5" fill="#4B5563">全局依赖 + 高度并行</text>
+  <line x1="552" y1="166" x2="744" y2="166" stroke="#DDE0FF"/>
+  <text x="552" y="190" font-size="12.5" fill="#10B981">✓ 大模型基础（NLP/CV/多模态）</text>
+  <text x="552" y="214" font-size="12.5" fill="#DC6803">✗ 标准全注意力 O(n²)，长序列成本高</text>
+
+  <text x="400" y="284" font-size="13" fill="#4B5563" text-anchor="middle">落地常混合：CNN 抽局部特征 + Transformer 抓全局依赖。</text>
+
+  <text x="40" y="380" font-size="12" fill="#9CA3AF">钉子：选型看数据的局部性、时序依赖、长度、训练并行性和部署预算，也可组合多种架构。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

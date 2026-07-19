@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="-apple-system, system-ui, sans-serif">
+  <title>MoE 怎么提升 Agent 能力?</title>
+  <desc>稀疏 MoE 让路由器为每个 token 选择少量专家以控制激活计算；Agent 的实际收益仍受专家通信、负载均衡和外部编排影响。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">MoE：路由器只激活 top-k 专家（稀疏）</text>
+
+  <!-- input -->
+  <rect x="40" y="178" width="110" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="95" y="208" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">输入 token</text>
+
+  <!-- router -->
+  <rect x="178" y="172" width="140" height="62" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="248" y="198" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">路由器 Router</text>
+  <text x="248" y="217" font-size="12" fill="#4B5563" text-anchor="middle">门控选 top-k</text>
+  <line x1="150" y1="203" x2="178" y2="203" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- experts -->
+  <rect x="400" y="64" width="160" height="34" rx="6" fill="#F3F4F6" stroke="#E5E7EB"/><text x="480" y="86" font-size="12.5" fill="#9CA3AF" text-anchor="middle">专家 1（未激活）</text>
+  <rect x="400" y="108" width="160" height="34" rx="6" fill="#F5F6FF" stroke="#6366F1"/><text x="480" y="130" font-size="12.5" font-weight="500" fill="#111827" text-anchor="middle">专家 2（激活）</text>
+  <rect x="400" y="152" width="160" height="34" rx="6" fill="#F3F4F6" stroke="#E5E7EB"/><text x="480" y="174" font-size="12.5" fill="#9CA3AF" text-anchor="middle">专家 3（未激活）</text>
+  <rect x="400" y="196" width="160" height="34" rx="6" fill="#F3F4F6" stroke="#E5E7EB"/><text x="480" y="218" font-size="12.5" fill="#9CA3AF" text-anchor="middle">专家 4（未激活）</text>
+  <rect x="400" y="240" width="160" height="34" rx="6" fill="#F5F6FF" stroke="#6366F1"/><text x="480" y="262" font-size="12.5" font-weight="500" fill="#111827" text-anchor="middle">专家 5（激活）</text>
+  <rect x="400" y="284" width="160" height="34" rx="6" fill="#F3F4F6" stroke="#E5E7EB"/><text x="480" y="306" font-size="12.5" fill="#9CA3AF" text-anchor="middle">专家 6（未激活）</text>
+
+  <!-- router -> activated experts -->
+  <line x1="318" y1="196" x2="400" y2="125" stroke="#6366F1" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="350" y="150" font-size="11.5" fill="#6366F1">0.7</text>
+  <line x1="318" y1="210" x2="400" y2="257" stroke="#6366F1" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="350" y="246" font-size="11.5" fill="#6366F1">0.3</text>
+
+  <!-- sum -->
+  <circle cx="630" cy="203" r="20" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="630" y="210" font-size="18" fill="#111827" text-anchor="middle">+</text>
+  <line x1="560" y1="125" x2="612" y2="195" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="560" y1="257" x2="612" y2="212" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- output -->
+  <rect x="680" y="178" width="90" height="50" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="725" y="208" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">输出</text>
+  <line x1="650" y1="203" x2="680" y2="203" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="40" y="352" font-size="12.5" fill="#4B5563">稀疏激活：N 个专家中，每个 token 只走 top-k（图中 k=2），其余专家不参与计算。</text>
+  <text x="40" y="384" font-size="12" fill="#9CA3AF">结论：top-k 控制每 token 激活 FLOPs；Agent 是否更省仍取决于通信、负载均衡、batch 与硬件。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="410" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

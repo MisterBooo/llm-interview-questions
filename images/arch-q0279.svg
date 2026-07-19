@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>格式化输出 vs 思维链，怎么选？</title>
+  <desc>判别任务可通过标签文本、模板填空、结构化生成或解释辅助转成生成建模，效果需按任务验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">判别式任务 → 生成式建模：三种映射方法</text>
+
+  <text x="40" y="70" font-size="13" fill="#4B5563">把分类 / 匹配等判别式任务，设计成自回归生成能替代显式分类器的形式</text>
+
+  <rect x="40" y="86" width="232" height="232" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="114" font-size="15" font-weight="600" fill="#111827">格式化输出</text>
+  <text x="56" y="142" font-size="12.5" fill="#4B5563">标签空间编码成文本</text>
+  <text x="56" y="164" font-size="12.5" fill="#4B5563">情感分类 → 生成</text>
+  <text x="56" y="184" font-size="12.5" fill="#4B5563">「positive / negative」</text>
+  <line x1="56" y1="202" x2="256" y2="202" stroke="#E5E7EB"/>
+  <text x="56" y="226" font-size="12.5" fill="#10B981">✓ 标签有限、结构明确</text>
+  <text x="56" y="250" font-size="12.5" fill="#DC6803">✗ 对输出格式稳定性敏感</text>
+
+  <rect x="288" y="86" width="232" height="232" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="304" y="114" font-size="15" font-weight="600" fill="#111827">指令重构</text>
+  <text x="304" y="142" font-size="12.5" fill="#4B5563">用指令模板描述任务</text>
+  <text x="304" y="164" font-size="12.5" fill="#4B5563">「判断这句话的类别：…」</text>
+  <text x="304" y="184" font-size="12.5" fill="#4B5563">让模型按指令作答</text>
+  <line x1="304" y1="202" x2="504" y2="202" stroke="#E5E7EB"/>
+  <text x="304" y="226" font-size="12.5" fill="#10B981">✓ 指令微调、统一多任务</text>
+  <text x="304" y="250" font-size="12.5" fill="#DC6803">✗ 依赖指令质量与对齐</text>
+
+  <rect x="536" y="86" width="224" height="232" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="552" y="114" font-size="15" font-weight="600" fill="#6366F1">思维链 CoT</text>
+  <text x="552" y="142" font-size="12.5" fill="#4B5563">先生成推理过程</text>
+  <text x="552" y="164" font-size="12.5" fill="#4B5563">再给出最终答案</text>
+  <text x="552" y="184" font-size="12.5" fill="#4B5563">把判断拆成多步</text>
+  <line x1="552" y1="202" x2="744" y2="202" stroke="#DDE0FF"/>
+  <text x="552" y="226" font-size="12.5" fill="#10B981">✓ 复杂推理、多步判断</text>
+  <text x="552" y="250" font-size="12.5" fill="#DC6803">✗ 推理长、成本高</text>
+
+  <text x="40" y="356" font-size="13" fill="#4B5563">取舍：普通分类先比直接生成或 verbalizer；存在可验证多步推理时再评估 CoT。</text>
+
+  <text x="40" y="402" font-size="12" fill="#9CA3AF">钉子：不同论文的模型、数据、示例数和解码口径不同，不能跨设置宣称某种转化方法通用更优。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

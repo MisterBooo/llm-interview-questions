@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" font-family="-apple-system, system-ui, sans-serif">
+  <title>LLM 幻觉与安全风险怎么缓解?</title>
+  <desc>幻觉与安全风险需要数据治理、证据检索、解码和工具权限约束、输出核验及分项评测共同防御，任何单一手段都不能保证事实与安全。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">缓解幻觉与安全风险：四层防御</text>
+
+  <rect x="40" y="78" width="350" height="140" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="108" font-size="15" font-weight="500" fill="#6366F1">① 数据 / 训练</text>
+  <text x="58" y="142" font-size="13" fill="#111827">高质量语料 + 对齐（RLHF/DPO）</text>
+  <text x="58" y="170" font-size="12.5" fill="#4B5563">从源头减少"胡说"倾向</text>
+
+  <rect x="410" y="78" width="350" height="140" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="428" y="108" font-size="15" font-weight="500" fill="#6366F1">② 检索增强 RAG</text>
+  <text x="428" y="142" font-size="13" fill="#111827">给外部证据，让生成有依据</text>
+  <text x="428" y="170" font-size="12.5" fill="#4B5563">回答基于检索到的事实</text>
+
+  <rect x="40" y="248" width="350" height="140" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="278" font-size="15" font-weight="500" fill="#6366F1">③ 解码 / 约束</text>
+  <text x="58" y="312" font-size="13" fill="#111827">温度 / 约束解码 / 工具最小权限</text>
+  <text x="58" y="340" font-size="12.5" fill="#4B5563">控制随机性与行为边界，不保证事实</text>
+
+  <rect x="410" y="248" width="350" height="140" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="428" y="278" font-size="15" font-weight="500" fill="#6366F1">④ 后处理校验</text>
+  <text x="428" y="312" font-size="13" fill="#111827">来源核验 / 规则分类器 / 高风险转人工</text>
+  <text x="428" y="340" font-size="12.5" fill="#4B5563">分开评测事实、安全、隐私与越权</text>
+
+  <!-- nail -->
+  <text x="40" y="414" font-size="12" fill="#9CA3AF">结论：没有单一银弹；证据、权限、校验与分项评测共同降低幻觉和安全风险。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="420" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

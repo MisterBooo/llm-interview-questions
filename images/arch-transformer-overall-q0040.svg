@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" font-family="-apple-system, system-ui, sans-serif">
+  <title>Transformer 架构核心组件原理</title>
+  <desc>原始 Transformer 由多层 Encoder 和 Decoder 组成，结合多头注意力、逐位置 FFN、残差归一化与位置编码。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="36" font-size="21" font-weight="500" fill="#111827">Transformer 整体架构：Encoder-Decoder</text>
+
+  <!-- output -->
+  <rect x="460" y="62" width="250" height="42" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="585" y="88" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">Linear + Softmax → 输出概率</text>
+
+  <!-- Encoder stack -->
+  <rect x="90" y="120" width="250" height="300" rx="10" fill="#F9FAFB" stroke="#6366F1"/>
+  <text x="215" y="144" font-size="14" font-weight="500" fill="#6366F1" text-anchor="middle">Encoder × N</text>
+  <rect x="110" y="200" width="210" height="50" rx="6" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="215" y="230" font-size="12.5" fill="#111827" text-anchor="middle">前馈网络 FFN + Add&amp;Norm</text>
+  <rect x="110" y="300" width="210" height="50" rx="6" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="215" y="330" font-size="12.5" fill="#111827" text-anchor="middle">多头自注意力 + Add&amp;Norm</text>
+  <line x1="215" y1="300" x2="215" y2="250" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Decoder stack -->
+  <rect x="460" y="120" width="250" height="300" rx="10" fill="#F9FAFB" stroke="#F59E0B"/>
+  <text x="585" y="144" font-size="14" font-weight="500" fill="#F59E0B" text-anchor="middle">Decoder × N</text>
+  <rect x="480" y="200" width="210" height="44" rx="6" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="585" y="227" font-size="12.5" fill="#111827" text-anchor="middle">前馈 FFN + Add&amp;Norm</text>
+  <rect x="480" y="262" width="210" height="44" rx="6" fill="#FFF7ED" stroke="#F59E0B"/>
+  <text x="585" y="289" font-size="12.5" fill="#111827" text-anchor="middle">交叉注意力 + Add&amp;Norm</text>
+  <rect x="480" y="324" width="210" height="44" rx="6" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="585" y="351" font-size="12.5" fill="#111827" text-anchor="middle">掩码多头自注意力 + Add&amp;Norm</text>
+  <line x1="585" y1="324" x2="585" y2="306" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="585" y1="262" x2="585" y2="244" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="585" y1="200" x2="585" y2="104" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- cross attention link -->
+  <path d="M320,215 C400,215 400,284 480,284" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="400" y="200" font-size="11.5" fill="#4B5563" text-anchor="middle">Encoder 输出</text>
+
+  <!-- inputs -->
+  <rect x="90" y="446" width="250" height="42" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="215" y="472" font-size="12.5" fill="#111827" text-anchor="middle">输入嵌入 + 位置编码</text>
+  <rect x="460" y="446" width="250" height="42" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="585" y="472" font-size="12.5" fill="#111827" text-anchor="middle">输出嵌入 + 位置编码（右移）</text>
+  <line x1="215" y1="446" x2="215" y2="350" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="585" y1="446" x2="585" y2="368" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- nail -->
+  <text x="40" y="518" font-size="12" fill="#9CA3AF">钉子：Encoder 输出源 memory，Decoder 以因果目标前缀为输入并用交叉注意力读取它。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="530" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

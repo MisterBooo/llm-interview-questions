@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>模型收敛怎么判断?</title>
+  <desc>收敛需结合训练损失、梯度统计、独立验证指标和多次评测判断，单一曲线趋平不能证明泛化。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">判断收敛：盯训练/验证 loss 的差距，而非单条曲线</text>
+
+  <!-- 坐标 -->
+  <line x1="70" y1="300" x2="440" y2="300" stroke="#9CA3AF" stroke-width="1.2"/>
+  <line x1="70" y1="300" x2="70" y2="100" stroke="#9CA3AF" stroke-width="1.2"/>
+  <text x="48" y="108" font-size="12" fill="#6B7280">loss</text>
+  <text x="412" y="318" font-size="12" fill="#6B7280">epoch</text>
+
+  <!-- 训练 loss -->
+  <polyline points="80,130 130,180 190,220 260,252 330,270 420,280" fill="none" stroke="#6366F1" stroke-width="2.2"/>
+  <!-- 验证 loss（先降后升） -->
+  <polyline points="80,150 140,200 200,228 270,235 300,234 350,252 410,282" fill="none" stroke="#DC6803" stroke-width="2.2"/>
+
+  <!-- 早停线 -->
+  <line x1="300" y1="110" x2="300" y2="300" stroke="#10B981" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="306" y="124" font-size="11.5" fill="#10B981">候选最佳 checkpoint（还要看任务指标）</text>
+
+  <line x1="90" y1="328" x2="118" y2="328" stroke="#6366F1" stroke-width="2.2"/><text x="124" y="332" font-size="12" fill="#4B5563">训练 loss</text>
+  <line x1="220" y1="328" x2="248" y2="328" stroke="#DC6803" stroke-width="2.2"/><text x="254" y="332" font-size="12" fill="#4B5563">验证 loss（回升可能提示过拟合）</text>
+
+  <!-- 右侧说明 -->
+  <text x="470" y="116" font-size="14" font-weight="600" fill="#111827">怎么判断</text>
+  <text x="470" y="142" font-size="12.5" fill="#4B5563">· 看 loss 移动平均、数据桶与多个评测点的趋势</text>
+  <text x="470" y="166" font-size="12.5" fill="#4B5563">· 训练 loss 趋平不等于泛化能力已收敛</text>
+  <text x="470" y="190" font-size="12.5" fill="#4B5563">· 验证回升要联查过拟合、漂移、噪声与口径</text>
+  <text x="470" y="214" font-size="12.5" fill="#4B5563">· 梯度范数用于异常诊断，没有跨模型通用阈值；</text>
+  <text x="482" y="234" font-size="12.5" fill="#4B5563">应与同配置历史 run 比非有限值、突变与更新量</text>
+  <text x="470" y="258" font-size="12.5" fill="#6366F1">· 主要任务指标多点不再超过噪声，才可判断边际收益低</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：早停的耐心窗口、最小改善和评测频率由指标方差与成本定义，不能背固定轮数。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>GraphRAG 知识图谱构建有哪些挑战?</title>
+  <desc>GraphRAG可靠性取决于实体消歧、关系溯源、版本化更新、安全隔离和分层评估，而非图结构本身。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">GraphRAG 构建三大挑战：结构化知识与文本的融合</text>
+
+  <text x="40" y="70" font-size="13" fill="#4B5563">本质：把知识图谱的结构化能力与大模型的语义理解真正捏到一起，而非简单拼凑。</text>
+
+  <rect x="40" y="88" width="232" height="226" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="116" font-size="14.5" font-weight="600" fill="#111827">① 实体对齐</text>
+  <text x="56" y="142" font-size="12.5" fill="#4B5563">多源表述差异：</text>
+  <text x="56" y="162" font-size="12" fill="#6B7280">「淘天集团」「淘宝天猫」</text>
+  <text x="56" y="180" font-size="12" fill="#6B7280">「Alibaba Tmall」</text>
+  <line x1="56" y1="196" x2="256" y2="196" stroke="#E5E7EB"/>
+  <text x="56" y="220" font-size="12" fill="#6366F1">Embedding 语义相似度</text>
+  <text x="56" y="242" font-size="12" fill="#6366F1">+ 高置信种子对迭代扩展</text>
+  <text x="56" y="264" font-size="12" fill="#6366F1">+ LLM/人工复核边界样本</text>
+
+  <rect x="284" y="88" width="232" height="226" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="300" y="116" font-size="14.5" font-weight="600" fill="#111827">② 关系抽取噪声</text>
+  <text x="300" y="142" font-size="12.5" fill="#4B5563">抽出的三元组有冗余、</text>
+  <text x="300" y="162" font-size="12.5" fill="#4B5563">错误关系</text>
+  <line x1="300" y1="196" x2="500" y2="196" stroke="#E5E7EB"/>
+  <text x="300" y="220" font-size="12" fill="#6366F1">置信度过滤</text>
+  <text x="300" y="242" font-size="12" fill="#6366F1">+ 多文档交叉一致性校验</text>
+  <text x="300" y="264" font-size="12" fill="#6366F1">+ 冲突关系消解</text>
+
+  <rect x="528" y="88" width="232" height="226" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="544" y="116" font-size="14.5" font-weight="600" fill="#111827">③ 图更新维护</text>
+  <text x="544" y="142" font-size="12.5" fill="#4B5563">新文档增量加入，</text>
+  <text x="544" y="162" font-size="12.5" fill="#4B5563">如何保持一致性</text>
+  <line x1="544" y1="196" x2="744" y2="196" stroke="#E5E7EB"/>
+  <text x="544" y="220" font-size="12" fill="#6366F1">增量插入 + 去重</text>
+  <text x="544" y="242" font-size="12" fill="#6366F1">+ 实体 / 关系版本管理</text>
+  <text x="544" y="264" font-size="12" fill="#6366F1">+ 定期重算社区结构</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：图中实体/关系要保留来源、时间、置信度与版本；子图裁剪还要与 token 预算和证据覆盖联测。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

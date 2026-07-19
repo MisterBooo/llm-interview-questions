@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="-apple-system, system-ui, sans-serif">
+  <title>位置编码为什么重要?</title>
+  <desc>位置编码为自注意力注入顺序与距离信号；RoPE 通过旋转 Q/K 编码相对位移，扩窗仍需缩放、训练和目标长度验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">位置编码：给无序的自注意力注入顺序</text>
+
+  <!-- problem -->
+  <rect x="40" y="66" width="720" height="74" rx="10" fill="#FEF2F2" stroke="#EF4444"/>
+  <text x="58" y="92" font-size="14" font-weight="500" fill="#111827">问题：无位置输入时，自注意力对排列是「置换等变」</text>
+  <text x="58" y="115" font-size="13" fill="#4B5563">交换 token 顺序只会对应交换输出，模型没有额外信号区分绝对位置与距离。</text>
+  <text x="58" y="133" font-size="12.5" fill="#EF4444">→ 必须注入位置信息</text>
+
+  <!-- two approaches -->
+  <rect x="40" y="166" width="350" height="150" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="194" font-size="15" font-weight="500" fill="#6366F1">绝对位置编码</text>
+  <text x="58" y="224" font-size="13" fill="#111827">词嵌入 + 位置向量</text>
+  <text x="58" y="248" font-size="12.5" fill="#4B5563">每个位置一个向量，相加后进模型；</text>
+  <text x="58" y="268" font-size="12.5" fill="#4B5563">实现简单，长度外推一般。</text>
+
+  <rect x="410" y="166" width="350" height="150" rx="10" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="428" y="194" font-size="15" font-weight="500" fill="#6366F1">RoPE 旋转位置</text>
+  <text x="428" y="224" font-size="13" fill="#111827">对 Q、K 按位置角度旋转</text>
+  <text x="428" y="248" font-size="12.5" fill="#4B5563">注意力天然带「相对位置」，</text>
+  <text x="428" y="268" font-size="12.5" fill="#4B5563">是主流方案；扩窗仍需缩放/训练与验证。</text>
+
+  <!-- nail -->
+  <text x="40" y="362" font-size="12" fill="#9CA3AF">结论：位置方法注入顺序与距离；RoPE 点积含相对位移，但超训练长度不保证无损外推。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="410" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

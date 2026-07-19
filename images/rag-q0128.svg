@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>召回 vs 粗排怎么分工?</title>
+  <desc>召回以低成本保证候选覆盖，粗排按质量成本曲线可选地减轻精排负担并避免过早漏掉优质项。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">级联漏斗：用算力换精度，逐级收窄候选</text>
+
+  <!-- 漏斗各级（高度递减示意收窄） -->
+  <rect x="44" y="120" width="92" height="160" rx="8" fill="#F3F4F6" stroke="#9CA3AF"/>
+  <text x="90" y="196" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">候选池</text>
+  <text x="90" y="216" font-size="12" fill="#4B5563" text-anchor="middle">亿级</text>
+
+  <rect x="168" y="135" width="120" height="130" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="228" y="196" font-size="14" font-weight="500" fill="#6366F1" text-anchor="middle">召回</text>
+  <text x="228" y="216" font-size="12" fill="#4B5563" text-anchor="middle">千级</text>
+
+  <rect x="320" y="150" width="120" height="100" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="380" y="196" font-size="14" font-weight="500" fill="#6366F1" text-anchor="middle">粗排</text>
+  <text x="380" y="216" font-size="12" fill="#4B5563" text-anchor="middle">百级</text>
+
+  <rect x="472" y="164" width="108" height="72" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="526" y="196" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">精排</text>
+  <text x="526" y="216" font-size="12" fill="#4B5563" text-anchor="middle">十级</text>
+
+  <rect x="612" y="176" width="104" height="48" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="664" y="197" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">重排</text>
+  <text x="664" y="214" font-size="11" fill="#4B5563" text-anchor="middle">TopK</text>
+
+  <line x1="136" y1="200" x2="168" y2="200" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="288" y1="200" x2="320" y2="200" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="440" y1="200" x2="472" y2="200" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="580" y1="200" x2="612" y2="200" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 两个重点级的说明卡 -->
+  <rect x="44" y="300" width="352" height="80" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="60" y="324" font-size="13" font-weight="600" fill="#6366F1">召回｜快而全的海选（亿→千）</text>
+  <text x="60" y="346" font-size="12.5" fill="#4B5563">多路并行：双塔 + HNSW 向量、协同过滤、热门</text>
+  <text x="60" y="366" font-size="12.5" fill="#4B5563">目标是提高覆盖且控制延迟，多路是常见但非必选</text>
+
+  <rect x="410" y="300" width="346" height="80" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="426" y="324" font-size="13" font-weight="600" fill="#6366F1">粗排｜准而省的初筛（千→百）</text>
+  <text x="426" y="346" font-size="12.5" fill="#4B5563">轻量 DNN / GBDT 对候选做初步质量判断</text>
+  <text x="426" y="366" font-size="12.5" fill="#4B5563">模型、特征与延迟预算由线上 SLO 和评测决定</text>
+
+  <text x="40" y="412" font-size="12" fill="#9CA3AF">钉子：级联每层都可能丢失后续无法恢复的优质候选，要分层监控 recall、延迟和目标对齐。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

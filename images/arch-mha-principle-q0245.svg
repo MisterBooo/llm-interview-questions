@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>多头注意力原理与QKV拆分陷阱</title>
+  <desc>多头注意力将 Q/K/V 拆到多个投影子空间并行计算后拼接输出，可形成多样注意力模式；头数、头维和内存布局需共同按质量与硬件验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">多头注意力：在不同子空间并行学不同关系</text>
+
+  <!-- input -->
+  <rect x="40" y="150" width="86" height="60" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="83" y="176" font-size="14" fill="#111827" text-anchor="middle">输入 X</text>
+  <text x="83" y="196" font-size="11" fill="#9CA3AF" text-anchor="middle">d_model</text>
+
+  <!-- merged linear -->
+  <line x1="126" y1="180" x2="160" y2="180" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="162" y="140" width="118" height="80" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="221" y="166" font-size="12.5" font-weight="500" fill="#111827" text-anchor="middle">合并线性层</text>
+  <text x="221" y="186" font-size="11.5" fill="#6366F1" text-anchor="middle">一次算出 3×d_model</text>
+  <text x="221" y="204" font-size="11" fill="#9CA3AF" text-anchor="middle">→ Q / K / V；常见融合实现</text>
+
+  <!-- split into heads -->
+  <line x1="280" y1="180" x2="316" y2="120" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="280" y1="180" x2="316" y2="180" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="280" y1="180" x2="316" y2="240" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="318" y="98" width="210" height="44" rx="8" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="338" y="118" font-size="12.5" fill="#111827">头 1 · 注意力（d_k）</text>
+  <text x="338" y="135" font-size="11" fill="#6366F1">可学习：模式 A</text>
+  <rect x="318" y="158" width="210" height="44" rx="8" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="338" y="178" font-size="12.5" fill="#111827">头 2 · 注意力（d_k）</text>
+  <text x="338" y="195" font-size="11" fill="#6366F1">可学习：模式 B</text>
+  <rect x="318" y="218" width="210" height="44" rx="8" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="338" y="238" font-size="12.5" fill="#111827">头 h · 注意力（d_k）</text>
+  <text x="338" y="255" font-size="11" fill="#6366F1">可学习：模式 h</text>
+  <text x="423" y="285" font-size="11.5" fill="#9CA3AF" text-anchor="middle">各头并行，d_model = h × d_k</text>
+
+  <!-- concat -->
+  <line x1="528" y1="120" x2="564" y2="170" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="528" y1="180" x2="564" y2="180" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="528" y1="240" x2="564" y2="190" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="566" y="140" width="92" height="80" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="612" y="174" font-size="12.5" fill="#111827" text-anchor="middle">拼接</text>
+  <text x="612" y="194" font-size="11" fill="#9CA3AF" text-anchor="middle">Concat</text>
+
+  <line x1="658" y1="180" x2="692" y2="180" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="694" y="150" width="66" height="60" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="727" y="176" font-size="13" fill="#111827" text-anchor="middle">输出</text>
+  <text x="727" y="196" font-size="11" fill="#9CA3AF" text-anchor="middle">线性层</text>
+
+  <text x="400" y="328" font-size="12.5" fill="#4B5563" text-anchor="middle">不同投影可形成多种注意力模式再组合；不能给每个头预设固定语义</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">结论：头数没有通用最优；应同时验证质量、头维、位置方案、KV 成本与硬件 kernel 支持。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

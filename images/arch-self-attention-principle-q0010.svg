@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="-apple-system, system-ui, sans-serif">
+  <title>Self-Attention 怎么计算 QKV?</title>
+  <desc>Self-Attention 将输入投影为 Q、K、V，以缩放点积和掩码生成权重，再对 V 加权聚合；多头版本在多个子空间并行计算。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Self-Attention：Q 匹配 K，加权聚合 V</text>
+
+  <!-- X -->
+  <rect x="40" y="184" width="100" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="90" y="214" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">输入 X</text>
+
+  <!-- Q K V -->
+  <rect x="210" y="92" width="110" height="40" rx="8" fill="#F5F6FF" stroke="#6366F1"/><text x="265" y="117" font-size="13" fill="#111827" text-anchor="middle">Q（查询）</text>
+  <rect x="210" y="188" width="110" height="40" rx="8" fill="#F5F6FF" stroke="#6366F1"/><text x="265" y="213" font-size="13" fill="#111827" text-anchor="middle">K（键）</text>
+  <rect x="210" y="284" width="110" height="40" rx="8" fill="#F5F6FF" stroke="#6366F1"/><text x="265" y="309" font-size="13" fill="#111827" text-anchor="middle">V（值）</text>
+  <line x1="140" y1="200" x2="210" y2="114" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/><text x="150" y="150" font-size="11" fill="#9CA3AF">W_Q</text>
+  <line x1="140" y1="209" x2="210" y2="208" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/><text x="150" y="200" font-size="11" fill="#9CA3AF">W_K</text>
+  <line x1="140" y1="218" x2="210" y2="300" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/><text x="150" y="270" font-size="11" fill="#9CA3AF">W_V</text>
+
+  <!-- scores -->
+  <rect x="380" y="118" width="180" height="48" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="470" y="147" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">分数 = Q·Kᵀ / √dₖ</text>
+  <line x1="320" y1="112" x2="380" y2="135" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="320" y1="208" x2="380" y2="152" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- softmax -->
+  <rect x="380" y="196" width="180" height="44" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="470" y="223" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">softmax → 注意力权重</text>
+  <line x1="470" y1="166" x2="470" y2="196" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- weighted sum -->
+  <rect x="610" y="184" width="160" height="56" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="690" y="208" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">权重 × V</text>
+  <text x="690" y="226" font-size="12" fill="#4B5563" text-anchor="middle">加权求和 → 输出</text>
+  <line x1="560" y1="218" x2="610" y2="212" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="320" y1="304" x2="610" y2="232" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- nail -->
+  <text x="40" y="382" font-size="12" fill="#9CA3AF">钉子：每个 token 用 Q 去匹配所有 K 得相似度，softmax 成权重，再加权聚合 V；√dₖ 缩放稳定梯度。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="410" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>LLaMA为何选RMSNorm?</title>
+  <desc>LayerNorm与RMSNorm的核心差异是是否减均值，归一化收益与稳定性需按模型和硬件验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">LayerNorm vs RMSNorm：核心差异是「要不要减均值」</text>
+
+  <!-- LayerNorm card -->
+  <rect x="40" y="70" width="350" height="262" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="98" font-size="15" font-weight="500" fill="#111827">LayerNorm</text>
+  <rect x="58" y="112" width="314" height="40" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="215" y="137" font-size="13.5" fill="#111827" text-anchor="middle">y = (x − μ) / √(σ² + ε) · γ + β</text>
+  <text x="58" y="180" font-size="13" fill="#111827">① 求均值 μ　② 求方差 σ²</text>
+  <rect x="58" y="194" width="314" height="36" rx="6" fill="#FEF2F2" stroke="#EF4444"/>
+  <text x="215" y="217" font-size="12.5" fill="#EF4444" text-anchor="middle">统计与 kernel 可融合，实际成本看实现</text>
+  <text x="58" y="256" font-size="12.5" fill="#111827">减均值：提供重新中心化不变性</text>
+  <text x="58" y="280" font-size="12" fill="#9CA3AF">训练收益需在目标配方中实测</text>
+  <text x="58" y="308" font-size="12" fill="#9CA3AF">经典 Transformer / BERT 采用</text>
+
+  <!-- RMSNorm card (highlight) -->
+  <rect x="410" y="70" width="350" height="262" rx="10" fill="#F5F6FF" stroke="#6366F1" stroke-width="2"/>
+  <text x="428" y="98" font-size="15" font-weight="600" fill="#111827">RMSNorm ✓</text>
+  <rect x="428" y="112" width="314" height="40" rx="6" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="585" y="137" font-size="13.5" fill="#111827" text-anchor="middle">y = x / RMS(x) · γ　（不减均值）</text>
+  <text x="428" y="180" font-size="13" fill="#111827">只算均方根 RMS = √(mean(x²))</text>
+  <rect x="428" y="194" width="314" height="36" rx="6" fill="#EEF2FF" stroke="#6366F1"/>
+  <text x="585" y="217" font-size="12.5" font-weight="500" fill="#111827" text-anchor="middle">少算均值/中心化，端到端收益看 kernel</text>
+  <text x="428" y="256" font-size="12.5" fill="#111827">不减均值：只做整体 RMS 缩放</text>
+  <text x="428" y="280" font-size="12" fill="#6366F1">稳定性并非普遍优于 LayerNorm</text>
+  <text x="428" y="308" font-size="12" fill="#6366F1">LLaMA 等采用 pre-norm RMSNorm</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：选型要在相同初始化、学习率与 kernel 下比较 loss、梯度、吞吐和最终质量。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

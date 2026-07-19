@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="-apple-system, system-ui, sans-serif">
+  <title>精排精度高，为何不跳过召回粗排？</title>
+  <desc>精排需要对查询和候选做重型交互计算，无法覆盖百万级全集，因此先用廉价召回和粗排压缩候选，再对少量结果精细排序。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">检索漏斗：召回 → 粗排 → 精排</text>
+
+  <!-- funnel bars -->
+  <rect x="110" y="86" width="500" height="56" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="360" y="111" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">召回 Recall · 海量候选（~千）</text>
+  <text x="360" y="130" font-size="12" fill="#4B5563" text-anchor="middle">向量 / BM25，便宜、粗</text>
+  <text x="630" y="118" font-size="12" fill="#9CA3AF">~1000</text>
+
+  <rect x="190" y="158" width="340" height="56" rx="8" fill="#F5F6FF" stroke="#C7D2FE"/>
+  <text x="360" y="183" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">粗排 · 缩到 ~百</text>
+  <text x="360" y="202" font-size="12" fill="#4B5563" text-anchor="middle">双塔 / 向量打分</text>
+  <text x="630" y="190" font-size="12" fill="#9CA3AF">~100</text>
+
+  <rect x="270" y="230" width="180" height="56" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="360" y="255" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">精排 Rerank · ~10</text>
+  <text x="360" y="274" font-size="12" fill="#4B5563" text-anchor="middle">cross-encoder，准但贵</text>
+  <text x="630" y="262" font-size="12" fill="#9CA3AF">~10</text>
+
+  <line x1="360" y1="142" x2="360" y2="158" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="360" y1="214" x2="360" y2="230" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- right axis -->
+  <line x1="700" y1="92" x2="700" y2="282" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="716" y="195" font-size="12" fill="#9CA3AF" text-anchor="middle" transform="rotate(90 716 195)">数量↓ · 精度↑ · 单条成本↑</text>
+
+  <!-- nail -->
+  <text x="40" y="332" font-size="12" fill="#9CA3AF">钉子：精排（cross-encoder）太贵，必须先用便宜召回缩小候选——所以不能跳过召回直接精排。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="370" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

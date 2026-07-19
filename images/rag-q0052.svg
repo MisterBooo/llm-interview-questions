@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>混合检索怎么提升 RAG 召回?</title>
+  <desc>混合检索利用BM25词面匹配与稠密语义召回的互补性，并通过名次融合、校准或重排合并结果。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">混合检索：稀疏抓精确，稠密抓语义，融合取长补短</text>
+
+  <!-- Query -->
+  <rect x="40" y="190" width="92" height="64" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="86" y="226" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">查询 Query</text>
+
+  <!-- Sparse 路 -->
+  <rect x="186" y="96" width="262" height="96" rx="8" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="200" y="120" font-size="14" font-weight="600" fill="#111827">Sparse 稀疏检索（BM25）</text>
+  <text x="200" y="142" font-size="12.5" fill="#4B5563">词袋 / 词项共现打分，精确匹配强</text>
+  <text x="200" y="164" font-size="12.5" fill="#10B981">✓ 型号 / 订单号 / 错误码</text>
+  <text x="200" y="184" font-size="12.5" fill="#DC6803">✗ 同义词抓不到（「苹果手机」≠「iPhone」）</text>
+
+  <!-- Dense 路 -->
+  <rect x="186" y="250" width="262" height="96" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="200" y="274" font-size="14" font-weight="600" fill="#6366F1">Dense 稠密检索（向量）</text>
+  <text x="200" y="296" font-size="12.5" fill="#4B5563">Bi-Encoder 编码，比语义相似度</text>
+  <text x="200" y="318" font-size="12.5" fill="#10B981">✓ 同义 / 语义（「附近火锅」≈「麻辣火锅」）</text>
+  <text x="200" y="338" font-size="12.5" fill="#DC6803">✗ 长尾精确词、生僻实体弱</text>
+
+  <!-- RRF 融合 -->
+  <rect x="492" y="184" width="128" height="76" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="556" y="214" font-size="14" font-weight="600" fill="#111827" text-anchor="middle">RRF 融合</text>
+  <text x="556" y="236" font-size="11.5" fill="#4B5563" text-anchor="middle">按各路排名倒数加权</text>
+
+  <!-- TopK -->
+  <rect x="668" y="190" width="100" height="64" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="718" y="226" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">Top-K 结果</text>
+
+  <line x1="132" y1="212" x2="186" y2="150" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="132" y1="232" x2="186" y2="296" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="448" y1="150" x2="492" y2="210" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="448" y1="296" x2="492" y2="234" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="620" y1="222" x2="668" y2="222" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="40" y="412" font-size="12" fill="#9CA3AF">钉子：线性融合要先对齐分数尺度；RRF 只用排名不需对分，两者都要用召回与延迟实测选型。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

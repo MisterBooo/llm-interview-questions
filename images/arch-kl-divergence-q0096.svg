@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>KL散度本质与非对称性怎么用?</title>
+  <desc>KL 散度是以一个分布加权的对数概率差，非负但不对称且不是距离；变分推断、蒸馏和策略约束采用的方向取决于目标与实现。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">KL 散度非对称；覆盖 / 抓峰只是条件性直觉</text>
+
+  <!-- forward KL panel -->
+  <rect x="40" y="64" width="350" height="248" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="90" font-size="14.5" font-weight="500" fill="#111827">正向 KL：D(P‖Q)</text>
+  <text x="58" y="110" font-size="12" fill="#9CA3AF">在受限近似族与特定分布下，Q 常倾向覆盖模式</text>
+  <!-- baseline -->
+  <line x1="60" y1="250" x2="372" y2="250" stroke="#E5E7EB" stroke-width="1"/>
+  <!-- P: two humps (gray dashed) -->
+  <path d="M90 250 C 110 250 115 140 140 140 C 165 140 170 250 190 250" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M242 250 C 262 250 267 140 292 140 C 317 140 322 250 342 250" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="5 4"/>
+  <!-- Q: one wide curve covering both -->
+  <path d="M80 250 C 150 250 150 185 216 185 C 282 185 282 250 352 250" fill="#6366F1" fill-opacity="0.12" stroke="#6366F1" stroke-width="2"/>
+  <text x="216" y="300" font-size="12" fill="#6366F1" text-anchor="middle">Q 变分散，跨越两个峰</text>
+  <text x="140" y="132" font-size="11" fill="#9CA3AF" text-anchor="middle">P</text>
+  <text x="292" y="132" font-size="11" fill="#9CA3AF" text-anchor="middle">P</text>
+
+  <!-- reverse KL panel -->
+  <rect x="410" y="64" width="350" height="248" rx="10" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="428" y="90" font-size="14.5" font-weight="500" fill="#111827">反向 KL：D(Q‖P)</text>
+  <text x="428" y="110" font-size="12" fill="#9CA3AF">在受限近似族与特定分布下，Q 常倾向选择模式</text>
+  <line x1="430" y1="250" x2="742" y2="250" stroke="#E5E7EB" stroke-width="1"/>
+  <path d="M460 250 C 480 250 485 140 510 140 C 535 140 540 250 560 250" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M612 250 C 632 250 637 140 662 140 C 687 140 692 250 712 250" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="5 4"/>
+  <!-- Q: narrow tall on left peak -->
+  <path d="M488 250 C 504 250 506 130 510 130 C 514 130 516 250 532 250" fill="#6366F1" fill-opacity="0.12" stroke="#6366F1" stroke-width="2"/>
+  <text x="586" y="300" font-size="12" fill="#6366F1" text-anchor="middle">Q 集中，只贴一个峰</text>
+  <text x="510" y="132" font-size="11" fill="#9CA3AF" text-anchor="middle">P</text>
+  <text x="662" y="132" font-size="11" fill="#9CA3AF" text-anchor="middle">P</text>
+
+  <!-- applications -->
+  <text x="400" y="342" font-size="12.5" fill="#4B5563" text-anchor="middle">VI 常用 D(q‖p)　·　蒸馏常用 D(teacher‖student)　·　策略 KL 的方向与粒度取决于实现</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">结论：D(P‖Q)=E_P[log P−log Q]，非负但不对称、不是距离；支持集不匹配时可为无穷。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

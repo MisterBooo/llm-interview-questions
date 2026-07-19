@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>SFT vs 预训练:核心区别在哪?</title>
+  <desc>预训练与SFT常共享下一token损失，差异主要在数据与监督范围，复读需从数据和解码共同治理。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">SFT vs 预训练：学语言规律 vs 学指令遵循</text>
+
+  <!-- 表头 -->
+  <rect x="40" y="62" width="140" height="34" fill="#F3F4F6" stroke="#E5E7EB"/>
+  <rect x="180" y="62" width="290" height="34" fill="#F3F4F6" stroke="#E5E7EB"/>
+  <rect x="470" y="62" width="290" height="34" fill="#EEF0FF" stroke="#6366F1"/>
+  <text x="52" y="84" font-size="13" font-weight="600" fill="#111827">维度</text>
+  <text x="192" y="84" font-size="13" font-weight="600" fill="#111827">预训练</text>
+  <text x="482" y="84" font-size="13" font-weight="600" fill="#6366F1">SFT</text>
+
+  <g font-size="12.5">
+    <rect x="470" y="96" width="290" height="170" fill="#F5F6FF"/>
+    <text x="52" y="120" fill="#111827" font-weight="500">目标</text><text x="192" y="120" fill="#4B5563">通用 next-token 建模</text><text x="482" y="120" fill="#4B5563">指令/行为的 next-token 监督</text>
+    <text x="52" y="154" fill="#111827" font-weight="500">数据</text><text x="192" y="154" fill="#4B5563">大规模通用文本</text><text x="482" y="154" fill="#4B5563">高质量指令/对话/目标回答</text>
+    <text x="52" y="188" fill="#111827" font-weight="500">方式</text><text x="192" y="188" fill="#4B5563">自回归自监督</text><text x="482" y="188" fill="#4B5563">有监督（在回答上算 loss）</text>
+    <text x="52" y="222" fill="#111827" font-weight="500">配方</text><text x="192" y="222" fill="#4B5563">长预训练、广覆盖</text><text x="482" y="222" fill="#4B5563">通常更小学习率/轮数</text>
+    <text x="52" y="256" fill="#111827" font-weight="500">产出</text><text x="192" y="256" fill="#4B5563">语言通用规律</text><text x="482" y="256" fill="#4B5563">指令遵循 / 领域适配</text>
+  </g>
+  <line x1="40" y1="130" x2="760" y2="130" stroke="#EEEFF2"/>
+  <line x1="40" y1="164" x2="760" y2="164" stroke="#EEEFF2"/>
+  <line x1="40" y1="198" x2="760" y2="198" stroke="#EEEFF2"/>
+  <line x1="40" y1="232" x2="760" y2="232" stroke="#EEEFF2"/>
+
+  <text x="40" y="304" font-size="13" fill="#111827"><tspan font-weight="600" fill="#DC6803">SFT 风险：</tspan>复读可来自数据重复、训练集记忆、模板或解码，需分别诊断。</text>
+  <text x="40" y="332" font-size="13" fill="#111827"><tspan font-weight="600" fill="#6366F1">适用：</tspan>有高质量目标输出、要稳定格式/行为的任务；是否再做偏好优化由评测决定。</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：SFT、DPO 与在线 RL 各有数据与探索边界，不能预设 DPO 必然比 PPO 不稳定。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

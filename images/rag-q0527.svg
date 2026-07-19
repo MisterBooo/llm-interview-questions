@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>训练/推理/知识增强怎么选?</title>
+  <desc>幻觉治理需组合数据与对齐、推理控制、RAG、工具验证、拒答和人工复核，并分层评估失败来源。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">幻觉缓解：四层防御，没有银弹</text>
+
+  <text x="40" y="70" font-size="13" fill="#4B5563">生成目标并不自动保证事实正确；要分清证据缺失、训练噪声、行为偏差和校验失败。</text>
+
+  <rect x="40" y="86" width="350" height="94" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="112" font-size="14" font-weight="600" fill="#111827">① 训练层面</text>
+  <text x="56" y="136" font-size="12.5" fill="#4B5563">数据清洗 + 构造拒答样本（不知道就说不确定）</text>
+  <text x="56" y="158" font-size="12.5" fill="#4B5563">偏好优化可教不确定表达/拒答，但不直接注入新知识</text>
+
+  <rect x="410" y="86" width="350" height="94" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="426" y="112" font-size="14" font-weight="600" fill="#111827">② 推理控制</text>
+  <text x="426" y="136" font-size="12.5" fill="#4B5563">结构/语法约束保格式；生成后验证可降风险</text>
+  <text x="426" y="158" font-size="12.5" fill="#4B5563">降低 temperature 只降随机性，不保证事实性</text>
+
+  <rect x="40" y="192" width="350" height="94" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="56" y="218" font-size="14" font-weight="600" fill="#6366F1">③ 知识增强（RAG）</text>
+  <text x="56" y="242" font-size="12.5" fill="#4B5563">检索外部知识锚定，把闭卷变开卷</text>
+  <text x="56" y="264" font-size="12.5" fill="#4B5563">风险：漏召回、错证据、旧知识与无引用生成</text>
+
+  <rect x="410" y="192" width="350" height="94" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="426" y="218" font-size="14" font-weight="600" fill="#111827">④ 后处理</text>
+  <text x="426" y="242" font-size="12.5" fill="#4B5563">事实校验、引用核对</text>
+  <text x="426" y="264" font-size="12.5" fill="#4B5563">超出把握则拒答兜底</text>
+
+  <text x="40" y="324" font-size="13" fill="#111827"><tspan font-weight="600" fill="#6366F1">结论：</tspan>没有单一方法能根治；高风险场景按错误源组合训练、证据、约束、校验与人工复核。</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：Self-RAG 把「验证」与「生成」融合，效果好但实现门槛高，并非所有场景适用。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

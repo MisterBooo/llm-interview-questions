@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="-apple-system, system-ui, sans-serif">
+  <title>多 Agent 协同如何分工?</title>
+  <desc>多智能体可由编排器进行任务拆解、路由和结果汇总，专职 Agent 通过标准消息协议协作，并用超时、验证、唯一处理权和人工回退控制风险。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Multi-Agent 协同：编排 + 专职分工</text>
+
+  <!-- user task -->
+  <rect x="34" y="170" width="110" height="56" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="89" y="202" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">用户任务</text>
+
+  <!-- orchestrator -->
+  <rect x="180" y="164" width="140" height="68" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="250" y="192" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">编排 Agent</text>
+  <text x="250" y="211" font-size="12" fill="#4B5563" text-anchor="middle">拆解 · 调度 · 汇总</text>
+  <line x1="144" y1="198" x2="180" y2="198" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- sub agents -->
+  <rect x="410" y="84" width="180" height="48" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/><text x="500" y="113" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">检索 Agent</text>
+  <rect x="410" y="174" width="180" height="48" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/><text x="500" y="203" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">编码 Agent</text>
+  <rect x="410" y="264" width="180" height="48" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/><text x="500" y="293" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">审查 Agent</text>
+
+  <line x1="320" y1="190" x2="410" y2="110" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="320" y1="198" x2="410" y2="198" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="320" y1="206" x2="410" y2="288" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="350" y="150" font-size="11.5" fill="#6366F1">分发</text>
+
+  <!-- result -->
+  <rect x="650" y="170" width="116" height="56" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="708" y="202" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">最终结果</text>
+  <line x1="590" y1="108" x2="650" y2="188" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <line x1="590" y1="198" x2="650" y2="198" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <line x1="590" y1="288" x2="650" y2="208" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="612" y="150" font-size="11.5" fill="#4B5563">汇总</text>
+
+  <!-- nail -->
+  <text x="40" y="356" font-size="12" fill="#9CA3AF">钉子：把复杂任务拆给专职 Agent 分工并行，由编排器调度与汇总；关键是职责清晰 + 通信协议。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="390" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>RAG意图识别原理与检索协同</title>
+  <desc>意图识别是可选的检索路由层，低置信样本需澄清或兜底，授权仍必须由检索服务执行。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">意图识别：RAG 的路由中枢，决定往哪搜、搜什么</text>
+
+  <rect x="40" y="92" width="100" height="54" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="90" y="124" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">用户 Query</text>
+
+  <rect x="200" y="86" width="150" height="66" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="275" y="114" font-size="14" font-weight="600" fill="#6366F1" text-anchor="middle">意图识别</text>
+  <text x="275" y="134" font-size="11.5" fill="#4B5563" text-anchor="middle">路由中枢</text>
+
+  <rect x="430" y="76" width="320" height="30" rx="6" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="444" y="96" font-size="12.5" fill="#4B5563">精确检索（型号 / 标题）</text>
+  <rect x="430" y="112" width="320" height="30" rx="6" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="444" y="132" font-size="12.5" fill="#4B5563">语义检索（向量召回）</text>
+  <rect x="430" y="148" width="320" height="30" rx="6" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="444" y="168" font-size="12.5" fill="#4B5563">复杂问答（剧情 / 多跳）</text>
+
+  <line x1="140" y1="119" x2="200" y2="119" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="350" y1="115" x2="430" y2="91" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="350" y1="119" x2="430" y2="127" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="350" y1="123" x2="430" y2="163" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 两方法 -->
+  <rect x="40" y="208" width="350" height="104" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="234" font-size="14" font-weight="600" fill="#111827">轻量分类模型</text>
+  <text x="56" y="260" font-size="12.5" fill="#4B5563">蒸馏 BERT / 小 Transformer，延迟在目标硬件实测</text>
+  <text x="56" y="284" font-size="12.5" fill="#10B981">✓ 类别固定、大流量场景</text>
+
+  <rect x="410" y="208" width="350" height="104" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="426" y="234" font-size="14" font-weight="600" fill="#111827">LLM 结构化路由</text>
+  <text x="426" y="260" font-size="12.5" fill="#4B5563">输出意图、参数、置信度与澄清需求</text>
+  <text x="426" y="284" font-size="12.5" fill="#10B981">✓ 复杂 / 长尾意图，灵活但慢</text>
+
+  <text x="40" y="344" font-size="12.5" fill="#4B5563">混合部署：<tspan fill="#6366F1" font-weight="500">轻量模型处理固定高频意图，LLM 补复杂/长尾，低置信度先澄清</tspan>；监控延迟和类别漂移。</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：意图不只决定走哪个库，还可驱动查询改写、metadata 过滤、重排特征和多意图子查询拆分。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

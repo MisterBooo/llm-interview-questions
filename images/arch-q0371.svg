@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="-apple-system, system-ui, sans-serif">
+  <title>Few-shot 推理为何有效?</title>
+  <desc>Few-shot 示例通过改变自回归模型的条件分布帮助识别任务和格式，推理时权重不变，收益取决于示例质量、顺序与上下文预算。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Few-shot：示例改变条件分布，帮助识别任务模式</text>
+
+  <!-- prompt card -->
+  <rect x="40" y="84" width="430" height="200" rx="10" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="58" y="110" font-size="13" font-weight="500" fill="#9CA3AF">Prompt（上下文）</text>
+  <rect x="58" y="122" width="394" height="40" rx="6" fill="#F5F6FF" stroke="#C7D2FE"/>
+  <text x="74" y="147" font-size="13" fill="#111827">示例 1：输入 A → 输出 a</text>
+  <rect x="58" y="170" width="394" height="40" rx="6" fill="#F5F6FF" stroke="#C7D2FE"/>
+  <text x="74" y="195" font-size="13" fill="#111827">示例 2：输入 B → 输出 b</text>
+  <rect x="58" y="218" width="394" height="40" rx="6" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="74" y="243" font-size="13" font-weight="500" fill="#111827">新输入：C → ?</text>
+
+  <!-- model -->
+  <rect x="520" y="124" width="130" height="60" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="585" y="150" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">大模型</text>
+  <text x="585" y="169" font-size="12" fill="#9CA3AF" text-anchor="middle">权重不变</text>
+  <line x1="470" y1="154" x2="520" y2="154" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- output -->
+  <rect x="520" y="208" width="130" height="56" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="585" y="234" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">输出 c</text>
+  <text x="585" y="252" font-size="12" fill="#4B5563" text-anchor="middle">可能照模式作答</text>
+  <line x1="585" y1="184" x2="585" y2="208" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- nail -->
+  <text x="40" y="324" font-size="12" fill="#9CA3AF">结论：自回归模型按前缀预测后续；ICL 权重不变，效果取决于示例质量、顺序、格式与上下文预算。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="350" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

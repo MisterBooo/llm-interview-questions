@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>RAG 系统核心组件怎么搭?</title>
+  <desc>完整 RAG 由文档清洗分块与元数据、混合召回和重排、上下文组装与引用生成三类组件构成。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">RAG 三大组件拆解</text>
+  <text x="40" y="66" font-size="13" fill="#9CA3AF">每个组件「里面有什么」（与"流程怎么走"互补）</text>
+
+  <!-- card 1 -->
+  <rect x="40" y="92" width="230" height="252" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="124" font-size="15" font-weight="500" fill="#6366F1">① 文档处理</text>
+  <line x1="58" y1="138" x2="252" y2="138" stroke="#E5E7EB"/>
+  <text x="58" y="174" font-size="13" fill="#111827">· 清洗去噪</text>
+  <text x="58" y="212" font-size="13" fill="#111827">· 分块 Chunking</text>
+  <text x="58" y="250" font-size="13" fill="#111827">· 元数据抽取</text>
+
+  <!-- card 2 -->
+  <rect x="285" y="92" width="230" height="252" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="303" y="124" font-size="15" font-weight="500" fill="#6366F1">② 检索器</text>
+  <line x1="303" y1="138" x2="497" y2="138" stroke="#E5E7EB"/>
+  <text x="303" y="174" font-size="13" fill="#111827">· 多路召回（向量 + BM25）</text>
+  <text x="303" y="212" font-size="13" fill="#111827">· 重排序 Rerank</text>
+  <text x="303" y="250" font-size="13" fill="#111827">· 选 Top-K</text>
+
+  <!-- card 3 -->
+  <rect x="530" y="92" width="230" height="252" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="548" y="124" font-size="15" font-weight="500" fill="#6366F1">③ 生成器</text>
+  <line x1="548" y1="138" x2="742" y2="138" stroke="#E5E7EB"/>
+  <text x="548" y="174" font-size="13" fill="#111827">· 上下文压缩</text>
+  <text x="548" y="212" font-size="13" fill="#111827">· 组装 Prompt</text>
+  <text x="548" y="250" font-size="13" fill="#111827">· 引用溯源</text>
+
+  <!-- arrows between components -->
+  <line x1="270" y1="218" x2="285" y2="218" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="515" y1="218" x2="530" y2="218" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- nail -->
+  <text x="40" y="392" font-size="12" fill="#9CA3AF">钉子：RAG 的核心工程能力是可评估、可排查，不只是能把答案生成出来。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

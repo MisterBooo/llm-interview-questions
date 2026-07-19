@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>RMSNorm vs LayerNorm：数值稳定性怎么比?</title>
+  <desc>LayerNorm执行中心化与方差归一化，RMSNorm只按均方根缩放，实际效率与稳定性需基准验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">LayerNorm vs RMSNorm：少做一步「减均值」</text>
+
+  <!-- 左：LayerNorm -->
+  <rect x="40" y="66" width="340" height="252" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="210" y="96" font-size="17" font-weight="600" fill="#111827" text-anchor="middle">LayerNorm</text>
+  <text x="62" y="132" font-size="14" fill="#4B5563">① 算均值 μ 和方差 σ²</text>
+  <text x="62" y="160" font-size="14" fill="#4B5563">② 减均值、除标准差：(x−μ)/√(σ²+ε)</text>
+  <text x="62" y="188" font-size="14" fill="#4B5563">③ 再 ×γ 缩放 +β 偏移</text>
+  <line x1="62" y1="210" x2="358" y2="210" stroke="#E5E7EB"/>
+  <text x="210" y="240" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">ŷ = (x−μ)/√(σ²+ε) · γ + β</text>
+  <text x="210" y="288" font-size="12.5" fill="#6B7280" text-anchor="middle">要算均值+方差，存 γ、β 两组参数</text>
+
+  <!-- 右：RMSNorm（主色高亮=主流首选） -->
+  <rect x="420" y="66" width="340" height="252" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="590" y="96" font-size="17" font-weight="600" fill="#6366F1" text-anchor="middle">RMSNorm</text>
+  <text x="442" y="132" font-size="14" fill="#4B5563">① 只算均方根 RMS=√(mean(x²))</text>
+  <text x="442" y="160" font-size="14" fill="#4B5563">② 直接除以 RMS：x / RMS(x)</text>
+  <text x="442" y="188" font-size="14" fill="#4B5563">③ 只 ×γ 缩放（去掉 −μ 和 +β）</text>
+  <line x1="442" y1="210" x2="738" y2="210" stroke="#DDE0FF"/>
+  <text x="590" y="240" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">ŷ = x/√(mean(x²)+ε) · γ</text>
+  <text x="590" y="288" font-size="12.5" fill="#6366F1" text-anchor="middle">少算均值并少一组 β；端到端收益看 kernel</text>
+
+  <!-- 中间「砍掉」标注 -->
+  <text x="400" y="350" font-size="13" fill="#4B5563" text-anchor="middle">RMSNorm 不做中心化，只将整体 RMS 缩放到 γ 控制的尺度；LLaMA 采用 pre-norm RMSNorm</text>
+
+  <text x="40" y="420" font-size="12" fill="#9CA3AF">钉子：RMSNorm 不要求输入近似零均值，也不保证数值必然更稳；要在同配方下比较梯度和质量。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>参数规模怎么影响大模型?</title>
+  <desc>参数规模扩大模型容量但不单独决定泛化，数据、计算、架构、正则和优化共同决定收益与稳定性。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">参数规模：容量、数据与计算共同决定效果</text>
+
+  <!-- double descent plot -->
+  <rect x="40" y="68" width="430" height="246" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="92" font-size="14" font-weight="500" fill="#111827">双下降：测试误差 vs 模型容量</text>
+  <!-- axes -->
+  <line x1="78" y1="290" x2="448" y2="290" stroke="#9CA3AF" stroke-width="1"/>
+  <line x1="78" y1="290" x2="78" y2="110" stroke="#9CA3AF" stroke-width="1"/>
+  <text x="448" y="306" font-size="11" fill="#9CA3AF" text-anchor="end">模型容量 →</text>
+  <text x="74" y="106" font-size="11" fill="#9CA3AF" text-anchor="end">误差</text>
+  <!-- interpolation threshold -->
+  <line x1="248" y1="118" x2="248" y2="290" stroke="#EF4444" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="248" y="132" font-size="11" fill="#EF4444" text-anchor="middle">插值阈值</text>
+  <!-- curve: 经典区下降到谷底 → 阈值处升到峰 → 过参数化区再次下降 -->
+  <path d="M90 158 C 135 252 168 256 190 250 C 222 242 236 152 248 136 C 268 165 350 252 442 258" fill="none" stroke="#6366F1" stroke-width="2.5"/>
+  <text x="160" y="278" font-size="11" fill="#9CA3AF" text-anchor="middle">经典区（先下降）</text>
+  <text x="388" y="190" font-size="11.5" fill="#6366F1" text-anchor="middle">特定设定下可出现再次下降</text>
+
+  <!-- right notes -->
+  <rect x="490" y="68" width="270" height="246" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="508" y="94" font-size="14" font-weight="500" fill="#111827">扩大参数量可能带来什么</text>
+  <text x="508" y="120" font-size="12" fill="#111827">· 函数容量更大，可表示更复杂模式</text>
+  <text x="508" y="144" font-size="12" fill="#111827">· 收益需要足够数据、计算与优化</text>
+  <line x1="508" y1="160" x2="742" y2="160" stroke="#E5E7EB"/>
+  <text x="508" y="184" font-size="13" font-weight="500" fill="#6366F1">Chinchilla 缩放法则</text>
+  <text x="508" y="208" font-size="12" fill="#111827">约 20 token/参数是该论文设定下的经验值</text>
+  <text x="508" y="230" font-size="11.5" fill="#9CA3AF">固定 FLOPs 时要联合规划参数与 token</text>
+  <line x1="508" y1="246" x2="742" y2="246" stroke="#E5E7EB"/>
+  <text x="508" y="270" font-size="12" fill="#EF4444">代价：显存、通信、吞吐与数值挑战</text>
+  <text x="508" y="292" font-size="11.5" fill="#9CA3AF">用多尺寸/多 token/多种子对照决定扩容</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：MoE 用稀疏激活扩大参数量，但引入路由不均衡与通信开销的新挑战——扩参不是免费的。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

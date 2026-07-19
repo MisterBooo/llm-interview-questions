@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="-apple-system, system-ui, sans-serif">
+  <title>RAG 三阶段原理与失败场景</title>
+  <desc>RAG 离线完成清洗、分块、向量化与索引，在线依次检索、重排、组装上下文并生成带依据的回答。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">RAG 工作流程：检索 → 增强 → 生成</text>
+
+  <!-- offline -->
+  <text x="40" y="78" font-size="13" fill="#9CA3AF">离线建库</text>
+  <rect x="40" y="90" width="150" height="46" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="115" y="118" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">原始文档</text>
+  <rect x="210" y="90" width="150" height="46" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="285" y="118" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">切块 Chunking</text>
+  <rect x="380" y="90" width="150" height="46" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="455" y="118" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">Embedding</text>
+  <rect x="550" y="90" width="150" height="46" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="625" y="118" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">向量数据库</text>
+  <line x1="190" y1="113" x2="210" y2="113" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="360" y1="113" x2="380" y2="113" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="530" y1="113" x2="550" y2="113" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- dashed link to retrieval -->
+  <path d="M600,136 C600,175 250,170 250,200" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="404" y="172" font-size="12" fill="#4B5563" text-anchor="middle">检索查询</text>
+
+  <!-- online -->
+  <text x="24" y="190" font-size="13" fill="#6366F1">在线问答</text>
+  <rect x="24" y="200" width="140" height="58" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="94" y="234" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">用户问题</text>
+
+  <rect x="176" y="200" width="140" height="58" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="246" y="226" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">① 检索</text>
+  <text x="246" y="244" font-size="12" fill="#4B5563" text-anchor="middle">向量搜索 + 重排</text>
+
+  <rect x="328" y="200" width="140" height="58" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="398" y="226" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">② 增强</text>
+  <text x="398" y="244" font-size="12" fill="#4B5563" text-anchor="middle">组装 Prompt</text>
+
+  <rect x="480" y="200" width="140" height="58" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="550" y="226" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">③ 生成</text>
+  <text x="550" y="244" font-size="12" fill="#4B5563" text-anchor="middle">引用溯源 · 可拒答</text>
+
+  <rect x="632" y="200" width="130" height="58" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="697" y="234" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">答案</text>
+
+  <line x1="164" y1="229" x2="176" y2="229" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="316" y1="229" x2="328" y2="229" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="468" y1="229" x2="480" y2="229" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="620" y1="229" x2="632" y2="229" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- nail -->
+  <text x="24" y="312" font-size="12" fill="#9CA3AF">钉子：RAG 的本质不是「外挂知识库」，而是一条可评估、可追踪、可回滚的知识使用链路。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="440" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="-apple-system, system-ui, sans-serif">
+  <title>GraphRAG 原理与构建方法</title>
+  <desc>GraphRAG 从文档抽取实体关系、构建图和社区摘要，以局部关系检索与全局总结补充向量检索。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">GraphRAG：补足关系推理与全局总结</text>
+
+  <!-- build flow -->
+  <text x="40" y="74" font-size="13" fill="#6366F1">① 知识图谱构建</text>
+  <rect x="40" y="86" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="120" y="116" font-size="13.5" fill="#111827" text-anchor="middle">文档分块</text>
+  <rect x="215" y="86" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="295" y="116" font-size="13.5" fill="#111827" text-anchor="middle">抽取实体 + 关系</text>
+  <rect x="390" y="86" width="160" height="50" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="470" y="116" font-size="13.5" fill="#111827" text-anchor="middle">构建知识图谱</text>
+  <rect x="565" y="86" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="645" y="116" font-size="13.5" fill="#111827" text-anchor="middle">社区检测</text>
+  <line x1="200" y1="111" x2="215" y2="111" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="375" y1="111" x2="390" y2="111" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="111" x2="565" y2="111" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- retrieval modes -->
+  <text x="40" y="184" font-size="13" fill="#6366F1">② 图检索两种模式</text>
+  <rect x="40" y="196" width="345" height="60" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="222" font-size="14" font-weight="500" fill="#111827">局部检索 Local</text>
+  <text x="58" y="242" font-size="12.5" fill="#4B5563">从命中实体出发，查邻居关系</text>
+  <rect x="405" y="196" width="345" height="60" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="423" y="222" font-size="14" font-weight="500" fill="#111827">全局检索 Global</text>
+  <text x="423" y="242" font-size="12.5" fill="#4B5563">用社区摘要做全局总结</text>
+
+  <!-- compare -->
+  <text x="40" y="300" font-size="13" fill="#6366F1">③ 与向量检索对比</text>
+  <rect x="40" y="312" width="345" height="74" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="58" y="340" font-size="14" font-weight="500" fill="#111827">GraphRAG</text>
+  <text x="58" y="362" font-size="12.5" fill="#4B5563">显式关系检索 · 社区总结</text>
+  <text x="58" y="380" font-size="12.5" fill="#4B5563">成本高 · 适合深度分析</text>
+  <rect x="405" y="312" width="345" height="74" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="423" y="340" font-size="14" font-weight="500" fill="#111827">向量 RAG</text>
+  <text x="423" y="362" font-size="12.5" fill="#4B5563">局部语义召回 · 结构简单</text>
+  <text x="423" y="380" font-size="12.5" fill="#4B5563">成本较低 · 适合直接检索</text>
+
+  <!-- nail -->
+  <text x="40" y="442" font-size="12" fill="#9CA3AF">钉子：GraphRAG 不是替代向量检索，而是补足关系推理和全局总结能力。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="490" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

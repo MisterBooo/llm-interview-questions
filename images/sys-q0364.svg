@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="-apple-system, system-ui, sans-serif">
+  <title>超长上下文怎么处理?</title>
+  <desc>长上下文方案需分别解决位置表示、注意力与 KV 成本及信息筛选，可组合位置扩展、分块检索、摘要和序列并行并做端到端验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">长上下文处理：三类主流手段</text>
+  <text x="40" y="68" font-size="13" fill="#9CA3AF">触发：上下文长度 &gt; 模型原生窗口</text>
+
+  <!-- card 1 -->
+  <rect x="40" y="92" width="230" height="210" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="122" font-size="15" font-weight="500" fill="#6366F1">① 位置扩展 + 训练</text>
+  <line x1="58" y1="136" x2="252" y2="136" stroke="#E5E7EB"/>
+  <text x="58" y="170" font-size="13" fill="#111827">· RoPE 插值</text>
+  <text x="58" y="206" font-size="13" fill="#111827">· NTK-aware 缩放</text>
+  <text x="58" y="242" font-size="13" fill="#111827">· ALiBi 线性偏置</text>
+
+  <!-- card 2 -->
+  <rect x="285" y="92" width="230" height="210" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="303" y="122" font-size="15" font-weight="500" fill="#6366F1">② 分块策略</text>
+  <line x1="303" y1="136" x2="497" y2="136" stroke="#E5E7EB"/>
+  <text x="303" y="170" font-size="13" fill="#111827">· 长文切块</text>
+  <text x="303" y="206" font-size="13" fill="#111827">· 检索相关段（RAG）</text>
+  <text x="303" y="242" font-size="13" fill="#111827">· 分级摘要</text>
+
+  <!-- card 3 -->
+  <rect x="530" y="92" width="230" height="210" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="548" y="122" font-size="15" font-weight="500" fill="#6366F1">③ 注意力优化</text>
+  <line x1="548" y1="136" x2="742" y2="136" stroke="#E5E7EB"/>
+  <text x="548" y="170" font-size="13" fill="#111827">· 稀疏注意力</text>
+  <text x="548" y="206" font-size="13" fill="#111827">· 滑动窗口注意力</text>
+  <text x="548" y="242" font-size="13" fill="#111827">· Flash Attention</text>
+
+  <!-- nail -->
+  <text x="40" y="350" font-size="12" fill="#9CA3AF">结论：位置、算力和信息需求是三件事；常组合方案，并在目标长度验证质量、延迟与显存。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="410" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

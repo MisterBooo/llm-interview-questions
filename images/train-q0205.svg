@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="-apple-system, system-ui, sans-serif">
+  <title>LoRA 低秩分解 vs 全量微调怎么选?</title>
+  <desc>LoRA 冻结原权重，将增量写成缩放后的低秩乘积 BA，只训练 A、B，从而显著降低可训练参数和优化器状态。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">LoRA：冻结大矩阵，只训低秩旁路</text>
+
+  <!-- legend -->
+  <rect x="540" y="64" width="13" height="13" rx="2" fill="#F3F4F6" stroke="#9CA3AF"/>
+  <text x="560" y="75" font-size="12" fill="#4B5563">冻结 ❄</text>
+  <rect x="640" y="64" width="13" height="13" rx="2" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="660" y="75" font-size="12" fill="#4B5563">可训练</text>
+
+  <!-- input -->
+  <rect x="40" y="180" width="90" height="56" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="85" y="214" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">输入 x</text>
+
+  <!-- frozen W -->
+  <rect x="210" y="108" width="190" height="64" rx="8" fill="#F3F4F6" stroke="#9CA3AF"/>
+  <text x="305" y="136" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">预训练权重 W ❄</text>
+  <text x="305" y="156" font-size="12" fill="#4B5563" text-anchor="middle">d×d · 冻结不训练</text>
+
+  <!-- low-rank A, B -->
+  <rect x="210" y="250" width="120" height="58" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="270" y="276" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">A</text>
+  <text x="270" y="296" font-size="12" fill="#4B5563" text-anchor="middle">r×d 降维</text>
+
+  <rect x="360" y="250" width="120" height="58" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="420" y="276" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">B</text>
+  <text x="420" y="296" font-size="12" fill="#4B5563" text-anchor="middle">d×r 升维</text>
+
+  <!-- sum -->
+  <circle cx="560" cy="208" r="22" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="560" y="215" font-size="20" fill="#111827" text-anchor="middle">+</text>
+
+  <!-- output -->
+  <rect x="650" y="180" width="110" height="56" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="705" y="214" font-size="15" font-weight="500" fill="#111827" text-anchor="middle">输出 h</text>
+
+  <!-- arrows -->
+  <line x1="130" y1="200" x2="210" y2="150" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="130" y1="216" x2="210" y2="270" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="400" y1="140" x2="540" y2="198" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="330" y1="279" x2="360" y2="279" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="480" y1="279" x2="548" y2="224" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="582" y1="208" x2="650" y2="208" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- formula + r<<d -->
+  <text x="305" y="350" font-size="13" fill="#6366F1" text-anchor="middle">r ≪ d → 可训参数仅 2·d·r</text>
+  <text x="560" y="262" font-size="13" fill="#4B5563" text-anchor="middle">h = Wx + (α/r)BAx</text>
+
+  <!-- nail -->
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：只训低秩 A、B（W 不动），可训参数从 d² 降到 2·d·r，省显存、可按任务热插拔。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="430" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

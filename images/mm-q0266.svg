@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>扩散模型 SNR 怎么用?</title>
+  <desc>扩散模型信噪比由信号与噪声系数之比定义，可用于时间步采样、损失加权、调度和条件路由。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">扩散模型 SNR：标准 VP 日程下随加噪下降</text>
+
+  <!-- SNR curve plot -->
+  <rect x="40" y="68" width="430" height="246" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="92" font-size="14" font-weight="500" fill="#111827">SNR(t) = α̅_t / (1 − α̅_t)</text>
+  <line x1="86" y1="288" x2="448" y2="288" stroke="#9CA3AF" stroke-width="1"/>
+  <line x1="86" y1="288" x2="86" y2="108" stroke="#9CA3AF" stroke-width="1"/>
+  <text x="86" y="306" font-size="11" fill="#9CA3AF" text-anchor="start">t 小：信号占主导</text>
+  <text x="448" y="306" font-size="11" fill="#9CA3AF" text-anchor="end">t 大：噪声占主导</text>
+  <text x="80" y="120" font-size="11" fill="#9CA3AF" text-anchor="end">SNR</text>
+  <!-- decreasing curve -->
+  <path d="M92 116 C 150 150 200 250 280 270 C 340 282 400 285 442 286" fill="none" stroke="#6366F1" stroke-width="2.5"/>
+  <text x="150" y="140" font-size="11" fill="#6366F1">SNR→∞（信号主导）</text>
+  <text x="360" y="262" font-size="11" fill="#6366F1" text-anchor="middle">SNR→0（噪声主导）</text>
+  <text x="265" y="200" font-size="11" fill="#9CA3AF">log-SNR 轨迹形状由 schedule 决定</text>
+  <text x="255" y="234" font-size="11.5" font-weight="500" fill="#111827">常规单调加噪时下降</text>
+
+  <!-- applications -->
+  <rect x="490" y="68" width="270" height="246" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="508" y="94" font-size="14" font-weight="500" fill="#111827">SNR 可用于日程、加权与路由</text>
+  <rect x="508" y="108" width="234" height="56" rx="8" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="520" y="128" font-size="12.5" fill="#111827">① 调度策略</text>
+  <text x="520" y="148" font-size="11" fill="#9CA3AF">用 beta / α̅ / log-SNR 轨迹分配噪声区域</text>
+  <rect x="508" y="172" width="234" height="56" rx="8" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="520" y="192" font-size="12.5" fill="#111827">② 损失加权 Min-SNR-γ</text>
+  <text x="520" y="212" font-size="11" fill="#9CA3AF">权重要按 x₀ / ε / v 预测参数化换算</text>
+  <rect x="508" y="236" width="234" height="56" rx="8" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="520" y="256" font-size="12.5" fill="#111827">③ 专家路由</text>
+  <text x="520" y="276" font-size="11" fill="#9CA3AF">按时间步拆「高噪 / 低噪专家」</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：非均匀选取采样点只是在同一 schedule 上跳步，不会自行把原本单调的 SNR 变成非单调。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

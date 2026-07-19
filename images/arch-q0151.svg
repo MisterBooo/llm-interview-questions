@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="-apple-system, system-ui, sans-serif">
+  <title>RMSNorm vs LayerNorm：训练效率怎么比?</title>
+  <desc>LayerNorm 同时中心化和缩放，RMSNorm 只按均方根缩放；后者统计量更少且被 LLaMA 采用，但性能与稳定性需按实现实测。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">LayerNorm vs RMSNorm</text>
+
+  <!-- LayerNorm -->
+  <rect x="40" y="78" width="350" height="218" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="215" y="108" font-size="16" font-weight="500" fill="#111827" text-anchor="middle">LayerNorm</text>
+  <line x1="60" y1="122" x2="370" y2="122" stroke="#E5E7EB"/>
+  <text x="60" y="156" font-size="13.5" fill="#111827">① 减均值 μ（中心化）</text>
+  <text x="60" y="192" font-size="13.5" fill="#111827">② 除标准差 σ</text>
+  <text x="60" y="228" font-size="13.5" fill="#111827">③ × γ + β（缩放 + 偏移）</text>
+  <text x="60" y="268" font-size="12.5" fill="#9CA3AF">中心化 + 缩放 + 偏移，计算更多</text>
+
+  <!-- RMSNorm -->
+  <rect x="410" y="78" width="350" height="218" rx="10" fill="#FFFFFF" stroke="#6366F1"/>
+  <text x="585" y="108" font-size="16" font-weight="500" fill="#111827" text-anchor="middle">RMSNorm</text>
+  <line x1="430" y1="122" x2="740" y2="122" stroke="#E5E7EB"/>
+  <text x="430" y="156" font-size="13.5" fill="#9CA3AF">① 不减均值</text>
+  <text x="430" y="192" font-size="13.5" fill="#111827">② 除均方根 RMS</text>
+  <text x="430" y="228" font-size="13.5" fill="#111827">③ × γ（常见实现无 β）</text>
+  <text x="430" y="268" font-size="12.5" fill="#6366F1">统计量更少；实际速度/稳定性依实现验证</text>
+
+  <!-- nail -->
+  <text x="40" y="340" font-size="12" fill="#9CA3AF">结论：RMSNorm 不做中心化、统计量更少；LLaMA 采用它，但并非所有任务都必然更快或更稳定。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="370" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

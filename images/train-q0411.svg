@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="-apple-system, system-ui, sans-serif">
+  <title>大模型微调方法怎么选?</title>
+  <desc>微调实践应用真实运行证据说明任务基线、数据许可与切分、方法配置、消融实验、质量成本和失败切片，未实际执行的信息不应代写。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">微调实践回答：任务基线 → 方法配置 → 结果边界</text>
+
+  <!-- before -> finetune -> after -->
+  <rect x="40" y="80" width="180" height="58" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="130" y="105" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">任务与基线</text>
+  <text x="130" y="124" font-size="12.5" fill="#10B981" text-anchor="middle">模型 / 指标 / 硬件</text>
+
+  <rect x="310" y="80" width="160" height="58" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="390" y="105" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">方法与配置</text>
+  <text x="390" y="124" font-size="12.5" fill="#4B5563" text-anchor="middle">全参 / LoRA / Adapter</text>
+
+  <rect x="560" y="80" width="200" height="58" rx="8" fill="#FEF2F2" stroke="#EF4444"/>
+  <text x="660" y="105" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">结果与边界</text>
+  <text x="660" y="124" font-size="12.5" fill="#EF4444" text-anchor="middle">质量 / 成本 / 失败切片</text>
+
+  <line x1="220" y1="109" x2="310" y2="109" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="470" y1="109" x2="560" y2="109" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- mitigations -->
+  <text x="40" y="186" font-size="13" fill="#6366F1">可核验的实践证据</text>
+  <rect x="40" y="198" width="230" height="96" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="226" font-size="14" font-weight="500" fill="#111827">数据</text>
+  <text x="58" y="252" font-size="12.5" fill="#4B5563">来源许可、清洗去重，</text>
+  <text x="58" y="272" font-size="12.5" fill="#4B5563">按用户/时间/实体防泄漏。</text>
+
+  <rect x="285" y="198" width="230" height="96" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="303" y="226" font-size="14" font-weight="500" fill="#111827">训练实验</text>
+  <text x="303" y="252" font-size="12.5" fill="#4B5563">框架版本、精度、LR，</text>
+  <text x="303" y="272" font-size="12.5" fill="#4B5563">基线、消融与失败方案。</text>
+
+  <rect x="530" y="198" width="230" height="96" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="548" y="226" font-size="14" font-weight="500" fill="#111827">结果证据</text>
+  <text x="548" y="252" font-size="12.5" fill="#4B5563">质量、显存、吞吐、延迟，</text>
+  <text x="548" y="272" font-size="12.5" fill="#4B5563">观察窗口与仍失败样本。</text>
+
+  <!-- nail -->
+  <text x="40" y="346" font-size="12" fill="#9CA3AF">结论：只陈述亲自运行过的模型、数据、配置与指标；没有证据的框架、规模和收益不要代写。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="390" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

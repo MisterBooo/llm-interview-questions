@@ -1,0 +1,909 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-07-19",
+  "reviewMethod": "codex-content-audit",
+  "publishLinks": false,
+  "licenseMode": "pending",
+  "items": [
+    {
+      "id": "arch-bert-struct-q0276",
+      "module": "模型架构",
+      "answerHash": "9c9f2e29f3602d9fa426eaa6742c1fa957aabed2f741c199c95213a4bb799026",
+      "sourceDiagramHash": "650e577964aff165b350a6f10a035518f6c0a5175a95d778852975c726973341",
+      "publishedDiagramHash": "91900663c1ddeb8327abfed69092cf18d39b550f196bd5f9acae8b6bd50cc2f4",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-decoder-only-q0294",
+      "module": "模型架构",
+      "answerHash": "6b2b022760b740adeff811d8a1d9f8db2c5e65df746e84e07e71f3cb2599d74e",
+      "sourceDiagramHash": "5cf2347ada95e0a2e674ac05778362ddb80b4a7c94feec38a9dc2ced611179f1",
+      "publishedDiagramHash": "f0048a7b9ffdca0fc2da6bc2ab3e4b72adf18ea6b9a0e8fe685a68e880326e62",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-gpt-vs-bert-q0123",
+      "module": "模型架构",
+      "answerHash": "c9ce6765935aab07e73731dfb724d17f885d14c60bf824032622147358e40c77",
+      "sourceDiagramHash": "7c92c8f0bc08663267b53bb5a0dfa286943a1f58ba1133b2b881a79559b1f439",
+      "publishedDiagramHash": "4b6d9c1a52506c2a3830c0b497596ddc3a189808b617aa4c1247fd4b076e1c50",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-gqa-mqa-mla-q0392",
+      "module": "模型架构",
+      "answerHash": "74f990371f8cf9c72003eb449d67740fb60732d8396901d672483df100e3203f",
+      "sourceDiagramHash": "0e8f16596ebb516492669d3760cbea0a04c19b35f8becf491cb9c5d932aab26e",
+      "publishedDiagramHash": "a2314c891978c7d9251d09df5abf84910162ba21e366c7997c72b880ce7ad3c6",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-kl-divergence-q0096",
+      "module": "模型训练",
+      "answerHash": "051bb706aece8cfbd8e4c3fe24c3338378e080b282a1004b75575d4e7175f2ec",
+      "sourceDiagramHash": "cb1122905e730843398b48f1e515158994f8a6509e8bfd5631974fcb3f12c5eb",
+      "publishedDiagramHash": "3aa257d5adcda5c12a2ad01e9f9998a649b7b29f7164c10d351edd612c12e538",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-kv-cache-q0051",
+      "module": "推理优化",
+      "answerHash": "a45221c01c4bd5f7b4435f6b2e2e71a37631b294faae30d4943b93fe9203b7d6",
+      "sourceDiagramHash": "60b45bba8a5b269e4c027d872803ce448b011df0b8066dc42eff96521f48e6d4",
+      "publishedDiagramHash": "29e60f61665f4484743a884fde81b32220916ca37acf52da1b38a47ebbc3e9ba",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-mha-principle-q0245",
+      "module": "模型架构",
+      "answerHash": "9e15b307931199a184f189e9b354017e5b4f3ffe85b1832dde06de7d7d7f1f12",
+      "sourceDiagramHash": "7f09ecb4e0ac7b4ad68e25f129360d05b39cf8e6c99b8102c705146dd2ee60e0",
+      "publishedDiagramHash": "c203f9b206dde223167e06fa8e6c8577517e62585d61ffff514ffe937957bfe7",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0138",
+      "module": "模型架构",
+      "answerHash": "673355bdb414fe6b71fe06f58817921a9c0bcdec23929e146b2ab96bc4a83bb4",
+      "sourceDiagramHash": "946f59e9d59aad274c76811f699d0c878784b2c07b2a04cd212a3c60286d5390",
+      "publishedDiagramHash": "2e6a7822dafb8ecff7dba72fc7650b32344b9c71675dacbcf9a5d6f72f1ff7cf",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0147",
+      "module": "模型架构",
+      "answerHash": "7ce6283bbaef19350b284d1a1943f10296167f79e1a721f01527b160704a73ad",
+      "sourceDiagramHash": "27e95444d4eac2dcdca2a03d1472c5556d26e3a80f293010f84b71ee85ae8868",
+      "publishedDiagramHash": "4b13767c833d2082f493ae558be68bfd79a6e128f69726a77e966d54be9e3442",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0149",
+      "module": "模型架构",
+      "answerHash": "086e94bb0c31056ce9d64eaa69bea6460f35b53d0e9fab8f9ffd0c9b17b61450",
+      "sourceDiagramHash": "62146f3a7be653088f8ec2cb8f28c10aba2196c831aa387bae9855588773105a",
+      "publishedDiagramHash": "ca72d0d9045d1bf145fa9f42bb77335844c941dacd19f04a82f35cce92647e33",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0151",
+      "module": "模型架构",
+      "answerHash": "46342f35d7919faeba37781ca7d850f574667bde70586399d40775d0af683997",
+      "sourceDiagramHash": "2b306304a33128fc4c1d8a491d7ed839885a562835c685073105318cffe30f0b",
+      "publishedDiagramHash": "780115fb157b2620e09ba741afc1b7097f6b5f56a869c80cd29d932d99088c09",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0186",
+      "module": "模型架构",
+      "answerHash": "a3ddd4f54393a0fdbb09f7e7c3449bc0b88a5c070647845846ab3ec8cb4e826b",
+      "sourceDiagramHash": "d22cc05edfc38ec5c5b2f029b532cab2729308444e42d8c10e6815e326478eec",
+      "publishedDiagramHash": "e6cb66da6d8be5588176c31a085c7a5e0301956fba22e13c1f7c4ec3cc1237b7",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0187",
+      "module": "模型架构",
+      "answerHash": "08adee9e0c264ba5e55e9b9b7a76155edfafc14420a5e77b61f7a5c0919074f5",
+      "sourceDiagramHash": "0eaacfcc2ec8106512e2186e124a96d53d799b283b79ba8776c04d6ec248a5c3",
+      "publishedDiagramHash": "c993194e6050723c120aa1bcaf3e07da30713f0d595e04b39a0a1a2e7100126e",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0221",
+      "module": "模型架构",
+      "answerHash": "c7250ef243faf09fe9a20a28d33a5e3343bd8f8f6246e249e938ce61bdd0de2f",
+      "sourceDiagramHash": "34a40d76913eecd076b9b8ebee987fb029f435f2c6bcef752026514ad3d8070e",
+      "publishedDiagramHash": "42b72e2607a36b1eb9d98e257581159a83f8eff3bf6f2388793f213da315a66c",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0227",
+      "module": "模型架构",
+      "answerHash": "ca09cb6305632f885e18d349dc8658593fcaf0389462484665eb667e92325ee0",
+      "sourceDiagramHash": "2dbfbb5e9a71a1568e2844a102376bd696ada5927a13e772bfb88d0d0ebd3b96",
+      "publishedDiagramHash": "0b0b8b00949e4ecbff6bfae7451ffa21944ca452562af7a9afbad672f51701d0",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0250",
+      "module": "模型架构",
+      "answerHash": "7a1a3759370798bff51009654cdab58e4f90b6bfc996fb1619725b70a20533f0",
+      "sourceDiagramHash": "07507377e65a577b8e54073950c49f42f0778fe9c6869b8a3257646133d86cbb",
+      "publishedDiagramHash": "48bab9b8d3e5a6cc741510d62943874cc7fb16fc87605f339eb98800fee28ca4",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0262",
+      "module": "模型架构",
+      "answerHash": "ecae649245224e01ca91c9d1f3d39a14e3096b750e2f0ad4328d212b185a98c6",
+      "sourceDiagramHash": "2b5cdd25740ad14b0ba12c6d80c3f18836bd303c6c42d1f399444c1a5cdaa7b1",
+      "publishedDiagramHash": "d086d13d83e7f4bc7d8c30040995a2bc8d3cd89ef881f93892642bd9b6fbebfd",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0274",
+      "module": "模型架构",
+      "answerHash": "3522572a19ebd2ebe1230f93a68e311171a418c4c329f434ac51964ee07a27ee",
+      "sourceDiagramHash": "b1bda8a008eab769c531fbc430406f0f13cc6f53e9e09853b9cb72604ffea992",
+      "publishedDiagramHash": "3d8a3b7b4108beb50ed66af2e79d9a2aabde25c5d41648dad5f561b91b66552f",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0279",
+      "module": "Prompt工程",
+      "answerHash": "b74b1c044329577ed6f58cadb6531682128318675695e21212e00825445c46d4",
+      "sourceDiagramHash": "ec521d47b6d36ba3d0fc687a9fb9d89a76d83931d08be717c50ab386dbd3b9f9",
+      "publishedDiagramHash": "46a6719b978759497db8414372b9feeacd2f50d7026cff2bd885f65a55451c20",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0310",
+      "module": "模型架构",
+      "answerHash": "fc9aa1ae35a90ea4f1c28dc41086474f1dedb6be2328cb678de14a213ebbf394",
+      "sourceDiagramHash": "4ac14e9af97fb0c3bf68ac25b3d543c49acab3b799a8ee2755870a98ce5fcd3b",
+      "publishedDiagramHash": "2d77baef0278e8e906669e061ba47d702081af2f5fde32de1559e189e42c5d0b",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0371",
+      "module": "Prompt工程",
+      "answerHash": "8a190902a91608c3d7dfe84fae75f3fc0129e9f0af3df7a1bc9bd809887c457e",
+      "sourceDiagramHash": "511d215c09cd1f4075ca7288918ac458d1f3c9b723337d78c62190f291a0c9d2",
+      "publishedDiagramHash": "91e81076cb9a8a4f01b1df389187fe5cc4b3756c79efd89628139c7191e43150",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-q0377",
+      "module": "模型架构",
+      "answerHash": "eda9caa0902fb520fe87f244c8d5edd4a253c5d5420304eeb31aac0d3248533e",
+      "sourceDiagramHash": "313bbabe26e5dbef8ebf3542546ceaf39d88c542987cdc68e4ba7b6e27172abd",
+      "publishedDiagramHash": "10049f098eec780a919c3ffdbdb3d29d6133936c2f67f675ceed64b6196c44ad",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-self-attention-principle-q0010",
+      "module": "模型架构",
+      "answerHash": "5a87923b3b53be7622917cb3850ddbef2b642fbcb9f1c401d495fd4c311efae8",
+      "sourceDiagramHash": "f24825fd6c90aafcb9c76d0b40d6ce059acdaf7886aa7151d222dbe549ebed1c",
+      "publishedDiagramHash": "ae06159ae1ba17fe0794a9339d34de0e055ec14837976212048e83be8b9bcff0",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "arch-transformer-overall-q0040",
+      "module": "模型架构",
+      "answerHash": "e8fc2b5278d6b771096e0fc440cf2d767b8dce68823f3eb212ebf787920170e5",
+      "sourceDiagramHash": "d411cc60d14299d569822d39ca45e73b989cd119651937ad86a5601501a8b7e3",
+      "publishedDiagramHash": "f99e4fcac44fe49f44e6145b3f7345ae9189af9963e212e4d5eca51807edebe7",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "eval-ndcg-f1-q0406",
+      "module": "评估与监控",
+      "answerHash": "93e6a74f4e57e355b85e3746c18e1079251ec54fa5c2f245fc241e2af6e3ade7",
+      "sourceDiagramHash": "f9f302658fe4c523c97555d694d73c0299ba6685e277e827a984fa8db85edf40",
+      "publishedDiagramHash": "4ecbccb5b7878ee00057e4c16c4a92cc1b57bc93e2c844056011869c47760dc0",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "eval-q0391",
+      "module": "评估与监控",
+      "answerHash": "ebab1321a557e5554cc14c0934c21d952269ee54e173fef0166b30cdb48fd66b",
+      "sourceDiagramHash": "c81afd0ee215bb8a6b83b7109e30fa2f0aaea9e38e28e503d33db29ca54f28c7",
+      "publishedDiagramHash": "aa83beaf0e20e4c7c3f37c4a3f7f159d0830fda074e4b1bc60917f94feea2621",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "eval-q0404",
+      "module": "评估与监控",
+      "answerHash": "995666e9cd0cab661b50b96f0bcf7e2a53d363f967491379118395b855791454",
+      "sourceDiagramHash": "d7384288b42dc053f4bfd063bf5af47dab338eb88c02e7b8bc11d1d92180d8a3",
+      "publishedDiagramHash": "ff39b409dbf6223d091c2422b09ae59e7539807ce75f18f6b032b4187e1f1ddd",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "mm-overall-q0092",
+      "module": "多模态",
+      "answerHash": "41fa0690eb3301a1b5fdf4828667b20cdbf8d93f74f081a3ab706a0ee78eaf34",
+      "sourceDiagramHash": "7728215b51d53fb6ff6f04c82d1a2182a5078bd867afaac389a61c4862b9ea40",
+      "publishedDiagramHash": "cceb9fd426bd99215cd5c3b4ad3841a613b0cb8d600a5f94aae85bc683450dcf",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "mm-q0266",
+      "module": "多模态",
+      "answerHash": "470c7ea2928d7df3fa77d06c8fae2177662f44caf768c4a80363dce0fee60155",
+      "sourceDiagramHash": "637053e9b50fb3809bff360da91bddf300d186076e28886e7ff78d7fe6e1b923",
+      "publishedDiagramHash": "4f68d28eb3362dfe5de6c4a8a25518602cde5ff9d0baaf076ccf839ec63cf05a",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "mm-q0473",
+      "module": "多模态",
+      "answerHash": "ca4440d5494bf60535a4dfa5d549139723a804b66337aa0c3e55fba52e575cbe",
+      "sourceDiagramHash": "cdcc4566f81e8d2fcaa188c77b07503f30e43e2968693aae06e60ea4c7884cae",
+      "publishedDiagramHash": "fc21946700cdb469a62ee79c2fa7e85686585cc76fe7db920a10c6a68371f19c",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "mm-q0546",
+      "module": "多模态",
+      "answerHash": "1310f4a30ce1464396e7a091f19b0dafe82a3eb83a4cc7d20e2644dfa56b44d7",
+      "sourceDiagramHash": "776d75a053877ebb48640bf7e3b250cdf60144e8fd37f4ffeeeb89221652160d",
+      "publishedDiagramHash": "032eaf63872c47b5cac8eb1ca3247164f7e517621ad6a4b476f2e38907b641f9",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "mm-qwenvl-llava-q0365",
+      "module": "多模态",
+      "answerHash": "2ff9dfbd61cbe269e9dbea173c571a72d32916072d5bf20f6c52db49f97d9722",
+      "sourceDiagramHash": "eb31e6dbfdccd8723b893d89a3f260e578e4a4e42d3e6260013db47707ad9a54",
+      "publishedDiagramHash": "9bb4d4ff989129163d2c40a78ac2a74fb131a20133ea4dc0d9693de37bb7a000",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "mm-vit-q0211",
+      "module": "多模态",
+      "answerHash": "24e13b0d29817c36581e96d5d38eba02d8edb5ad1e312f9a283619dcff2a6157",
+      "sourceDiagramHash": "a2535419ca55da478db020e37bfe7b1d14c2797b23b5734931369687e253a565",
+      "publishedDiagramHash": "36d360a246a40664e6beab2e01125573e09561d1029c3c8b5b40e4231aec0459",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0004",
+      "module": "RAG基础",
+      "answerHash": "3449ea277720d5bb02196c14122943e27bc4c5a912df93c725bd209d02bef4d1",
+      "sourceDiagramHash": "3d417909305426da630b313a1b6a08dc58463d9ebb1a189d51f5c884c60a1238",
+      "publishedDiagramHash": "9d8c86fb1a8d7623978f4517b51e496b1f7e6b61c4273bd9e6f18eb36ec45eaf",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0009",
+      "module": "知识图谱",
+      "answerHash": "b77de596cba67e2bf8137d33a94a2373a74383a8d0bf88db1dda24192c15b4b4",
+      "sourceDiagramHash": "99cd9c3f888e7596a95be9d55f1344fdf2553f4b19ccc7554dfcf1ec7d43ccb0",
+      "publishedDiagramHash": "77baa96b6a2e4b1576433319334b90335a5ed9c43876a33666b9fe411dc67ed4",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0018",
+      "module": "多模态",
+      "answerHash": "cc685f07b668be8a20e71390ac56b59bea4974b25316d36ca2bad5b20dfdad3f",
+      "sourceDiagramHash": "ba460ce933e56026a5928cfcaf64c087978447ed0ea3c80c6b0305102b054837",
+      "publishedDiagramHash": "03c6e0aec0e948a63392f667a09748a08c46936466a81e434f436c0d657c7327",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0025",
+      "module": "Agent",
+      "answerHash": "42903e4fdcc8d60348e53e6af60a5b20aa8bce4a9d6817d4762de8cb810c87aa",
+      "sourceDiagramHash": "8671fc08bc72a1487126892a14e1e1fe2b8f1a558a3cc7ae5f726bf08d6feaae",
+      "publishedDiagramHash": "10342aef3e85f26a629b81d8fde120cece9bfd9088cca1e4da90879cd4787d97",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0026",
+      "module": "Agent",
+      "answerHash": "38a4fbd5cd1840769fd08249c9e2690c962fd608da9facc94b3e2ffdc54c92c3",
+      "sourceDiagramHash": "17e3faf9bc3a97403cf5cac70311bf2d46658e74b2ae35e2d18c69069882873e",
+      "publishedDiagramHash": "32a806932122f2ae6da9dc61beaef2069920bc038341247a9dd05c6d4a7fce57",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0043",
+      "module": "重排与优化",
+      "answerHash": "ec88ac68d7c68b8217898104088a7e1617e0b3c8e6b9ac036cf666e0f9d645f0",
+      "sourceDiagramHash": "8f6f297dd23599c8f6d8bbf26a265b224f180a4e46cbf8c3648c36a18a3cfbef",
+      "publishedDiagramHash": "3e6c11daf83788a8f4d6e6e0c2f6b0cefdb3d983ab30e1b2f039b27ec58b06e9",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0052",
+      "module": "向量检索",
+      "answerHash": "1f447bfcfd52cc263d0fdbb7c66ab7db405efaed2d2be358c039231e8390a950",
+      "sourceDiagramHash": "c78d36b962781f36faf3235812e0c1cdf114d67a3d13c22c6acf54dccda8043b",
+      "publishedDiagramHash": "7d596a1eb2f2e5d48e9c1b4bfd533a9928ff590c263f3cfeeec22b7fd7a69f2b",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0063",
+      "module": "Agent",
+      "answerHash": "84fb89ac56617a441cca289fc0ef7d34e9114f8ddc1aefa683263f8a686a4439",
+      "sourceDiagramHash": "c241b8dc223d35921664c31884f1765de08a5e9ec8ba44ffaef980fd21a88709",
+      "publishedDiagramHash": "e914a396092332c61354048899e8578ec75158f612a9c071e118d5e75df1cbb9",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0065",
+      "module": "Agent",
+      "answerHash": "07562e598c17647156ca8a016ff234fe5e90ef5bfb8374eec42bd37dbcbd44eb",
+      "sourceDiagramHash": "7153dc90174d6680884e2c1cc5a162421cc50b069d72e33983106e9aeb180d8a",
+      "publishedDiagramHash": "743eaf6cd14dc1b158396c0c1b660d807492699be02fba48642de9445fae855b",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0083",
+      "module": "文档处理",
+      "answerHash": "40531493f9fd1876120e12783fd0523d75f0465d8cfa78aab441bfdc50b75f45",
+      "sourceDiagramHash": "feef2e4eaf2ffa80f7f4315bf7dc936f02f107727ce088e7628092d61f5f8bc3",
+      "publishedDiagramHash": "8ceeba159661eb44e13e354101c4dbab98f878374e90a46f32f3cb5268e7d8f2",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0091",
+      "module": "评估与监控",
+      "answerHash": "481a7403ce7dc1a65552ca93bd136178372bab1962a3d1d58ddc28618f1cb8c0",
+      "sourceDiagramHash": "e058b1d543ea6cfcb33ea48879b203a19e258a252fd5d4f7f823cf6620b89ea9",
+      "publishedDiagramHash": "0cfb34f2b2e43021bf5fd3305e04032ccf6e7087b55d716c16f5c7b010f418dd",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0096",
+      "module": "多模态",
+      "answerHash": "399ec8d2768b00edbabae44db916bf4deb21e48b72c91807723aef4de39d426b",
+      "sourceDiagramHash": "9b5f28b1cc5ae28728188502dc4a3a5d2de87e10ced72ff93153adc5f7abc6ad",
+      "publishedDiagramHash": "0897a83f2a47768828932ae5a7edd4fb5bf27269836839742f560f1cfddc98ad",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0115",
+      "module": "向量检索",
+      "answerHash": "1f7ef57acedda9a1f9a2e7c6956d10aac892561f116777684604d147d7aa2ae0",
+      "sourceDiagramHash": "68309da247ada26e369f1b90eb5f327f634924baf4fc26a13345b4f4f69f5759",
+      "publishedDiagramHash": "efc82e7f3898f15e64a1ff45a45471a35f82bdd959dc470367efdba1ae7cb668",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0117",
+      "module": "重排与优化",
+      "answerHash": "e6eafd14eb1121304f07d9fbf31041e8cc7e33a35960738889dbf458c1c6bbdb",
+      "sourceDiagramHash": "ae2b389b1f26edd03f00fc2e5c89a4576904c2c837ccfcb140c755e447bcb1e1",
+      "publishedDiagramHash": "1fc040e2e61003048e72d7d79f72dc4299f1acd3ebf7dbe3911b3c6cfc1b324d",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0120",
+      "module": "Agent",
+      "answerHash": "20777ed61c6417a60d15f6ce76f2e8380833f7025709cf593bac429019dbf332",
+      "sourceDiagramHash": "656eeac3e6e51d0fbfe42753c6aec3a22aedfc5e1b1db3c27d716575051a428f",
+      "publishedDiagramHash": "f5872e3c742aff2d09d330caafcff56367ab21473a3a0ccb8faf4788587d23d4",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0128",
+      "module": "向量检索",
+      "answerHash": "5f64d8e34ebf180c7a8f96632f28e352caec59275e7e4246f2f568d9457b045c",
+      "sourceDiagramHash": "37de9603ffbb57685850a2cd6588d652d50fdd5b6b46af9239544dbf1a51b415",
+      "publishedDiagramHash": "ed6654f29409822c2c5eaf8d0cfa919acb138a3c4bb6979f87d1fb9c3388d4ca",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0137",
+      "module": "向量检索",
+      "answerHash": "ddd0bbce7da06bb5fcd153ba1e86bd7b1f2546d868c36fa97e34c2dd06818954",
+      "sourceDiagramHash": "da7b04acb338fdbf430c6695d43b9d794679bd73c8ab1ec2bd1861d004f74d67",
+      "publishedDiagramHash": "d810348e3c1af5eb1e52f158786d4491fb8b14eb22f401ce4c1e0a9d6ace27b5",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0142",
+      "module": "评估与监控",
+      "answerHash": "a42a9f0fe9dab05ca3a8eb863d2376bba5c5c1ff0c1a8c25c96ab14518dbdead",
+      "sourceDiagramHash": "3b0f433f07125ad19f299bfb0b0e70179704bbbe11edf4e63dfd8b0837a336bb",
+      "publishedDiagramHash": "7b1b7287f6dce24212a61fba9a8ff93afe9a383849242dbdaa6fe132fe8b5b99",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0153",
+      "module": "向量检索",
+      "answerHash": "fd5c96898b6e1aeba971f3f236e395b8a488165753bcb7226bf8c1b912c3b2a9",
+      "sourceDiagramHash": "d0bfa289067c20381d0aa36c8db1c4fe7c193dc9e4e2c87b594d0a7b684ad79c",
+      "publishedDiagramHash": "153e17c128ce2506607a22c85087a542421ef8c42f19c078f4f8b8082bbd3cce",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0163",
+      "module": "重排与优化",
+      "answerHash": "c4275c226f32a1bb6795c818c85eb7560896c4bc8f8409990a4f9f26b7dc5288",
+      "sourceDiagramHash": "4699239ad2c38d8dda1ef0a4b128bbd323d29d2e1c3c9902b9f5582f19b76542",
+      "publishedDiagramHash": "1d0fb14a96fd75d1db5d9c652f9ae5f2a36c8efc156a0f799f540461e382ccf0",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0196",
+      "module": "向量检索",
+      "answerHash": "82ed7a36830466949891f15f2f2f866ab58e82263dd18a14485dfccaf9ad5aa5",
+      "sourceDiagramHash": "5541d6d01a9315d8c21e692849a45a035bc89a49a4d3d237421062628999c983",
+      "publishedDiagramHash": "9c9cb169991b166a13863edd9aff812fa4cb03c96a60ba2d017dc625587fafef",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0202",
+      "module": "知识图谱",
+      "answerHash": "db2f9f9b727c9a8dba9d88cd8552fa93122069349c1ce1cd61e9bc6810fd2b3f",
+      "sourceDiagramHash": "cc5035a785a9582b54b04df32930b72cd36e679be4e81ae45624be5fae122490",
+      "publishedDiagramHash": "cfe425f81a5779455785aeafd72a2f97334cffccdd6d76f185b588dcd4c6f06d",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0219",
+      "module": "向量检索",
+      "answerHash": "89ce08b0c0758f7835f20b7c3dc545b778e6f95720e6c61476da8da612b32439",
+      "sourceDiagramHash": "caade013bd6d2c60a1b36266c1a69299e4ca019d72933928ad98314080ea6623",
+      "publishedDiagramHash": "819c02ac6c7723d4436ab5b27a28fd3d580dfb27751d8ca14a4c6d58744ce196",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0286",
+      "module": "评估与监控",
+      "answerHash": "06467c5dd38e26492b47e4c55743989fa0d1fe673b166a45c806dfd87d49e359",
+      "sourceDiagramHash": "79996d5c89aa181b36a9fc1e9b3f56d3b654961f88edeee411c7ccfdb4c756b0",
+      "publishedDiagramHash": "03ca3ae098a54d146a313d9819e8f374facf6999e73d06b3257d2e52bec18479",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0290",
+      "module": "重排与优化",
+      "answerHash": "684352873411c8a485915824977db8aac30e1169cf17dc818ad3d485a70b0bcd",
+      "sourceDiagramHash": "b0f27c7d930f359947d3b2e42bc7887e386804df1c814b7924c95291fa609354",
+      "publishedDiagramHash": "a016f4ee68dea589716eefb104685fb01fdb9de8c0aadd1ecaffb3832eb045dc",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0340",
+      "module": "Prompt工程",
+      "answerHash": "2d0759fad45d0a6cb5b38783448d8f72f017eb8359464c955582edff1153841c",
+      "sourceDiagramHash": "e3298f0956b6b21d23e1ee852e550d4571e6a4db07a007ab0372b7dda21a41bf",
+      "publishedDiagramHash": "fab6658c84a4be9aac50a13f5ddb5f25d80ba3f2504942277369c76a36f83960",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0341",
+      "module": "RAG基础",
+      "answerHash": "aafcc89ccd6d9ee0a758ff03e164f60ec47f0e42ecfdc3121914df183ca92a36",
+      "sourceDiagramHash": "4bea405923923816c1ce3337f10b8208679bc8f772d87d333cb4d08937978054",
+      "publishedDiagramHash": "11f838ebd29ae41d54f47b520d35961d4cd42cc8c7d7f35f18faa44e7635fe95",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0476",
+      "module": "RAG基础",
+      "answerHash": "a4fc81f6618c58d5ed3f9ffb9b91e8637b0b6c3297995e6b5147181c49f95aa6",
+      "sourceDiagramHash": "d860cc532165061f7aba704898670dd0ddb2496de79fd0412960251b05aefcbe",
+      "publishedDiagramHash": "4e0be85fe605d4487ee6a548b25a4283e0b50f18f26df055b5c8ea6b957ab400",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0491",
+      "module": "重排与优化",
+      "answerHash": "a0756dc8eba4dcf53d548ad77b4ae489d9ed86862359bed1ca29ff1f656162d4",
+      "sourceDiagramHash": "ebb5ba2aea1f0d868f268ffa2ab90d12414ffb20c71c54f68d7b9135d3bd38d8",
+      "publishedDiagramHash": "15a8e12a75ab6e1bf7eb628d353bdb78100c761799a2bcd8a0dffbd223b66f39",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0513",
+      "module": "Agent",
+      "answerHash": "6c5431ae6fac634a0d4e3c84800d4321feab1b3c2b70f9f6c3bedf0113db3900",
+      "sourceDiagramHash": "5843e3935df7fe146d5970556b51aa3b7f9bd5f21eeb18e82747e9e6dcf7d744",
+      "publishedDiagramHash": "7c38fa9388047301753b2a3d23b8429044d165d7ae5a290f5c31c173a8dd0a38",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0521",
+      "module": "Agent",
+      "answerHash": "5658e62587a1c7dab6ac1c312a32bfec2cac62056d4701ef387280fe7ad9d3b6",
+      "sourceDiagramHash": "66ab9445d66c0334dfa062a5f47a90cb5dcd51cc179b120deca55378585c3fda",
+      "publishedDiagramHash": "5b6a77a7b40e848a797f6029ec4aaec4a39d7d70c5fa37a191657a995ff57161",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0527",
+      "module": "评估与监控",
+      "answerHash": "11de36609e36cca37d5f04589419d70ee7dd3e3d36a8222bb69b38e9b6984290",
+      "sourceDiagramHash": "d5be6c6d840da4be1b9b23ef3e9c60c0ef5b4e93ad2176ea25965ee8a80f787b",
+      "publishedDiagramHash": "c638a1a54c099430d8eed25c7934dcd92c7fd26eaa70f276028ba255dcce0be2",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0559",
+      "module": "RAG基础",
+      "answerHash": "f69d3ff364ae942085b92719abcf6e73bb2c68e76f8202efbd157fd962d0add8",
+      "sourceDiagramHash": "cec9ff28b5f3e44f7a025fef9ae931d44641d543ce48301a9d2d1809c7eed622",
+      "publishedDiagramHash": "e7d71272ac4d116691146ad66f1cdc4398c40897ea9f1909a22fe89975098734",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0624",
+      "module": "Agent",
+      "answerHash": "c1e2bb329f767ce83140e12b6c612e393b695fa7ff83a2a8f4608d0417534817",
+      "sourceDiagramHash": "8e40565874625679afd68b87f464d4338008a67ea60bb43ba5199eda32797b47",
+      "publishedDiagramHash": "d402aebc1001c045739179ee4cc432b018cee3009861b87915b1271daf414cad",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0630",
+      "module": "RAG基础",
+      "answerHash": "bef4cc284e754cfefd17220cae6e7cf7446fa5c9b0b75ea15c8ead06ea586414",
+      "sourceDiagramHash": "8e2ce6962a70a62008f298ea12c72a0c3ceb8eead56ffb9ec7a04ff5c250b290",
+      "publishedDiagramHash": "4a6f401bf3fc52846de85941c6b008c104c52409bbf7f223ede0936870ce8f4c",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0632",
+      "module": "向量检索",
+      "answerHash": "a5c1e077d4c38753f5e42e03634fd18fd45d4c0df1a55748605422ff177e5d28",
+      "sourceDiagramHash": "b7b44f7dd081db249db10b9602510957dd87532b9872023eda6c66d2ff9028e5",
+      "publishedDiagramHash": "d48ff67d3257afd04daaf7397fe2f40b1574ffeab769a62f631bd87e0e8a5b70",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0633",
+      "module": "评估与监控",
+      "answerHash": "00505307d55872406a423e0a56860118b5aa0a7d4ab0701c0e7740a1593a2f23",
+      "sourceDiagramHash": "90541e337552060223c2d8da032e0eba3b5a449ae52ca0b50590938445fa370c",
+      "publishedDiagramHash": "57a1c3ee29421eb65b79a1b55c652c1ce79e42ac80fcaf8dd6b5170552897adf",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rag-q0634",
+      "module": "RAG基础",
+      "answerHash": "3f586936a28bfecaddb377ed7f6a7b6b75c04871189775147394b4c32d0272c1",
+      "sourceDiagramHash": "0ef0aa3f2af5ece84e18d8ed47fd5104d4fd21e197919d89c2ce3f7480ee85d8",
+      "publishedDiagramHash": "44e7497f3d331c89e9cebf1aadac18c97dd47db269f62fbe014aa4947bf654c5",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rl-on-off-policy-q0318",
+      "module": "RLHF与对齐",
+      "answerHash": "41e52420dd3663a73ed39fc14247e1e69f4874348eb76a30ba48d815fd7d4cbe",
+      "sourceDiagramHash": "5b906d2222fcbd047be1f2f6f2c45e764f4251290f3e5f2b1553949df71aa75e",
+      "publishedDiagramHash": "49b68475f8f60b15b42160cdc5f2b597817ea340fe7d5477436567093d4ed60f",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rl-ppo-dpo-compare-q0239",
+      "module": "RLHF与对齐",
+      "answerHash": "eb8485db858d0e9a0a0c680b437e5ad039cc9d3cf8badc157d29236e1383239e",
+      "sourceDiagramHash": "bbbf8cad4ac069595aa9fd880dbf3e9cbe62b98aa4cda3a56bb7fbbb85482dd6",
+      "publishedDiagramHash": "ea3c6328cdc1958646056cfc32dc629631ae6f2ac37694e2cbf97fba2383b7e6",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rl-q0076",
+      "module": "RLHF与对齐",
+      "answerHash": "95d2339d45878bf1b253be212b306e2e0400d83cdbb6a7cf91bc1aabe631cbd4",
+      "sourceDiagramHash": "650b6df65668667649adaa6a2e844ed4dba95b78338cb1d3e6f9c03db22881af",
+      "publishedDiagramHash": "46e126a04a318d6d130be6385bf5548f753e368f761abea2a25d2008f5b7dc87",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rl-q0163",
+      "module": "RLHF与对齐",
+      "answerHash": "423197b2cc6411e15dd0be6fe4ea34dd92cf1baf10d9cc022995e5e0f8c4a66f",
+      "sourceDiagramHash": "93b2b519863fdcf328154f80b3cd31783c0cd414b18e8c9564fe000819f384d5",
+      "publishedDiagramHash": "e1e516f877a42e6e6c6280acb36bbba8e45fe399ef1617e897fdbb7bd9b0c635",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rl-q0265",
+      "module": "RLHF与对齐",
+      "answerHash": "e6e6dccdd9940eaeb9d34d9704838fd5702592ba95ae57ff0362e80e0527fffc",
+      "sourceDiagramHash": "36a98bc8d9a141c8c0b140936e14b20694d01f3838d672a4abaf4b0441ed39a7",
+      "publishedDiagramHash": "e38682b8351ddc9e453cd482dc160614fd58d05a6c7d7d62e07d86e4bc07bbd8",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "rl-sft-rl-alternate-q0107",
+      "module": "RLHF与对齐",
+      "answerHash": "33e1b00bbf269878650874bee38afb85f5d1ff5c9741c9aafe41fd50e0979007",
+      "sourceDiagramHash": "3ba8a69826f99daf9329d8d8d0cb39c43b94bb9507cf0b8c642a9ecd50cb5c9b",
+      "publishedDiagramHash": "d938a8d85ce9d7a79b01b6929b93bf588fcda101e704ac202a6823b4636ac22c",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "sys-deepspeed-q0110",
+      "module": "推理优化",
+      "answerHash": "8d2331f591b7b5ecdcaee8e04ff6c0a071939374a4581e63f75efd6cfdfed98e",
+      "sourceDiagramHash": "e5c8f0f826daf4fb8495fd4d9552b9c1842ead7cfed0374708928448858d1b81",
+      "publishedDiagramHash": "ad10cb72e3d06e38b6ce308732f08156f9a521151a315230ea04e244aad622d4",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "sys-flash-attn-q0002",
+      "module": "推理优化",
+      "answerHash": "1fb80a656d9a056be8197bfe92d7c290944547d846c17ddb274410043d2e8c3f",
+      "sourceDiagramHash": "740ed5f7125f2a3daba0a33574552b6f88c147c7a2ead429aef2c4a7a6989ee0",
+      "publishedDiagramHash": "0998459a81e85b101c67eb58d797506da0769edc3b3143ce78f600e4e1ad8bc6",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "sys-memory-opt-q0053",
+      "module": "推理优化",
+      "answerHash": "c36427574e42cc73341d78514e2b6c556a0b94f141aa5349990e1d0b57c563df",
+      "sourceDiagramHash": "c39afe67d89888ea61b3905eca1cbab78169b2226ee5f0faa8c741a5ed854bba",
+      "publishedDiagramHash": "c89b00aa98a3a79c566f653e880e51a53258f304615b2ca0f1e583bc8c488f82",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "sys-q0233",
+      "module": "推理优化",
+      "answerHash": "15eae177ce47fba39c336504739f01666492a7c58d499dcc0a945a3384d02829",
+      "sourceDiagramHash": "b2d657cb8a86e51801645cef4e603cd578bf046994f3f8ec1c9deadf97d3a064",
+      "publishedDiagramHash": "fa4ae511b536a07186441a10b75fc5a49b53b4df6ca6fb6959c0bcd82fe28441",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "sys-q0296",
+      "module": "推理优化",
+      "answerHash": "1ce886ddf6ad67ea474c55ea35d86966aa0e8e1e3df60632e849918c525f19e9",
+      "sourceDiagramHash": "ab521254ab41e2e4a7ea15ed29291263317ee20b92d5435b3a781cd75ad7e011",
+      "publishedDiagramHash": "8ffa185c10c9939c5999e2f60115909600680a4ffa53a0d5ef3330901f936fec",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "sys-q0331",
+      "module": "向量检索",
+      "answerHash": "c4d6762f255e1d86e6807218dd5e50b48bb2be2b7a302d37392a71775131e8c0",
+      "sourceDiagramHash": "8a202c3e6c48d08fd117045f9cc16d78b09be0ab40cbf1f0c3992f0986975d6a",
+      "publishedDiagramHash": "19d78a2c086508129e67e965748bde9caa60be58280ae74ab99e97bc09995cb9",
+      "sourceTier": "C",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "sys-q0364",
+      "module": "推理优化",
+      "answerHash": "05c8cc62177f0fb192509858a6c00d92db79038ed92d879f74139fe2f467d6cb",
+      "sourceDiagramHash": "2c39cf63981582de91bcdb96dafe66d7ebb83e4b7d6555497fbd09211ddd31ea",
+      "publishedDiagramHash": "0a17177a46f7456b20a993bdb3c563a42d24533c148dcb9068b31f81176a8cdc",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-dpo-principle-q0127",
+      "module": "RLHF与对齐",
+      "answerHash": "b905029405aacc7caffb51beb4cc6364b7e051bb621b1abfe1cc7a68ecc0e951",
+      "sourceDiagramHash": "51b1393b5e2381b05061a2e2725dc27192a245c255cb556a28e4182a89aa96a6",
+      "publishedDiagramHash": "5b36abb9dfa929165d7026119cc1638de086b78902171d73edda0d26e6e3abd9",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-flow-matching-q0304",
+      "module": "模型训练",
+      "answerHash": "a877584f23ed7e9e954b99443b8295c38b3db67be7e1739e39c3d111545762d2",
+      "sourceDiagramHash": "c019c79df5ebaee2c7af0be41b41cd84f8dd8b7d9e306563059ce5ffc24e932b",
+      "publishedDiagramHash": "eaddabb8ee1148f09b54c7b79a68ef751d92f270fc7855e2b0fb6822e210da1a",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-lora-vs-full-q0313",
+      "module": "模型微调",
+      "answerHash": "98ac7a14a6f370cab1e103857bfbad9e7a34462c01de56645ad3e01b1ae8cd29",
+      "sourceDiagramHash": "c8ad36565262d6db050473a5d5665c06c9063b75f93126ba9f6d50f4b785259b",
+      "publishedDiagramHash": "8b8b71f9dfe053231f2a90c986c30fa13a48c6c38d088a9f5c58e5a6738c4e30",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-loss-design-q0060",
+      "module": "RLHF与对齐",
+      "answerHash": "db8322b68e133f356795e888269bc843d0b0d6e171d8624b915e7c2222248e5e",
+      "sourceDiagramHash": "bf1fd1041c0fc7d65d367d95598387c3255637dfdf0969c4da16e260aa78293c",
+      "publishedDiagramHash": "b6e48338a93172efc35f2d4bef712765722e7f59fb0107f620cc080c042aeeb8",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-peft-overview-q0093",
+      "module": "模型微调",
+      "answerHash": "10d18d28370367033a9ecfc50f836f23dec9a2a5287664bdb23ed5bf97efdafb",
+      "sourceDiagramHash": "31f8f79b1a7e5e2042a1daf364c8413694af8669cc13908c34080171b0769d6d",
+      "publishedDiagramHash": "924ea74ea03cc69a2c5bf911aec48508cabd531be6c9d5c3f4dec995becf5587",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-q0021",
+      "module": "模型训练",
+      "answerHash": "ccd6d7e3cceb91326d8181efc0cce34e9d0ef43b3dcc939ecdd70b6903f135b3",
+      "sourceDiagramHash": "019472fa92f05d95f61a2bb83d2418da51f3deaba0ed36e8efd6e5edc5dc907c",
+      "publishedDiagramHash": "e791f6dd2d36d56eff1da9ee814e4742f1a6df67349814d513c6f3edfa60464b",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-q0160",
+      "module": "模型训练",
+      "answerHash": "70724366d5b167e0f3b8a2c03ea59297aca8809e355cf539b1f8f5acf3e258ae",
+      "sourceDiagramHash": "dc04a5b0040bb2691b97961d68b29d581d2f9d771b673b2072a4b1bc37fff49d",
+      "publishedDiagramHash": "e2c6bdf803c78e307c367d961a35043c9041eb217977c0f1f89b8c1c790bcd21",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-q0200",
+      "module": "模型训练",
+      "answerHash": "fb26335f1270603b8a43996718cf76bbbc43eff305a5340380f7b887d2c2b9c8",
+      "sourceDiagramHash": "4838ec9f6ac9e749b0b7fdf7f9b0459a0576662a282e0b12a516cfdb5c233b8d",
+      "publishedDiagramHash": "b451fa4d7ec53f52e885613c51c608df8c3917bebe2fb63e4fb24fabb7a90475",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-q0205",
+      "module": "模型微调",
+      "answerHash": "6bedc6a4267b6c3b3b51eba44a4bd29c3fcb1fdcab02e786d7942e023743655d",
+      "sourceDiagramHash": "49d325b98511b2ef3154e4940d0da00cc26d0ef8ed2eb85f9c44fb03d983ad31",
+      "publishedDiagramHash": "b4d4cd0b8fa3503884d858105b75571dd6783d62d24b0a97dec697fb04c6117b",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-q0248",
+      "module": "模型训练",
+      "answerHash": "fdf3f2b39121df73e66e84daf6b0097d75661e772df6d1f0923b2846c0af2413",
+      "sourceDiagramHash": "407e24f13f793478d3b9a842a461a4c5cacbb5a49cbfbe38642a0ca012137fbc",
+      "publishedDiagramHash": "60ca460170f5b3870a841d8ea840533e6d3a1d0d56baa1475729228ea1ddae89",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-q0333",
+      "module": "模型训练",
+      "answerHash": "4002345c81bab7990124efbaadfd35b49fd1f62c8b8304638df9e239eeae5675",
+      "sourceDiagramHash": "7f4dfb8b8c20216b60d13712196fa04ee3d9103dcf3b4d93b2d95cc61fe2db30",
+      "publishedDiagramHash": "053143756ea918dc5bcc3ecd70d3869487e5dd3752f6dfd38d61cf3ff1796807",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-q0368",
+      "module": "模型训练",
+      "answerHash": "5a202fe58198de2f6926e41b6566e4d7c584575a4ae35312fa15ea46add0bed6",
+      "sourceDiagramHash": "9e00cf05e9ff8e975d1f85fdf03db171042ed671f574a80a9cac2398028361cc",
+      "publishedDiagramHash": "5c7225c7d49e036995238f8a4069b95be40dcb91e8f590efe37ceb2a408df837",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-q0394",
+      "module": "模型训练",
+      "answerHash": "4e9d060930a2d77223c566478119b8283f5d47511050a3cc898d1371e2bd82f9",
+      "sourceDiagramHash": "0952ebe4a94ba3204a9ed4f20b4f20c77c770974533f36b3376d767b16708db3",
+      "publishedDiagramHash": "4e27790e22146ff25af88dc0ad8bb572fb243fee78fb3b061308c3f77a759c9b",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-q0403",
+      "module": "模型训练",
+      "answerHash": "bceb6ef053ac721f8f7081c0adc53a297ef79143fe2390bd584f410169420dd1",
+      "sourceDiagramHash": "c43a98db36f653b4a7fc216901569adbe135e8b58dcea77373ae24ed0cf1001b",
+      "publishedDiagramHash": "53ebf27fb4f3ec8a13334ec2ab3eb9a7bc41d9fd67549bd3c3ef2494fb7930b1",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-q0411",
+      "module": "模型微调",
+      "answerHash": "66f2268bac33b826b01b1a82c3f8f3dc77ecd5fec15dda473d186748ffa04e2b",
+      "sourceDiagramHash": "5e6a97c1368e852f08059841a946713bb5a005521cd53c7e1c1da46500eacdfc",
+      "publishedDiagramHash": "bdff249379d57161065bf9b669a87bf869f46fb4c6a90a5a45b0739a058174c4",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    },
+    {
+      "id": "train-reparameterization-q0063",
+      "module": "模型训练",
+      "answerHash": "236aeb6de9fa528496bf0653577c2d29740d980db9e9af8b09e42612ff71f3c3",
+      "sourceDiagramHash": "88f5d8bb09fe1257f379b747c156b328dca52934deb2c04b20372ed7bf11fb12",
+      "publishedDiagramHash": "56285455a594621fd13fae2738d89b2d9db82fd4fefc7116076d5f9721fa7429",
+      "sourceTier": "B",
+      "reviewedAt": "2026-07-19"
+    }
+  ]
+}

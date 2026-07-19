@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>Focal Loss 公式与作用机制</title>
+  <desc>Focal Loss用调制因子降低易样本权重并聚焦难样本，类别权重和聚焦参数需按噪声与校准验证。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Focal Loss：动态降权易分样本，聚焦难例</text>
+
+  <!-- 公式 -->
+  <text x="40" y="78" font-size="16" font-weight="500" fill="#111827">FL(pt) = − αt · (1−pt)^γ · log(pt)</text>
+
+  <!-- 左：调制因子曲线图 -->
+  <line x1="80" y1="290" x2="432" y2="290" stroke="#9CA3AF" stroke-width="1.2"/>
+  <line x1="80" y1="290" x2="80" y2="104" stroke="#9CA3AF" stroke-width="1.2"/>
+  <text x="58" y="112" font-size="12" fill="#6B7280">loss</text>
+  <text x="436" y="294" font-size="12" fill="#6B7280">pt →</text>
+
+  <!-- CE 曲线 γ=0 -->
+  <polyline points="97,110 114,152 148,193 216,235 284,259 352,277 403,287" fill="none" stroke="#9CA3AF" stroke-width="2"/>
+  <!-- Focal 曲线 γ=2 -->
+  <polyline points="97,128 114,178 148,228 216,270 284,285 352,289 403,290" fill="none" stroke="#6366F1" stroke-width="2.2"/>
+
+  <!-- 图例 -->
+  <line x1="120" y1="324" x2="148" y2="324" stroke="#9CA3AF" stroke-width="2"/>
+  <text x="154" y="328" font-size="12" fill="#4B5563">交叉熵 CE（γ=0）</text>
+  <line x1="280" y1="324" x2="308" y2="324" stroke="#6366F1" stroke-width="2.2"/>
+  <text x="314" y="328" font-size="12" fill="#4B5563">Focal（γ=2）</text>
+  <text x="120" y="348" font-size="12" fill="#6B7280">易分样本（pt→1）处，Focal 损失被压到几乎为 0</text>
+
+  <!-- 右：机制说明 -->
+  <text x="468" y="116" font-size="14" font-weight="600" fill="#111827">(1−pt)^γ 调制因子在做什么</text>
+  <text x="468" y="146" font-size="13" fill="#4B5563">· 易分样本 pt→1 ⇒ (1−pt)^γ→0，损失几乎归零</text>
+  <text x="468" y="172" font-size="13" fill="#4B5563">· 难分样本 pt 小 ⇒ 权重≈1，损失保留</text>
+  <text x="468" y="198" font-size="13" fill="#4B5563">· γ 越大，对易分样本降权越狠（γ=0 即 CE）</text>
+  <text x="468" y="224" font-size="13" fill="#4B5563">· αt：类别权重，平衡正负样本数量</text>
+
+  <rect x="468" y="246" width="300" height="76" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="482" y="270" font-size="12.5" fill="#4B5563">密集目标检测中，大量易分背景可能主导 CE；</text>
+  <text x="482" y="290" font-size="12.5" fill="#4B5563">Focal 压低它们的损失贡献，相对保留低置信样本，</text>
+  <text x="482" y="310" font-size="12.5" fill="#6366F1">但错标与异常样本也可能被长期保留，需分层评测。</text>
+
+  <text x="40" y="420" font-size="12" fill="#9CA3AF">钉子：Focal Loss 不是所有不平衡任务的默认答案，应与加权 CE、重采样并报告 PR-AUC 和各类指标。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

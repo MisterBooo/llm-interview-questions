@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="-apple-system, system-ui, sans-serif">
+  <title>训练曲线异常怎么排查？</title>
+  <desc>loss、学习率和梯度范数只是训练诊断线索，异常需要结合优化器状态、数据样本、历史基线、验证指标和可重放实验才能归因。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">训练曲线怎么看：学习率 warmup + 衰减</text>
+
+  <!-- LR curve panel -->
+  <line x1="70" y1="300" x2="70" y2="90" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ax)"/>
+  <line x1="70" y1="300" x2="400" y2="300" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#ax)"/>
+  <text x="54" y="180" font-size="12" fill="#4B5563" transform="rotate(-90 54 180)">学习率</text>
+  <text x="200" y="324" font-size="12" fill="#4B5563" text-anchor="middle">训练步数</text>
+  <path d="M70,290 L130,120 C200,120 300,210 390,288" fill="none" stroke="#6366F1" stroke-width="2.5"/>
+  <text x="98" y="200" font-size="11.5" fill="#6366F1" transform="rotate(-58 98 200)">warmup</text>
+  <text x="300" y="200" font-size="11.5" fill="#6366F1">余弦衰减</text>
+
+  <!-- interpretation -->
+  <text x="440" y="118" font-size="14" font-weight="500" fill="#111827">三条曲线怎么读</text>
+  <text x="440" y="152" font-size="12.5" fill="#111827">· Loss：下降通常表示优化在推进；</text>
+  <text x="452" y="172" font-size="12" fill="#9CA3AF">尖峰/平台 → 联查数据、LR 与状态</text>
+  <text x="440" y="206" font-size="12.5" fill="#111827">· LR：先 warmup 再衰减；</text>
+  <text x="452" y="226" font-size="12" fill="#9CA3AF">过大易发散、过小学不动</text>
+  <text x="440" y="260" font-size="12.5" fill="#111827">· Grad norm：正常也会随数据波动；</text>
+  <text x="452" y="280" font-size="12" fill="#9CA3AF">异常须对比同配置基线并重放定位</text>
+
+  <!-- nail -->
+  <text x="40" y="360" font-size="12" fill="#9CA3AF">结论：曲线只提供诊断线索；结合 optimizer 状态、异常样本、验证指标和重放实验才能归因。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="390" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

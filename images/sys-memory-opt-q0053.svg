@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>显存优化技术原理与对比</title>
+  <desc>大模型显存由参数、梯度、优化器状态、激活与临时缓冲共同构成，优化需按实测瓶颈选择。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">显存优化：按场景分层选，先调参再上技术</text>
+
+  <text x="40" y="74" font-size="12.5" fill="#9CA3AF">先做账本：训练拆权重/梯度/优化器/激活；推理拆权重/KV Cache/工作区</text>
+
+  <!-- training column -->
+  <rect x="40" y="90" width="350" height="240" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="58" y="116" font-size="15" font-weight="500" fill="#111827">训练阶段</text>
+  <rect x="58" y="128" width="314" height="40" rx="6" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="68" y="146" font-size="12.5" fill="#111827">① 混合精度 BF16/FP16</text><text x="362" y="146" font-size="11" fill="#6366F1" text-anchor="end">常用</text>
+  <text x="68" y="162" font-size="11" fill="#9CA3AF">按硬件与数值需求选，FP16 常配 Loss Scaling</text>
+  <rect x="58" y="174" width="314" height="40" rx="6" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="68" y="192" font-size="12.5" fill="#111827">② 梯度检查点</text><text x="362" y="192" font-size="11" fill="#6366F1" text-anchor="end">收益看粒度</text>
+  <text x="68" y="208" font-size="11" fill="#9CA3AF">时间换空间，前向不全存、反向重算</text>
+  <rect x="58" y="220" width="314" height="40" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="68" y="238" font-size="12.5" fill="#111827">③ ZeRO-2 / ZeRO-3 分片</text>
+  <text x="68" y="254" font-size="11" fill="#9CA3AF">优化器→梯度→参数 逐级分到多卡</text>
+  <rect x="58" y="266" width="314" height="40" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="68" y="284" font-size="12.5" fill="#111827">④ 模型并行（张量 / 流水）</text>
+  <text x="68" y="300" font-size="11" fill="#9CA3AF">按内存账本、拓扑与通信占比取舍</text>
+
+  <!-- inference column -->
+  <rect x="410" y="90" width="350" height="240" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="428" y="116" font-size="15" font-weight="500" fill="#111827">推理阶段</text>
+  <rect x="428" y="128" width="314" height="58" rx="6" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="438" y="148" font-size="12.5" fill="#111827">① KV-Cache 管理</text>
+  <text x="438" y="166" font-size="11" fill="#9CA3AF">Paged KV 降碎片；GQA/MQA 减少 KV 头数</text>
+  <text x="438" y="181" font-size="11" fill="#9CA3AF">长上下文与高并发会放大 KV 占用</text>
+  <rect x="428" y="194" width="314" height="58" rx="6" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="438" y="214" font-size="12.5" fill="#111827">② 量化 INT8 / INT4</text>
+  <text x="438" y="232" font-size="11" fill="#9CA3AF">权重/KV 压位宽，显存与带宽双降</text>
+  <text x="438" y="247" font-size="11" fill="#EF4444">质量影响需用目标任务实测</text>
+  <text x="585" y="284" font-size="12" fill="#4B5563" text-anchor="middle">顺序：先定位显存主项</text>
+  <text x="585" y="302" font-size="12" fill="#4B5563" text-anchor="middle">→ 比较技术组合 → 联测质量与吞吐</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：量化不是免费午餐——上线前要做校准和回测，尤其对精度敏感的场景。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

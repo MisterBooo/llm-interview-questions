@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="-apple-system, system-ui, sans-serif">
+  <title>Chunking 策略怎么选?</title>
+  <desc>分块需在语义完整、检索噪声、召回覆盖和存储成本间权衡，并依据文档结构与查询类型在评测集上选参。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">四种分块策略对比（同一段文档）</text>
+
+  <!-- Row 1: fixed length -->
+  <text x="40" y="104" font-size="13" font-weight="500" fill="#111827">固定长度</text>
+  <rect x="170" y="80" width="92" height="40" fill="#F3F4F6" stroke="#E5E7EB"/>
+  <rect x="262" y="80" width="92" height="40" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <rect x="354" y="80" width="92" height="40" fill="#F3F4F6" stroke="#E5E7EB"/>
+  <rect x="446" y="80" width="92" height="40" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <rect x="538" y="80" width="92" height="40" fill="#F3F4F6" stroke="#E5E7EB"/>
+  <line x1="354" y1="74" x2="354" y2="126" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="318" y="138" font-size="12" fill="#EF4444">↑ 可能切断句子</text>
+  <text x="645" y="104" font-size="12" fill="#4B5563">实现最简单；易切断语义</text>
+
+  <!-- Row 2: semantic boundary -->
+  <text x="40" y="189" font-size="13" font-weight="500" fill="#111827">语义边界</text>
+  <rect x="170" y="165" width="110" height="40" fill="#ECFDF5" stroke="#10B981"/>
+  <rect x="280" y="165" width="80" height="40" fill="#ECFDF5" stroke="#10B981"/>
+  <rect x="360" y="165" width="150" height="40" fill="#ECFDF5" stroke="#10B981"/>
+  <rect x="510" y="165" width="120" height="40" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="645" y="189" font-size="12" fill="#4B5563">语义完整；需分句/标题信号</text>
+
+  <!-- Row 3: sliding window (overlapping stroke-only windows) -->
+  <text x="40" y="274" font-size="13" font-weight="500" fill="#111827">固定步长滑窗</text>
+  <rect x="170" y="250" width="460" height="40" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <rect x="170" y="246" width="180" height="32" rx="4" fill="none" stroke="#6366F1" stroke-width="1.5"/>
+  <rect x="300" y="262" width="180" height="32" rx="4" fill="none" stroke="#6366F1" stroke-width="1.5"/>
+  <rect x="430" y="246" width="180" height="32" rx="4" fill="none" stroke="#6366F1" stroke-width="1.5"/>
+  <text x="645" y="266" font-size="12" fill="#4B5563">上下文连续；</text>
+  <text x="645" y="282" font-size="12" fill="#4B5563">冗余、索引变大</text>
+
+  <!-- Row 4: overlap chunking (blocks sharing a shaded region) -->
+  <text x="40" y="359" font-size="13" font-weight="500" fill="#111827">语义块加重叠</text>
+  <rect x="170" y="335" width="200" height="40" fill="#FFF7ED" stroke="#F59E0B"/>
+  <rect x="330" y="335" width="200" height="40" fill="#FFF7ED" stroke="#F59E0B"/>
+  <rect x="490" y="335" width="140" height="40" fill="#FFF7ED" stroke="#F59E0B"/>
+  <rect x="330" y="335" width="40" height="40" fill="#FDE68A" stroke="#F59E0B"/>
+  <rect x="490" y="335" width="40" height="40" fill="#FDE68A" stroke="#F59E0B"/>
+  <text x="645" y="359" font-size="12" fill="#4B5563">缓解边界丢信息；重复存储</text>
+
+  <!-- granularity tradeoff axis -->
+  <text x="40" y="420" font-size="12" fill="#4B5563">粒度权衡</text>
+  <line x1="170" y1="416" x2="630" y2="416" stroke="#9CA3AF" stroke-width="1.5" marker-start="url(#ar)" marker-end="url(#ar)"/>
+  <text x="170" y="436" font-size="12" fill="#9CA3AF">块小 → 噪声少、语义易断</text>
+  <text x="470" y="436" font-size="12" fill="#9CA3AF">块大 → 上下文多、易混噪声</text>
+
+  <!-- nail -->
+  <text x="40" y="468" font-size="12" fill="#9CA3AF">钉子：分块要和文档结构、query 类型、Embedding 模型一起调，别只固定一个 token 数。</text>
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="490" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

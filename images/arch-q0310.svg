@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>VQ-VAE 码本塌缩治理</title>
+  <desc>VQ-VAE死码源于编码分布和码本更新失衡，应监控码本占用与困惑度并按证据采用EMA或重置。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">VQ-VAE：用离散码本替代连续隐变量</text>
+
+  <rect x="40" y="92" width="78" height="54" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="79" y="124" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">输入 x</text>
+  <rect x="146" y="92" width="104" height="54" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="198" y="124" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">Encoder</text>
+  <rect x="278" y="92" width="110" height="54" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="333" y="118" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">z_e</text>
+  <text x="333" y="136" font-size="11" fill="#4B5563" text-anchor="middle">连续向量</text>
+  <rect x="416" y="92" width="140" height="54" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="486" y="124" font-size="13" font-weight="600" fill="#6366F1" text-anchor="middle">码本最近邻查找</text>
+  <rect x="584" y="92" width="112" height="54" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="640" y="118" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">z_q</text>
+  <text x="640" y="136" font-size="11" fill="#4B5563" text-anchor="middle">量化向量</text>
+
+  <line x1="118" y1="119" x2="146" y2="119" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="250" y1="119" x2="278" y2="119" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="388" y1="119" x2="416" y2="119" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="556" y1="119" x2="584" y2="119" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 码本格子 -->
+  <g>
+    <rect x="416" y="162" width="17" height="18" fill="#FFFFFF" stroke="#C7CBD1"/>
+    <rect x="433" y="162" width="17" height="18" fill="#FFFFFF" stroke="#C7CBD1"/>
+    <rect x="450" y="162" width="17" height="18" fill="#FFFFFF" stroke="#C7CBD1"/>
+    <rect x="467" y="162" width="17" height="18" fill="#6366F1" stroke="#6366F1"/>
+    <rect x="484" y="162" width="17" height="18" fill="#FFFFFF" stroke="#C7CBD1"/>
+    <rect x="501" y="162" width="17" height="18" fill="#FFFFFF" stroke="#C7CBD1"/>
+    <rect x="518" y="162" width="17" height="18" fill="#FFFFFF" stroke="#C7CBD1"/>
+    <rect x="535" y="162" width="17" height="18" fill="#FFFFFF" stroke="#C7CBD1"/>
+  </g>
+  <text x="416" y="200" font-size="11.5" fill="#4B5563">可学习码本（容量 K 需调参），取最近向量；索引本身不天然可解释</text>
+
+  <!-- 解码 -->
+  <path d="M640,146 L640,224 L582,224" fill="none" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="470" y="224" width="110" height="52" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="525" y="255" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">Decoder</text>
+  <rect x="610" y="224" width="110" height="52" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="665" y="255" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">重构 x̂</text>
+  <line x1="580" y1="250" x2="610" y2="250" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="40" y="246" font-size="13" font-weight="600" fill="#111827">三部分损失</text>
+  <text x="40" y="270" font-size="12.5" fill="#4B5563">重构 ‖x−x̂‖²</text>
+  <text x="40" y="290" font-size="12.5" fill="#4B5563">+ 码本损失 + β·承诺损失</text>
+  <text x="40" y="320" font-size="12" fill="#6366F1">量化不可导 → 直通估计器(STE)：前向用 z_q，反向把梯度拷回 z_e</text>
+
+  <text x="40" y="372" font-size="12" fill="#9CA3AF">钉子：码本过小会限制表示，过大又可能低利用；要联测活跃率、perplexity、量化误差与重建质量。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

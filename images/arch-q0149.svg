@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>DDPM 为什么随机采样时间步?</title>
+  <desc>扩散模型通过随机时间步的噪声预测损失做蒙特卡洛估计，从而学习各噪声阶段的反向去噪过程。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+    <marker id="arrowP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6366F1"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">DDPM：为何训练时要随机抽时间步</text>
+
+  <!-- forward row -->
+  <text x="40" y="88" font-size="13.5" font-weight="500" fill="#9CA3AF">前向：逐步加噪 q(x_t | x_t-1)</text>
+  <g>
+    <rect x="40" y="98" width="80" height="80" rx="8" fill="#EFEFEF" stroke="#E5E7EB"/><text x="80" y="143" font-size="12" fill="#111827" text-anchor="middle">x₀ 清晰</text>
+    <rect x="220" y="98" width="80" height="80" rx="8" fill="#DDDDDD" stroke="#E5E7EB"/><text x="260" y="143" font-size="12" fill="#111827" text-anchor="middle">x₁</text>
+    <rect x="400" y="98" width="80" height="80" rx="8" fill="#BFBFBF" stroke="#E5E7EB"/><text x="440" y="143" font-size="12" fill="#111827" text-anchor="middle">x_t</text>
+    <rect x="580" y="98" width="80" height="80" rx="8" fill="#9AA0A6" stroke="#9CA3AF"/><text x="620" y="143" font-size="12" fill="#FFFFFF" text-anchor="middle">x_T 纯噪声</text>
+  </g>
+  <line x1="120" y1="138" x2="216" y2="138" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="300" y1="138" x2="396" y2="138" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="480" y1="138" x2="576" y2="138" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- reverse row -->
+  <line x1="576" y1="232" x2="480" y2="232" stroke="#6366F1" stroke-width="1.5" marker-end="url(#arrowP)"/>
+  <line x1="396" y1="232" x2="300" y2="232" stroke="#6366F1" stroke-width="1.5" marker-end="url(#arrowP)"/>
+  <line x1="216" y1="232" x2="120" y2="232" stroke="#6366F1" stroke-width="1.5" marker-end="url(#arrowP)"/>
+  <text x="660" y="204" font-size="13.5" font-weight="500" fill="#6366F1" text-anchor="end">反向：模型逐步去噪 p_θ</text>
+  <g font-size="11.5" fill="#6366F1" text-anchor="middle">
+    <text x="528" y="226">去噪一步</text>
+    <text x="348" y="226">去噪一步</text>
+    <text x="168" y="226">去噪一步</text>
+  </g>
+
+  <!-- center insight box -->
+  <rect x="120" y="262" width="560" height="70" rx="10" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="400" y="288" font-size="13.5" font-weight="500" fill="#111827" text-anchor="middle">训练：每个 batch 随机抽时间步 t，混合各种噪声水平一起学</text>
+  <text x="400" y="312" font-size="12" fill="#6366F1" text-anchor="middle">随机采样是全时间步目标的 Monte Carlo 估计，长期覆盖不同 SNR 区域</text>
+
+  <text x="40" y="406" font-size="12" fill="#9CA3AF">钉子：非均匀采样可降低方差，但要按采样概率加权；少步采样质量还受路径与求解器影响。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

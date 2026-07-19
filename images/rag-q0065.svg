@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="-apple-system, system-ui, sans-serif">
+  <title>Agent模块协作机制与失败场景</title>
+  <desc>生产级 Agent 将感知、规划、分层记忆和工具执行模块化连接，由状态机、权限和反馈闭环约束自治范围。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Agent 分层架构：受控自治</text>
+
+  <!-- perception -->
+  <rect x="40" y="82" width="680" height="50" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="60" y="113" font-size="14" font-weight="500" fill="#111827">感知层 · 结构化输入（解析意图 / 当前状态）</text>
+
+  <!-- planning -->
+  <rect x="40" y="148" width="680" height="58" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="60" y="183" font-size="14" font-weight="500" fill="#111827">规划层 · ReAct 推理 → 产出「行动建议」</text>
+
+  <!-- memory -->
+  <rect x="40" y="222" width="680" height="92" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="60" y="244" font-size="14" font-weight="500" fill="#111827">记忆层（三层 + 重要性评分）</text>
+  <rect x="58" y="256" width="200" height="44" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="158" y="282" font-size="12.5" fill="#111827" text-anchor="middle">短期 · 对话上下文</text>
+  <rect x="268" y="256" width="200" height="44" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="368" y="282" font-size="12.5" fill="#111827" text-anchor="middle">工作 · 任务状态</text>
+  <rect x="478" y="256" width="224" height="44" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <text x="590" y="282" font-size="12.5" fill="#111827" text-anchor="middle">长期 · 向量库 + 重要性</text>
+
+  <!-- action -->
+  <rect x="40" y="330" width="680" height="56" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="60" y="364" font-size="14" font-weight="500" fill="#111827">行动层 · 工具调用（RAG 是工具之一）+ 异常处理</text>
+
+  <!-- arrows -->
+  <line x1="380" y1="132" x2="380" y2="148" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="380" y1="206" x2="380" y2="222" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="380" y1="314" x2="380" y2="330" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- controlled-autonomy bracket -->
+  <path d="M734,148 L748,148 L748,386 L734,386" fill="none" stroke="#6366F1" stroke-width="1.5"/>
+  <text x="766" y="267" font-size="12" fill="#6366F1" text-anchor="middle" transform="rotate(90 766 267)">受控自治：状态机 + 权限管执行</text>
+
+  <!-- nail -->
+  <text x="40" y="430" font-size="12" fill="#9CA3AF">钉子：LLM 负责规划建议，状态机 / 权限 / 工具系统负责执行边界——是受控自治，不是放任。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="470" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

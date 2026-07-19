@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="-apple-system, system-ui, sans-serif">
+  <title>Agent 系统实现流程与核心组件</title>
+  <desc>Agent 以感知、规划、工具执行和记忆组成反馈闭环，并通过停止条件、失败处理、权限与观测控制循环。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+    <marker id="arrowI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6366F1"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">Agent 核心闭环：感知 → 规划 → 行动 → 记忆</text>
+
+  <!-- loop-back arc (memory -> perception) -->
+  <path d="M655,150 C655,92 115,92 115,150" fill="none" stroke="#6366F1" stroke-width="1.5" marker-end="url(#arrowI)"/>
+  <text x="385" y="86" font-size="12" fill="#6366F1" text-anchor="middle">持续循环</text>
+
+  <!-- four components -->
+  <rect x="40" y="150" width="150" height="64" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="115" y="180" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">感知 Perception</text>
+  <text x="115" y="199" font-size="12" fill="#4B5563" text-anchor="middle">结构化输入</text>
+
+  <rect x="220" y="150" width="150" height="64" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="295" y="180" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">规划 Planning</text>
+  <text x="295" y="199" font-size="12" fill="#4B5563" text-anchor="middle">ReAct 推理下一步</text>
+
+  <rect x="400" y="150" width="150" height="64" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="475" y="180" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">行动 Action</text>
+  <text x="475" y="199" font-size="12" fill="#4B5563" text-anchor="middle">Function Calling 调工具</text>
+
+  <rect x="580" y="150" width="150" height="64" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="655" y="180" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">记忆 Memory</text>
+  <text x="655" y="199" font-size="12" fill="#4B5563" text-anchor="middle">短期上下文 + 长期存储</text>
+
+  <line x1="190" y1="182" x2="220" y2="182" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="370" y1="182" x2="400" y2="182" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="182" x2="580" y2="182" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- feedback: action -> planning -->
+  <path d="M475,214 C475,262 295,262 295,214" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="385" y="284" font-size="12" fill="#4B5563" text-anchor="middle">Observation 反馈回规划（边做边想）</text>
+
+  <!-- nail -->
+  <rect x="40" y="312" width="720" height="44" rx="8" fill="#FFFBEB" stroke="#F59E0B"/>
+  <text x="56" y="339" font-size="13" fill="#4B5563">钉子：生产级 Agent 最难的是循环控制、失败处理与可观测性，不是会不会调工具。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="390" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>

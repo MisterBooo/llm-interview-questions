@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="-apple-system, system-ui, sans-serif">
+  <title>长视界任务怎么结合环境训练?</title>
+  <desc>长视界训练需组合分层策略、课程、奖励塑形、记忆与模型化方法，并控制部分可观测和模拟偏差。</desc>
+  <rect data-publish-background="true" width="100%" height="100%" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" font-size="21" font-weight="500" fill="#111827">长视界 RL：信号稀疏 + 信用分配难，靠分层与四策略破局</text>
+
+  <!-- HRL 结构 -->
+  <rect x="40" y="86" width="150" height="54" rx="8" fill="#F5F6FF" stroke="#6366F1"/>
+  <text x="115" y="110" font-size="13" font-weight="600" fill="#6366F1" text-anchor="middle">高层策略</text>
+  <text x="115" y="128" font-size="11.5" fill="#4B5563" text-anchor="middle">选子目标</text>
+  <rect x="240" y="86" width="150" height="54" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="315" y="110" font-size="13" font-weight="600" fill="#111827" text-anchor="middle">低层策略</text>
+  <text x="315" y="128" font-size="11.5" fill="#4B5563" text-anchor="middle">执行动作</text>
+  <rect x="440" y="86" width="130" height="54" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+  <text x="505" y="117" font-size="13" font-weight="500" fill="#111827" text-anchor="middle">环境</text>
+  <line x1="190" y1="113" x2="240" y2="113" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="390" y1="113" x2="440" y2="113" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M505,140 L505,162 L115,162 L115,140" fill="none" stroke="#9CA3AF" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <text x="310" y="158" font-size="11.5" fill="#6B7280" text-anchor="middle">奖励 / 状态反馈</text>
+  <text x="600" y="100" font-size="12.5" fill="#4B5563">两个方向：</text>
+  <text x="600" y="120" font-size="12" fill="#4B5563">降低任务复杂度</text>
+  <text x="600" y="138" font-size="12" fill="#4B5563">提升信号密度</text>
+
+  <!-- 四策略 -->
+  <rect x="40" y="186" width="350" height="62" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="210" font-size="13.5" font-weight="600" fill="#111827">① 分层 HRL</text>
+  <text x="56" y="232" font-size="12" fill="#4B5563">任务有层级结构：高层选目标、低层执行，缩短有效步长</text>
+
+  <rect x="410" y="186" width="350" height="62" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="426" y="210" font-size="13.5" font-weight="600" fill="#111827">② 课程学习</text>
+  <text x="426" y="232" font-size="12" fill="#4B5563">由易到难逐步加压，让模型先学得动</text>
+
+  <rect x="40" y="258" width="350" height="62" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="56" y="282" font-size="13.5" font-weight="600" fill="#111827">③ 奖励塑形</text>
+  <text x="56" y="304" font-size="12" fill="#4B5563">补中间引导信号，缓解稀疏（注意别带偏）</text>
+
+  <rect x="410" y="258" width="350" height="62" rx="10" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="426" y="282" font-size="13.5" font-weight="600" fill="#111827">④ 记忆机制</text>
+  <text x="426" y="304" font-size="12" fill="#4B5563">RNN/Transformer memory 缓解部分可观测；不等同信用分配</text>
+
+  <text x="40" y="404" font-size="12" fill="#9CA3AF">钉子：GAE、n-step return 和 return decomposition 处理信用分配；记忆主要处理长期状态与部分可观测。</text>
+
+  <g opacity="0.28" font-family="-apple-system, system-ui, sans-serif" fill="#9CA3AF">
+    <text x="12" y="18" font-size="11">www.wushixiongai.com</text>
+    <text x="788" y="450" font-size="11" text-anchor="end">吴师兄大模型</text>
+  </g>
+</svg>
